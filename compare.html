@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparador de Ideologias</title>
+  <link rel="stylesheet" href="style.css?v=final10">
+  <!-- Embedded data for offline mode -->
+  <!-- Load ideologies and questions from data.js. -->
+  <!-- Load ideologies and questions -->
+  <script src="data.js?v=final10"></script>
+  <script src="questions_data.js?v=final10"></script>
+  <script src="script.js?v=final10"></script>
+  <!-- Chart.js for radar and other comparative charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <nav>
+    <div class="nav-links">
+      <a href="index.html">Página inicial</a>
+      <!-- Ensure the questionário opens in a new tab with cache busting -->
+      <a href="questionnaire.html?v=final10" target="_blank" rel="noopener noreferrer">Questionário</a>
+      <a href="library.html">Biblioteca</a>
+    </div>
+  </nav>
+  <main class="container">
+    <h2>Comparador de ideologias</h2>
+    <p>Compara duas ideologias da biblioteca ou importa o teu perfil JSON para comparar uma ideologia com as tuas crenças.</p>
+    <!-- Controls -->
+    <div class="form-section">
+      <div style="margin-bottom:1rem; display:flex; flex-wrap:wrap; gap:1rem; align-items:end;">
+        <div>
+          <label for="ideA"><strong>Ideologia A:</strong></label><br>
+          <select id="ideA"></select>
+        </div>
+        <div>
+          <label for="ideB"><strong>Ideologia B:</strong></label><br>
+          <select id="ideB"></select>
+        </div>
+        <div>
+          <button id="compareABBtn">Comparar duas ideologias</button>
+        </div>
+      </div>
+      <div style="margin-bottom:1rem; display:flex; flex-wrap:wrap; gap:1rem; align-items:center;">
+        <div>
+          <button id="importJsonBtn">Importar perfil JSON</button>
+        </div>
+        <div>
+          <span id="importStatus" class="muted">Nenhum perfil importado.</span>
+        </div>
+        <div>
+          <button id="compareProfileBtn">Comparar Ideologia A com perfil importado</button>
+        </div>
+      </div>
+      <p class="muted" style="font-size:0.8rem;">Dica: no separador Resultados do questionário, usa o botão «Perfil JSON» para criares o ficheiro das tuas crenças.</p>
+    </div>
+    <!-- Results -->
+    <div class="form-section" style="background:var(--panel);border:1px solid var(--border);">
+      <h3 id="compareTitle">Resultado da comparação</h3>
+      <pre id="compareText" style="white-space:pre-wrap;overflow:auto;max-height:600px;"></pre>
+
+      <!-- Charts container: hidden until a comparison is computed -->
+      <h4 id="chartsHeading" style="display:none; margin-top:1rem;">Gráficos comparativos</h4>
+      <div id="chartsContainer" class="compare-charts" style="display:none; margin-top:0.5rem;">
+        <!-- Political compass with two points -->
+        <canvas id="compassCanvas" width="460" height="380" style="background:var(--pc-bg);"></canvas>
+        <!-- Values bars container -->
+        <div id="valuesContainer"></div>
+        <!-- Radar chart comparing eight axes -->
+        <canvas id="radarCanvas" width="350" height="350"></canvas>
+      </div>
+    </div>
+  </main>
+  <footer>
+    &copy; 2026 Questionário Ideológico. Desenvolvido para fins educativos.
+  </footer>
+  <script>
+  // Comparison logic script
+  (async function() {
+    await window.ideologyUtils.loadData();
+    const ideologies = DATA.ideologies;
+    const ideASelect = document.getElementById('ideA');
+    const ideBSelect = document.getElementById('ideB');
+    const compareABBtn = document.getElementById('compareABBtn');
+    const importJsonBtn = document.getElementById('importJsonBtn');
+    const compareProfileBtn = document.getElementById('compareProfileBtn');
+    const compareTitle = document.getElementById('compareTitle');
+    const compareText = document.getElementById('compareText');
+    const importStatus = document.getElementById('importStatus');
+    // Populate selects
+    function populateSelects() {
+      ideASelect.innerHTML = '';
+      ideBSelect.innerHTML = '';
+      ideologies.forEach((ide, idx) => {
+        const optA = document.createElement('option'); optA.value = ide.name; optA.textContent = ide.name; ideASelect.appendChild(optA);
+        const optB = document.createElement('option'); optB.value = ide.name; optB.textContent = ide.name; ideBSelect.appendChild(optB);
+      });
+      // Preselect values from localStorage if present
+      const storedA = localStorage.getItem('compareA');
+      if (storedA) ideASelect.value = storedA;
+      const storedB = localStorage.getItem('compareB');
+      if (storedB) ideBSelect.value = storedB;
+      // fallback: ensure B is different from A
+      if (ideBSelect.value === ideASelect.value && ideologies.length > 1) {
+        ideBSelect.selectedIndex = 1;
+      }
+    }
+    populateSelects();
+    // Save selections when changed
+    ideASelect.addEventListener('change', () => {
+      localStorage.setItem('compareA', ideASelect.value);
+    });
+    ideBSelect.addEventListener('change', () => {
+      localStorage.setItem('compareB', ideBSelect.value);
+    });
+    // Imported profile storage
+    let importedProfile = null;
+    let importedProfileLabel = '';
+    let importedRanking = null;
+    // Define constants for distance weights and max distance (copied from Python/JS)
+    const DISTANCE_WEIGHTS = {
+      pc_econ: 1.4,
+      pc_social: 1.4,
+      equality: 1.0,
+      progressive: 1.0,
+      nation: 1.0,
+      authority: 1.2
+    };
+    function computeMaxDistance() {
+      let total = 0;
+      for (const [k,w] of Object.entries(DISTANCE_WEIGHTS)) {
+        const maxDiff = (k === 'pc_econ' || k === 'pc_social') ? 2.0 : 1.0;
+        total += w * maxDiff * maxDiff;
+      }
+      return Math.sqrt(total);
+    }
+    const MAX_DISTANCE = computeMaxDistance();
+    // Build subject from ideology
+    function subjectFromIdeology(ide) {
+      return {
+        nome: ide.name,
+        pc_econ: ide.pc_econ_typical,
+        pc_social: ide.pc_social_typical,
+        equality: ide.equality,
+        market: ide.market,
+        progressive: ide.progressive,
+        traditional: ide.traditional,
+        nation: ide.nation,
+        world: ide.world,
+        authority: ide.authority,
+        liberty: ide.liberty,
+        quadrant: ide.quadrant,
+        labels: {
+          economico: window.ideologyUtils.labelEconomico(ide.equality),
+          diplomatico: window.ideologyUtils.labelDiplomatico(ide.world, ide.nation),
+          civil: window.ideologyUtils.labelCivil(ide.liberty, ide.authority),
+          social: window.ideologyUtils.labelSocial(ide.progressive, ide.traditional)
+        }
+      };
+    }
+    // Build subject from imported profile
+    function subjectFromProfile(profile, label) {
+      return {
+        nome: label || 'Perfil importado',
+        pc_econ: profile.pc_econ,
+        pc_social: profile.pc_social,
+        equality: profile.equality,
+        market: profile.market,
+        progressive: profile.progressive,
+        traditional: profile.traditional,
+        nation: profile.nation,
+        world: profile.world,
+        authority: profile.authority,
+        liberty: profile.liberty,
+        quadrant: profile.quadrant || classifyQuadrant(profile.pc_econ, profile.pc_social),
+        labels: {
+          economico: window.ideologyUtils.labelEconomico(profile.equality),
+          diplomatico: window.ideologyUtils.labelDiplomatico(profile.world, profile.nation),
+          civil: window.ideologyUtils.labelCivil(profile.liberty, profile.authority),
+          social: window.ideologyUtils.labelSocial(profile.progressive, profile.traditional)
+        }
+      };
+    }
+    // Quadrant classification reused from script.js classifyQuadrant (copy)
+    function classifyQuadrant(pc_econ, pc_social) {
+      const EPS = 1e-9;
+      const eZero = Math.abs(pc_econ) <= EPS;
+      const sZero = Math.abs(pc_social) <= EPS;
+      if (eZero && sZero) return 'Centro';
+      if (eZero) return pc_social > 0 ? 'Centro-autoritária' : 'Centro-libertária';
+      if (sZero) return pc_econ > 0 ? 'Direita-centro' : 'Esquerda-centro';
+      if (pc_econ < 0 && pc_social > 0) return 'Esquerda-autoritária';
+      if (pc_econ < 0 && pc_social < 0) return 'Esquerda-libertária';
+      if (pc_econ > 0 && pc_social > 0) return 'Direita-autoritária';
+      return 'Direita-libertária';
+    }
+    // Compute distance and similarity
+    function subjectDistanceSimilarity(a,b) {
+      const av = {
+        pc_econ: a.pc_econ / 10.0,
+        pc_social: a.pc_social / 10.0,
+        equality: a.equality / 100.0,
+        progressive: a.progressive / 100.0,
+        nation: a.nation / 100.0,
+        authority: a.authority / 100.0
+      };
+      const bv = {
+        pc_econ: b.pc_econ / 10.0,
+        pc_social: b.pc_social / 10.0,
+        equality: b.equality / 100.0,
+        progressive: b.progressive / 100.0,
+        nation: b.nation / 100.0,
+        authority: b.authority / 100.0
+      };
+      let total = 0;
+      for (const key in DISTANCE_WEIGHTS) {
+        const w = DISTANCE_WEIGHTS[key];
+        const diff = av[key] - bv[key];
+        total += w * diff * diff;
+      }
+      const dist = Math.sqrt(total);
+      const sim = Math.max(0, Math.min(100, 100 * (1 - dist / MAX_DISTANCE)));
+      return {dist, sim};
+    }
+    // Direction sentence
+    function directionSentence(aName,bName,label,diff,positive,negative,unit='pontos') {
+      if (Math.abs(diff) < 0.5) return `- ${label}: praticamente iguais.`;
+      if (diff > 0) {
+        return `- ${label}: ${aName} é ${Math.abs(diff).toFixed(1)} ${unit} mais ${positive} do que ${bName}.`;
+      }
+      return `- ${label}: ${aName} é ${Math.abs(diff).toFixed(1)} ${unit} mais ${negative} do que ${bName}.`;
+    }
+    // Comparison reading
+    function comparisonReading(a,b,sim) {
+      let base;
+      if (sim >= 85) base = 'Os dois perfis são muito próximos no modelo do questionário. As diferenças são sobretudo de grau.';
+      else if (sim >= 70) base = 'Os dois perfis têm proximidade relevante, mas já existem diferenças claras em alguns eixos.';
+      else if (sim >= 50) base = 'Os dois perfis partilham alguns pontos, mas pertencem a zonas ideológicas bastante distintas.';
+      else base = 'Os dois perfis são distantes no modelo do questionário. A comparação deve ser lida mais como contraste do que como proximidade.';
+      // Determine biggest difference
+      const diffs = [
+        ['económica', Math.abs(a.pc_econ - b.pc_econ)],
+        ['civil/autoritária', Math.abs(a.pc_social - b.pc_social)],
+        ['igualdade vs mercado', Math.abs(a.equality - b.equality)],
+        ['progressismo vs tradição', Math.abs(a.progressive - b.progressive)],
+        ['nação vs mundo', Math.abs(a.nation - b.nation)],
+        ['autoridade vs liberdade', Math.abs(a.authority - b.authority)]
+      ];
+      diffs.sort((x,y) => y[1] - x[1]);
+      return base + ` A maior diferença aparece na dimensão ${diffs[0][0]}.`;
+    }
+    // Generate comparison report
+    function comparisonReport(a,b) {
+      const {dist, sim} = subjectDistanceSimilarity(a,b);
+      const aName = a.nome;
+      const bName = b.nome;
+      const lines = [];
+      lines.push('COMPARAÇÃO');
+      lines.push(''.padStart(60, '='));
+      lines.push(`${aName}  vs  ${bName}`);
+      lines.push('');
+      lines.push(`Semelhança aproximada: ${sim.toFixed(1)}%`);
+      lines.push(`Distância normalizada: ${dist.toFixed(4)}`);
+      lines.push('');
+      lines.push('RESUMO RÁPIDO');
+      lines.push(directionSentence(aName, bName, 'Económico / PC', a.pc_econ - b.pc_econ, 'à direita', 'à esquerda'));
+      lines.push(directionSentence(aName, bName, 'Civil / PC', a.pc_social - b.pc_social, 'autoritário', 'libertário'));
+      lines.push(directionSentence(aName, bName, 'Igualdade', a.equality - b.equality, 'igualitário', 'pró-mercado', 'pontos percentuais'));
+      lines.push(directionSentence(aName, bName, 'Progressismo', a.progressive - b.progressive, 'progressista', 'tradicionalista', 'pontos percentuais'));
+      lines.push(directionSentence(aName, bName, 'Nação', a.nation - b.nation, 'nacionalista', 'internacionalista/globalista', 'pontos percentuais'));
+      lines.push(directionSentence(aName, bName, 'Autoridade', a.authority - b.authority, 'autoritário', 'libertário', 'pontos percentuais'));
+      lines.push('');
+      lines.push('POLITICAL COMPASS');
+      lines.push(`  ${aName.padEnd(28)} | Económico ${a.pc_econ.toFixed(2).padStart(6)} | Social ${a.pc_social.toFixed(2).padStart(6)} | ${a.quadrant}`);
+      lines.push(`  ${bName.padEnd(28)} | Económico ${b.pc_econ.toFixed(2).padStart(6)} | Social ${b.pc_social.toFixed(2).padStart(6)} | ${b.quadrant}`);
+      lines.push('');
+      lines.push('VALORES TIPO 8VALUES');
+      lines.push(`  Eixo económico:     ${aName.slice(0,20).padEnd(20)} ${a.equality.toFixed(0).padStart(3)} / ${a.market.toFixed(0).padEnd(3)}     |     ${bName.slice(0,20).padEnd(20)} ${b.equality.toFixed(0).padStart(3)} / ${b.market.toFixed(0).padEnd(3)}`);
+      lines.push('                      Igualdade / Mercado');
+      lines.push(`  Eixo social:        ${aName.slice(0,20).padEnd(20)} ${a.progressive.toFixed(0).padStart(3)} / ${a.traditional.toFixed(0).padEnd(3)}     |     ${bName.slice(0,20).padEnd(20)} ${b.progressive.toFixed(0).padStart(3)} / ${b.traditional.toFixed(0).padEnd(3)}`);
+      lines.push('                      Progressismo / Tradição');
+      lines.push(`  Eixo diplomático:   ${aName.slice(0,20).padEnd(20)} ${a.nation.toFixed(0).padStart(3)} / ${a.world.toFixed(0).padEnd(3)}     |     ${bName.slice(0,20).padEnd(20)} ${b.nation.toFixed(0).padStart(3)} / ${b.world.toFixed(0).padEnd(3)}`);
+      lines.push('                      Nação / Mundo');
+      lines.push(`  Eixo civil:         ${aName.slice(0,20).padEnd(20)} ${a.authority.toFixed(0).padStart(3)} / ${a.liberty.toFixed(0).padEnd(3)}     |     ${bName.slice(0,20).padEnd(20)} ${b.authority.toFixed(0).padStart(3)} / ${b.liberty.toFixed(0).padEnd(3)}`);
+      lines.push('                      Autoridade / Liberdade');
+      lines.push('');
+      lines.push('RÓTULOS APROXIMADOS');
+      lines.push(`  ${aName.slice(0,28).padEnd(28)} | Económico: ${a.labels.economico}`);
+      lines.push(`  ${bName.slice(0,28).padEnd(28)} | Económico: ${b.labels.economico}`);
+      lines.push(`  ${aName.slice(0,28).padEnd(28)} | Diplomático: ${a.labels.diplomatico}`);
+      lines.push(`  ${bName.slice(0,28).padEnd(28)} | Diplomático: ${b.labels.diplomatico}`);
+      lines.push(`  ${aName.slice(0,28).padEnd(28)} | Civil: ${a.labels.civil}`);
+      lines.push(`  ${bName.slice(0,28).padEnd(28)} | Civil: ${b.labels.civil}`);
+      lines.push(`  ${aName.slice(0,28).padEnd(28)} | Social: ${a.labels.social}`);
+      lines.push(`  ${bName.slice(0,28).padEnd(28)} | Social: ${b.labels.social}`);
+      lines.push('');
+      lines.push('MAIORES DIFERENÇAS');
+      const differences = [
+        ['Political Compass económico', Math.abs(a.pc_econ - b.pc_econ), 'pontos PC'],
+        ['Political Compass social', Math.abs(a.pc_social - b.pc_social), 'pontos PC'],
+        ['Igualdade', Math.abs(a.equality - b.equality), 'pontos percentuais'],
+        ['Mercado', Math.abs(a.market - b.market), 'pontos percentuais'],
+        ['Progressismo', Math.abs(a.progressive - b.progressive), 'pontos percentuais'],
+        ['Tradição', Math.abs(a.traditional - b.traditional), 'pontos percentuais'],
+        ['Nação', Math.abs(a.nation - b.nation), 'pontos percentuais'],
+        ['Mundo', Math.abs(a.world - b.world), 'pontos percentuais'],
+        ['Autoridade', Math.abs(a.authority - b.authority), 'pontos percentuais'],
+        ['Liberdade', Math.abs(a.liberty - b.liberty), 'pontos percentuais']
+      ];
+      differences.sort((x,y) => y[1] - x[1]);
+      differences.slice(0,6).forEach(item => {
+        lines.push(`  - ${item[0]}: ${item[1].toFixed(1)} ${item[2]}`);
+      });
+      lines.push('');
+      lines.push('LEITURA');
+      lines.push(comparisonReading(a,b,sim));
+      lines.push('');
+      lines.push('Nota: esta comparação usa os valores internos do questionário. Não é uma avaliação moral, científica ou histórica definitiva.');
+      return lines.join('\n');
+    }
+    // Handler for comparing two ideologies
+    compareABBtn.addEventListener('click', () => {
+      const nameA = ideASelect.value;
+      const nameB = ideBSelect.value;
+      if (!nameA || !nameB) {
+        alert('Escolhe duas ideologias válidas.'); return;
+      }
+      if (nameA === nameB) {
+        alert('Escolhe duas ideologias diferentes.'); return;
+      }
+      const ideA = ideologies.find(i => i.name === nameA);
+      const ideB = ideologies.find(i => i.name === nameB);
+      const sa = subjectFromIdeology(ideA);
+      const sb = subjectFromIdeology(ideB);
+      compareTitle.textContent = `Comparação — ${ideA.name} vs ${ideB.name}`;
+      compareText.textContent = comparisonReport(sa,sb);
+
+      // Draw comparative charts for two ideologies
+      drawComparisonCharts(sa, sb);
+    });
+    // Handler for importing JSON
+    importJsonBtn.addEventListener('click', () => {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'application/json';
+      input.onchange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = evt => {
+          try {
+            const data = JSON.parse(evt.target.result);
+            const userData = data.user_result || data.perfil || data.profile;
+            if (!userData || typeof userData !== 'object') throw new Error('O ficheiro não contém a chave user_result.');
+            const required = ['pc_econ','pc_social','equality','market','progressive','traditional','nation','world','authority','liberty'];
+            const missing = required.filter(k => userData[k] === undefined);
+            if (missing.length) throw new Error('Faltam campos no perfil: ' + missing.join(', '));
+            importedProfile = {
+              pc_econ: parseFloat(userData.pc_econ) || 0,
+              pc_social: parseFloat(userData.pc_social) || 0,
+              equality: parseFloat(userData.equality) || 50,
+              market: parseFloat(userData.market) || 50,
+              progressive: parseFloat(userData.progressive) || 50,
+              traditional: parseFloat(userData.traditional) || 50,
+              nation: parseFloat(userData.nation) || 50,
+              world: parseFloat(userData.world) || 50,
+              authority: parseFloat(userData.authority) || 50,
+              liberty: parseFloat(userData.liberty) || 50,
+              quadrant: userData.quadrant || classifyQuadrant(parseFloat(userData.pc_econ) || 0, parseFloat(userData.pc_social) || 0)
+            };
+            importedProfileLabel = data.respondente || data.nome || data.profile_name || 'perfil importado';
+            importedRanking = data.top_ideologies || data.ranking || [];
+            importStatus.textContent = `Perfil importado: ${importedProfileLabel}${importedRanking && importedRanking.length ? ' · top: ' + (importedRanking[0].ideologia || importedRanking[0].ideology || '') : ''}`;
+            importStatus.classList.remove('muted');
+            alert('Perfil JSON importado com sucesso.');
+          } catch (err) {
+            alert('Não foi possível importar o JSON: ' + err.message);
+          }
+        };
+        reader.readAsText(file);
+      };
+      input.click();
+    });
+    // Handler for comparing Ideology A with profile
+    compareProfileBtn.addEventListener('click', () => {
+      const nameA = ideASelect.value;
+      if (!nameA) {
+        alert('Escolhe uma ideologia válida no campo Ideologia A.'); return;
+      }
+      if (!importedProfile) {
+        alert('Importa primeiro um ficheiro JSON de perfil.'); return;
+      }
+      const ideA = ideologies.find(i => i.name === nameA);
+      const sa = subjectFromIdeology(ideA);
+      const sb = subjectFromProfile(importedProfile, importedProfileLabel);
+      compareTitle.textContent = `Comparação — ${ideA.name} vs ${importedProfileLabel}`;
+      compareText.textContent = comparisonReport(sa,sb);
+
+      // Draw comparative charts for ideology vs imported profile
+      drawComparisonCharts(sa, sb);
+    });
+    // If there is a preselected ideology from library
+    if (localStorage.getItem('compareA')) {
+      compareProfileBtn.disabled = false;
+    }
+
+    /**
+     * Draw comparative charts for two subjects (ideologies or profile).
+     * Shows political compass positions, values bars and radar chart.
+     * @param {Object} a - Subject A with pc_econ, pc_social, equality, etc.
+     * @param {Object} b - Subject B with pc_econ, pc_social, equality, etc.
+     */
+    function drawComparisonCharts(a,b) {
+      const chartsContainer = document.getElementById('chartsContainer');
+      const chartsHeading = document.getElementById('chartsHeading');
+      chartsHeading.style.display = 'block';
+      chartsContainer.style.display = 'grid';
+      // Political compass canvas
+      const compassCanvas = document.getElementById('compassCanvas');
+      drawCompassCompare(compassCanvas, a, b);
+      // 8values bars
+      const valuesContainer = document.getElementById('valuesContainer');
+      buildCompareValues(valuesContainer, a, b);
+      // Radar chart
+      const radarCanvas = document.getElementById('radarCanvas');
+      drawRadarCompare(radarCanvas, a, b);
+    }
+    /**
+     * Draw a political compass with two points representing subjects A and B.
+     * Colours and grid follow the palette defined in the stylesheet.
+     */
+    function drawCompassCompare(canvas, a, b) {
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width;
+      const H = canvas.height;
+      ctx.clearRect(0,0,W,H);
+      const margin = 60;
+      // Keep the political compass itself square, while allowing a wider
+      // dark canvas around it so labels can be moved to the left/right.
+      const side = Math.min(W, H) - margin * 2;
+      const x0 = Math.round((W - side) / 2);
+      const y0 = margin;
+      const x1 = x0 + side;
+      const y1 = y0 + side;
+      const cx = (x0 + x1) / 2;
+      const cy = (y0 + y1) / 2;
+      function px(e) { return x0 + (e + 10) / 20 * side; }
+      function py(s) { return y0 + (10 - s) / 20 * side; }
+      const styles = getComputedStyle(document.documentElement);
+      ctx.fillStyle = styles.getPropertyValue('--pc-q-ea'); ctx.fillRect(x0, y0, cx - x0, cy - y0);
+      ctx.fillStyle = styles.getPropertyValue('--pc-q-da'); ctx.fillRect(cx, y0, x1 - cx, cy - y0);
+      ctx.fillStyle = styles.getPropertyValue('--pc-q-el'); ctx.fillRect(x0, cy, cx - x0, y1 - cy);
+      ctx.fillStyle = styles.getPropertyValue('--pc-q-dl'); ctx.fillRect(cx, cy, x1 - cx, y1 - cy);
+      ctx.strokeStyle = styles.getPropertyValue('--pc-grid'); ctx.lineWidth = 1;
+      for (let t = -10; t <= 10; t += 2) {
+        const xx = px(t); ctx.beginPath(); ctx.moveTo(xx, y0); ctx.lineTo(xx, y1); ctx.stroke();
+        const yy = py(t); ctx.beginPath(); ctx.moveTo(x0, yy); ctx.lineTo(x1, yy); ctx.stroke();
+      }
+      ctx.strokeStyle = styles.getPropertyValue('--pc-axis'); ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(cx, y0); ctx.lineTo(cx, y1); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x0, cy); ctx.lineTo(x1, cy); ctx.stroke();
+      ctx.strokeRect(x0, y0, side, side);
+      ctx.fillStyle = styles.getPropertyValue('--pc-label'); ctx.font = '12px Segoe UI'; ctx.textAlign = 'center';
+      ctx.fillText('Autoritária', W/2, margin / 2);
+      ctx.fillText('Libertária', W/2, y1 + 22);
+      ctx.textAlign = 'right'; ctx.fillText('Esquerda', x0 - 6, cy + 4);
+      ctx.textAlign = 'left'; ctx.fillText('Direita', x1 + 6, cy + 4);
+      ctx.textAlign = 'center'; ctx.fillText(`A: Econ ${a.pc_econ.toFixed(1)}, Soc ${a.pc_social.toFixed(1)} · B: Econ ${b.pc_econ.toFixed(1)}, Soc ${b.pc_social.toFixed(1)}`, W / 2, y1 + 40);
+
+      function fitLabel(text, maxLen=34) {
+        return text.length > maxLen ? text.slice(0, maxLen - 1) + '…' : text;
+      }
+      function drawPoint(subject, x, y, fill, stroke, preferSide) {
+        ctx.fillStyle = fill; ctx.strokeStyle = stroke; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.arc(x, y, 12, 0, 2*Math.PI); ctx.fill(); ctx.stroke();
+        const label = fitLabel(subject.nome || 'Perfil');
+        ctx.font = 'bold 12px Segoe UI';
+        const width = ctx.measureText(label).width;
+        const pad = 6;
+        // Put the label on the side with more available space, unless a side is explicitly preferred.
+        let sideChoice = preferSide || ((x + 18 + width + pad < W - 8) ? 'right' : 'left');
+        if (sideChoice === 'left' && x - 18 - width - pad < 8) sideChoice = 'right';
+        let tx = sideChoice === 'right' ? x + 18 : x - 18 - width;
+        let ty = y - 18;
+        if (ty < 18) ty = y + 24;
+        if (ty > H - 10) ty = H - 14;
+        // Small dark backing improves readability and prevents names from visually merging into the grid.
+        ctx.fillStyle = 'rgba(15, 23, 42, 0.72)';
+        ctx.fillRect(tx - pad, ty - 14, width + pad*2, 18);
+        ctx.fillStyle = '#ffffff';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'alphabetic';
+        ctx.fillText(label, tx, ty);
+      }
+      const uxA = px(a.pc_econ), uyA = py(a.pc_social);
+      const uxB = px(b.pc_econ), uyB = py(b.pc_social);
+      drawPoint(a, uxA, uyA, '#2563eb', '#1e40af', null);
+      drawPoint(b, uxB, uyB, '#dc2626', '#991b1b', null);
+    }
+    /**
+     * Build side-by-side 8values bars comparing subjects A and B.
+     */
+    function buildCompareValues(container, a, b) {
+      container.innerHTML = '';
+      // Configuration for the four axes
+      const rows = [
+        {
+          axis: 'Económico', leftLabel: 'Igualdade', rightLabel: 'Mercado',
+          aValue: a.equality, bValue: b.equality,
+          aLeftColor: getComputedStyle(document.documentElement).getPropertyValue('--value-e-left'),
+          aRightColor: getComputedStyle(document.documentElement).getPropertyValue('--value-e-right'),
+          bLeftColor: getComputedStyle(document.documentElement).getPropertyValue('--value-e-left'),
+          bRightColor: getComputedStyle(document.documentElement).getPropertyValue('--value-e-right'),
+          aDesc: window.ideologyUtils.labelEconomico(a.equality),
+          bDesc: window.ideologyUtils.labelEconomico(b.equality)
+        },
+        {
+          axis: 'Diplomático', leftLabel: 'Nação', rightLabel: 'Mundo',
+          aValue: a.nation, bValue: b.nation,
+          aLeftColor: getComputedStyle(document.documentElement).getPropertyValue('--value-d-left'),
+          aRightColor: getComputedStyle(document.documentElement).getPropertyValue('--value-d-right'),
+          bLeftColor: getComputedStyle(document.documentElement).getPropertyValue('--value-d-left'),
+          bRightColor: getComputedStyle(document.documentElement).getPropertyValue('--value-d-right'),
+          aDesc: window.ideologyUtils.labelDiplomatico(a.world, a.nation),
+          bDesc: window.ideologyUtils.labelDiplomatico(b.world, b.nation)
+        },
+        {
+          axis: 'Civil', leftLabel: 'Liberdade', rightLabel: 'Autoridade',
+          aValue: a.liberty, bValue: b.liberty,
+          aLeftColor: getComputedStyle(document.documentElement).getPropertyValue('--value-c-left'),
+          aRightColor: getComputedStyle(document.documentElement).getPropertyValue('--value-c-right'),
+          bLeftColor: getComputedStyle(document.documentElement).getPropertyValue('--value-c-left'),
+          bRightColor: getComputedStyle(document.documentElement).getPropertyValue('--value-c-right'),
+          aDesc: window.ideologyUtils.labelCivil(a.liberty, a.authority),
+          bDesc: window.ideologyUtils.labelCivil(b.liberty, b.authority)
+        },
+        {
+          axis: 'Social', leftLabel: 'Tradição', rightLabel: 'Progresso',
+          aValue: a.traditional, bValue: b.traditional,
+          aLeftColor: getComputedStyle(document.documentElement).getPropertyValue('--value-s-left'),
+          aRightColor: getComputedStyle(document.documentElement).getPropertyValue('--value-s-right'),
+          bLeftColor: getComputedStyle(document.documentElement).getPropertyValue('--value-s-left'),
+          bRightColor: getComputedStyle(document.documentElement).getPropertyValue('--value-s-right'),
+          aDesc: window.ideologyUtils.labelSocial(a.progressive, a.traditional),
+          bDesc: window.ideologyUtils.labelSocial(b.progressive, b.traditional)
+        }
+      ];
+      const colorA = '#2563eb';
+      const colorB = '#dc2626';
+      rows.forEach(row => {
+        const axisDiv = document.createElement('div');
+        axisDiv.className = 'compare-axis';
+        // Title
+        const h4 = document.createElement('h4');
+        h4.textContent = `Eixo ${row.axis}`;
+        axisDiv.appendChild(h4);
+        // Description lines for both ideologies (name and classification)
+        const desc = document.createElement('div');
+        desc.className = 'desc';
+        const descLineA = document.createElement('div');
+        descLineA.innerHTML = `<strong>${a.nome}</strong>: ${row.aDesc}`;
+        const descLineB = document.createElement('div');
+        descLineB.innerHTML = `<strong>${b.nome}</strong>: ${row.bDesc}`;
+        desc.appendChild(descLineA);
+        desc.appendChild(descLineB);
+        axisDiv.appendChild(desc);
+        // Bar row for A
+        [
+          {subject: a, value: row.aValue, leftColor: row.aLeftColor, rightColor: row.aRightColor, labelLeft: row.leftLabel, labelRight: row.rightLabel, color: colorA},
+          {subject: b, value: row.bValue, leftColor: row.bLeftColor, rightColor: row.bRightColor, labelLeft: row.leftLabel, labelRight: row.rightLabel, color: colorB}
+        ].forEach(def => {
+          const barRow = document.createElement('div');
+          barRow.className = 'bar-row';
+          // bullet indicator
+          const bullet = document.createElement('span');
+          bullet.style.display = 'inline-block';
+          bullet.style.width = '10px';
+          bullet.style.height = '10px';
+          bullet.style.background = def.color;
+          bullet.style.borderRadius = '2px';
+          barRow.appendChild(bullet);
+          // Label
+          const label = document.createElement('div');
+          label.className = 'bar-label';
+          const shortName = def.subject.nome.length > 22 ? def.subject.nome.slice(0,19) + '…' : def.subject.nome;
+          label.textContent = `${shortName}: ${def.value.toFixed(0)}% ${def.labelLeft} / ${(100 - def.value).toFixed(0)}% ${def.labelRight}`;
+          barRow.appendChild(label);
+          // Bar container
+          const bar = document.createElement('div');
+          bar.className = 'bar';
+          // left part
+          const left = document.createElement('div');
+          left.className = 'left';
+          left.style.background = def.leftColor;
+          left.style.width = `${def.value}%`;
+          // right part
+          const right = document.createElement('div');
+          right.className = 'right';
+          right.style.background = def.rightColor;
+          right.style.width = `${100 - def.value}%`;
+          bar.appendChild(left);
+          bar.appendChild(right);
+          barRow.appendChild(bar);
+          axisDiv.appendChild(barRow);
+        });
+        container.appendChild(axisDiv);
+      });
+    }
+    /**
+     * Draw a radar chart comparing two subjects using Chart.js.
+     */
+    function drawRadarCompare(canvas, a, b) {
+      // If an existing chart is present on the canvas, destroy it
+      if (canvas._chartInstance) {
+        canvas._chartInstance.destroy();
+      }
+      const labels = ['Igualdade','Progresso','Mundo','Liberdade','Mercado','Tradição','Nação','Autoridade'];
+      const dataA = [a.equality, a.progressive, a.world, a.liberty, a.market, a.traditional, a.nation, a.authority];
+      const dataB = [b.equality, b.progressive, b.world, b.liberty, b.market, b.traditional, b.nation, b.authority];
+      const datasetA = {
+        label: a.nome,
+        data: dataA,
+        borderColor: '#2563eb',
+        backgroundColor: 'rgba(37,99,235,0.2)',
+        borderWidth: 2
+      };
+      const datasetB = {
+        label: b.nome,
+        data: dataB,
+        borderColor: '#dc2626',
+        backgroundColor: 'rgba(220,38,38,0.2)',
+        borderWidth: 2
+      };
+      const chartData = { labels: labels, datasets: [datasetA, datasetB] };
+      const ctx = canvas.getContext('2d');
+      const radarChart = new Chart(ctx, {
+        type: 'radar',
+        data: chartData,
+        options: {
+          responsive: false,
+          scales: {
+            r: {
+              beginAtZero: true,
+              max: 100,
+              min: 0,
+              ticks: { display: false },
+              grid: { color: '#e8edf3' },
+              angleLines: { color: '#e8edf3' }
+            }
+          },
+          plugins: {
+            legend: { position: 'top' }
+          }
+        }
+      });
+      // Store chart instance on canvas so it can be destroyed later
+      canvas._chartInstance = radarChart;
+    }
+  })();
+  </script>
+</body>
+</html>

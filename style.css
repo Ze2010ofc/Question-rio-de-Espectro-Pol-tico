@@ -1,0 +1,444 @@
+/*
+ * Style sheet for the Ideological Questionnaire website.
+ *
+ * This file defines a set of CSS custom properties matching the
+ * colour palette and typography from the original Tkinter
+ * application. The aim is to replicate the look and feel of
+ * the desktop app in the browser as closely as practical.
+ */
+
+/* Colour palette inspired by the original Python app */
+:root {
+  --bg: #f3f4f7;
+  --panel: #ffffff;
+  --border: #d0d4dc;
+  --ink: #1f2937;
+  --ink-soft: #475569;
+  --muted: #94a3b8;
+  --warn: #b91c1c;
+  --accent: #2563eb;
+  --user: #d62728;
+  --ide: #2563eb;
+  --bar: #15803d;
+  --rank: #2563eb;
+  --ea: #f6dada;
+  --da: #dae3f6;
+  --el: #daf6e0;
+  --dl: #ecdaf6;
+  --pc-bg: #1f2230;
+  --pc-grid: #3a3f55;
+  --pc-axis: #9aa3c0;
+  --pc-label: #e3e6f0;
+  --pc-q-ea: #a83232;
+  --pc-q-da: #2e5db4;
+  --pc-q-el: #2f8f4d;
+  --pc-q-dl: #6a3a99;
+  --value-e-left: #c0392b;    /* Igualdade */
+  --value-e-right: #1f6feb;   /* Mercado */
+  --value-d-left: #7f5af0;    /* Nação */
+  --value-d-right: #0ea5e9;   /* Mundo */
+  --value-c-left: #16a34a;    /* Liberdade */
+  --value-c-right: #dc2626;   /* Autoridade */
+  --value-s-left: #a16207;    /* Tradição */
+  --value-s-right: #0891b2;   /* Progresso */
+}
+
+/* Global reset and basic typography */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: bold;
+}
+
+p {
+  margin-top: 0;
+  line-height: 1.4;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Container utilities */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Navigation bar for internal pages */
+nav {
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: var(--ink);
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+nav a:hover {
+  background: var(--ea);
+}
+
+/* Hero section for the landing page */
+.hero {
+  background: #172033;
+  color: #e2e8f0;
+  padding: 3rem 1rem;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1rem;
+  max-width: 700px;
+  color: #cbd5e1;
+}
+
+.badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.badge {
+  background: #243149;
+  color: #e2e8f0;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* Option cards on landing page */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  flex: 1 1 300px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card .kicker {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  margin-top: 0.4rem;
+  font-size: 1.4rem;
+}
+
+.card p {
+  flex-grow: 1;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.card button {
+  align-self: flex-start;
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.card button:hover {
+  background: #164bb8;
+}
+
+/* Form styles */
+.form-section {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.question {
+  margin-bottom: 1rem;
+}
+
+.question p {
+  margin-bottom: 0.25rem;
+}
+
+.scale-options {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.scale-options label {
+  font-size: 0.85rem;
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.scale-options input[type="radio"] {
+  margin: 0;
+}
+
+/* Progress bar */
+.progress-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.progress-bar {
+  flex-grow: 1;
+  height: 1rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-left: 0.5rem;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  background: var(--accent);
+  width: 0;
+  transition: width 0.3s;
+}
+
+/* Results sections */
+.results-section {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+/* Comparison charts layout (compare page) */
+.compare-charts {
+  display: grid;
+  grid-template-columns: 350px 1fr 350px;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+/* Ensure canvases in comparison keep square aspect */
+.compare-charts canvas {
+  width: 350px;
+  height: 350px;
+  flex: none;
+}
+
+/* Axis section styling for comparison values */
+.compare-axis {
+  margin-bottom: 1.5rem;
+}
+
+.compare-axis h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.compare-axis .desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.25rem;
+}
+
+.compare-axis .bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.compare-axis .bar-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  /* Allocate a little more horizontal space to the label so that ideology names are fully visible */
+  flex: 0 0 180px;
+  white-space: normal;
+}
+
+.compare-axis .bar {
+  flex: 1;
+  height: 20px;
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.compare-axis .bar .left,
+.compare-axis .bar .right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+.compare-axis .bar .left {
+  left: 0;
+}
+.compare-axis .bar .right {
+  right: 0;
+}
+
+/* Dot indicator used in comparison descriptions */
+.compare-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 0.4rem;
+  border-radius: 2px;
+}
+
+.results-section h3 {
+  margin-bottom: 0.5rem;
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin: 1rem 0;
+}
+
+.bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bar-row .bar-wrapper {
+  flex-grow: 1;
+  height: 20px;
+  background: var(--ea);
+  border: 1px solid var(--border);
+  position: relative;
+}
+
+.bar-row .bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--rank);
+  width: 0;
+}
+
+/* Increase the width of the ranking list labels so that long ideology names are not truncated.
+   A wider label prevents overlap and ensures names appear fully when the bars are displayed. */
+.bar-row .bar-label {
+  width: 160px;
+  font-size: 0.85rem;
+  white-space: normal;
+}
+
+/* Table for library */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.table th {
+  background: var(--panel);
+  font-weight: bold;
+}
+
+.table tbody tr:hover {
+  background: var(--ea);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Muted text utility */
+.muted {
+  color: var(--muted);
+}
+
+/* Generic table styling for library */
+.data-table th, .data-table td {
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.data-table th {
+  background: var(--panel);
+  font-weight: bold;
+  cursor: pointer;
+}
+.data-table tbody tr:hover {
+  background: var(--ea);
+}
+/* Thematic separators in the questionnaire. These are public-facing themes,
+   not internal scoring filters/axes. */
+.question-theme {
+  margin: 1.6rem 0 0.7rem;
+  padding: 0.7rem 0.9rem;
+  border-left: 5px solid var(--accent);
+  background: #eaf1ff;
+  color: #17315f;
+  font-weight: 800;
+  border-radius: 4px;
+  letter-spacing: 0.01em;
+}
