@@ -257,6 +257,82 @@ nav a:hover {
   border-radius: 4px;
 }
 
+/* Comparison charts layout (compare page) */
+.compare-charts {
+  display: grid;
+  grid-template-columns: 350px 1fr 350px;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+/* Ensure canvases in comparison keep square aspect */
+.compare-charts canvas {
+  width: 350px;
+  height: 350px;
+  flex: none;
+}
+
+/* Axis section styling for comparison values */
+.compare-axis {
+  margin-bottom: 1.5rem;
+}
+
+.compare-axis h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.compare-axis .desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.25rem;
+}
+
+.compare-axis .bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.compare-axis .bar-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+.compare-axis .bar {
+  flex: 1;
+  height: 20px;
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.compare-axis .bar .left,
+.compare-axis .bar .right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+.compare-axis .bar .left {
+  left: 0;
+}
+.compare-axis .bar .right {
+  right: 0;
+}
+
+/* Dot indicator used in comparison descriptions */
+.compare-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 0.4rem;
+  border-radius: 2px;
+}
+
 .results-section h3 {
   margin-bottom: 0.5rem;
 }

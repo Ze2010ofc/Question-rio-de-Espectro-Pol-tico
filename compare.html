@@ -58,16 +58,14 @@
       <pre id="compareText" style="white-space:pre-wrap;overflow:auto;max-height:600px;"></pre>
 
       <!-- Charts container: hidden until a comparison is computed -->
-      <div id="chartsContainer" style="display:none; margin-top:1rem;">
-        <h4>Gráficos comparativos</h4>
-        <div style="display:flex; flex-wrap:wrap; gap:1rem;">
-          <!-- Political compass with two points -->
-          <canvas id="compassCanvas" width="350" height="350" style="background:var(--pc-bg); width:350px; height:350px; flex:none;"></canvas>
-          <!-- Values bars container -->
-          <div id="valuesContainer" style="flex:1; min-width:300px;"></div>
-          <!-- Radar chart comparing eight axes -->
-          <canvas id="radarCanvas" width="350" height="350" style="width:350px; height:350px; flex:none;"></canvas>
-        </div>
+      <h4 id="chartsHeading" style="display:none; margin-top:1rem;">Gráficos comparativos</h4>
+      <div id="chartsContainer" class="compare-charts" style="display:none; margin-top:0.5rem;">
+        <!-- Political compass with two points -->
+        <canvas id="compassCanvas" width="350" height="350" style="background:var(--pc-bg);"></canvas>
+        <!-- Values bars container -->
+        <div id="valuesContainer"></div>
+        <!-- Radar chart comparing eight axes -->
+        <canvas id="radarCanvas" width="350" height="350"></canvas>
       </div>
     </div>
   </main>
@@ -412,7 +410,9 @@
      */
     function drawComparisonCharts(a,b) {
       const chartsContainer = document.getElementById('chartsContainer');
-      chartsContainer.style.display = 'block';
+      const chartsHeading = document.getElementById('chartsHeading');
+      chartsHeading.style.display = 'block';
+      chartsContainer.style.display = 'grid';
       // Political compass canvas
       const compassCanvas = document.getElementById('compassCanvas');
       drawCompassCompare(compassCanvas, a, b);
@@ -512,7 +512,7 @@
      */
     function buildCompareValues(container, a, b) {
       container.innerHTML = '';
-      // Each axis: name, left label, right label, values for A (value is left side) and B.
+      // Configuration for the four axes
       const rows = [
         {
           axis: 'Económico', leftLabel: 'Igualdade', rightLabel: 'Mercado',
@@ -555,72 +555,65 @@
           bDesc: window.ideologyUtils.labelSocial(b.progressive, b.traditional)
         }
       ];
+      const colorA = '#2563eb';
+      const colorB = '#dc2626';
       rows.forEach(row => {
-        const sec = document.createElement('div');
-        sec.style.marginBottom = '1rem';
-        // Title and description: stack vertically to avoid overcrowding
-        const title = document.createElement('div');
-        title.style.marginBottom = '0.25rem';
+        const axisDiv = document.createElement('div');
+        axisDiv.className = 'compare-axis';
+        // Title
         const h4 = document.createElement('h4');
-        h4.style.margin = '0';
         h4.textContent = `Eixo ${row.axis}`;
+        axisDiv.appendChild(h4);
+        // Description lines for both ideologies (name and classification)
         const desc = document.createElement('div');
-        desc.style.fontSize = '0.8rem';
-        desc.style.color = 'var(--ink-soft)';
-        desc.style.marginTop = '0.1rem';
-        // Put each subject's description on its own line for clarity
-        const descA = document.createElement('div');
-        descA.textContent = `${a.nome}: ${row.aDesc}`;
-        const descB = document.createElement('div');
-        descB.textContent = `${b.nome}: ${row.bDesc}`;
-        desc.appendChild(descA);
-        desc.appendChild(descB);
-        title.appendChild(h4);
-        title.appendChild(desc);
-        sec.appendChild(title);
-        // Bars for A and B
+        desc.className = 'desc';
+        const descLineA = document.createElement('div');
+        descLineA.innerHTML = `<strong>${a.nome}</strong>: ${row.aDesc}`;
+        const descLineB = document.createElement('div');
+        descLineB.innerHTML = `<strong>${b.nome}</strong>: ${row.bDesc}`;
+        desc.appendChild(descLineA);
+        desc.appendChild(descLineB);
+        axisDiv.appendChild(desc);
+        // Bar row for A
         [
-          {subject: 'A', value: row.aValue, leftLabel: row.leftLabel, rightLabel: row.rightLabel, leftColor: row.aLeftColor, rightColor: row.aRightColor, name: a.nome},
-          {subject: 'B', value: row.bValue, leftLabel: row.leftLabel, rightLabel: row.rightLabel, leftColor: row.bLeftColor, rightColor: row.bRightColor, name: b.nome}
-        ].forEach(barDef => {
-          const wrapper = document.createElement('div');
-          wrapper.style.marginTop = '0.25rem';
+          {subject: a, value: row.aValue, leftColor: row.aLeftColor, rightColor: row.aRightColor, labelLeft: row.leftLabel, labelRight: row.rightLabel, color: colorA},
+          {subject: b, value: row.bValue, leftColor: row.bLeftColor, rightColor: row.bRightColor, labelLeft: row.leftLabel, labelRight: row.rightLabel, color: colorB}
+        ].forEach(def => {
+          const barRow = document.createElement('div');
+          barRow.className = 'bar-row';
+          // bullet indicator
+          const bullet = document.createElement('span');
+          bullet.style.display = 'inline-block';
+          bullet.style.width = '10px';
+          bullet.style.height = '10px';
+          bullet.style.background = def.color;
+          bullet.style.borderRadius = '2px';
+          barRow.appendChild(bullet);
           // Label
-          const labelEl = document.createElement('div');
-          labelEl.style.fontSize = '0.8rem';
-          labelEl.style.fontWeight = 'bold';
-          labelEl.style.marginBottom = '0.2rem';
-          // Truncate long subject names to keep the bar label on a single line
-          const shortName = barDef.name.length > 22 ? barDef.name.slice(0,19) + '…' : barDef.name;
-          labelEl.textContent = `${shortName}: ${barDef.value.toFixed(0)}% ${barDef.leftLabel} / ${(100 - barDef.value).toFixed(0)}% ${barDef.rightLabel}`;
-          wrapper.appendChild(labelEl);
+          const label = document.createElement('div');
+          label.className = 'bar-label';
+          const shortName = def.subject.nome.length > 22 ? def.subject.nome.slice(0,19) + '…' : def.subject.nome;
+          label.textContent = `${shortName}: ${def.value.toFixed(0)}% ${def.labelLeft} / ${(100 - def.value).toFixed(0)}% ${def.labelRight}`;
+          barRow.appendChild(label);
           // Bar container
-          const barOuter = document.createElement('div');
-          barOuter.style.position = 'relative';
-          barOuter.style.height = '20px';
-          barOuter.style.background = '#f1f5f9';
-          barOuter.style.border = '1px solid var(--border)';
-          barOuter.style.borderRadius = '4px';
-          const leftBar = document.createElement('div');
-          leftBar.style.position = 'absolute';
-          leftBar.style.left = '0';
-          leftBar.style.top = '0';
-          leftBar.style.bottom = '0';
-          leftBar.style.background = barDef.leftColor;
-          leftBar.style.width = `${barDef.value}%`;
-          const rightBar = document.createElement('div');
-          rightBar.style.position = 'absolute';
-          rightBar.style.right = '0';
-          rightBar.style.top = '0';
-          rightBar.style.bottom = '0';
-          rightBar.style.background = barDef.rightColor;
-          rightBar.style.width = `${100 - barDef.value}%`;
-          barOuter.appendChild(leftBar);
-          barOuter.appendChild(rightBar);
-          wrapper.appendChild(barOuter);
-          sec.appendChild(wrapper);
+          const bar = document.createElement('div');
+          bar.className = 'bar';
+          // left part
+          const left = document.createElement('div');
+          left.className = 'left';
+          left.style.background = def.leftColor;
+          left.style.width = `${def.value}%`;
+          // right part
+          const right = document.createElement('div');
+          right.className = 'right';
+          right.style.background = def.rightColor;
+          right.style.width = `${100 - def.value}%`;
+          bar.appendChild(left);
+          bar.appendChild(right);
+          barRow.appendChild(bar);
+          axisDiv.appendChild(barRow);
         });
-        container.appendChild(sec);
+        container.appendChild(axisDiv);
       });
     }
     /**
