@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Questionário Ideológico</title>
-  <link rel="stylesheet" href="style.css?v=final10">
+  <link rel="stylesheet" href="style.css?v=final11">
   <!-- Embedded data for offline mode -->
   <!-- Load all ideologies and questions from a single data module. -->
   <!-- Load ideologies and questions -->
-  <script src="data.js?v=final10"></script>
-  <script src="questions_data.js?v=final10"></script>
-  <script src="script.js?v=final10"></script>
+  <script src="data.js?v=final11"></script>
+  <script src="questions_data.js?v=final11"></script>
+  <script src="script.js?v=final11"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -26,15 +26,23 @@
     <p>Responde às perguntas e descobre o teu posicionamento político. Seleciona um valor de 1 (discordo totalmente) a 5 (concordo totalmente) para cada afirmação.</p>
 
     <!-- User name selection -->
-    <div class="form-section">
+    <div class="form-section" id="nameSection">
       <p><strong>Como devemos referir-nos a ti?</strong></p>
       <label><input type="radio" name="nameMode" value="tu" checked> Usar "tu"</label>
       <label style="margin-left:1rem;"><input type="radio" name="nameMode" value="custom"> Nome personalizado:</label>
       <input type="text" id="customName" placeholder="Escreve o teu nome" disabled style="margin-left:0.5rem;">
     </div>
 
+    <!-- Question order controls -->
+    <div class="form-section" id="orderControls">
+      <p><strong>Ordem das perguntas</strong></p>
+      <label><input type="radio" name="orderMode" value="normal" checked> Ordem normal por temas</label>
+      <label style="margin-left:1rem;"><input type="radio" name="orderMode" value="random"> Sortear aleatoriamente as perguntas</label>
+      <p class="muted" style="margin-top:0.5rem;margin-bottom:0;">No modo normal, as perguntas ficam agrupadas por categoria. No modo aleatório, aparecem apenas as perguntas, sem cabeçalhos de categoria.</p>
+    </div>
+
     <!-- Progress -->
-    <div class="progress-container">
+    <div class="progress-container" id="progressSection">
       <span id="progressLabel">Respondidas: 0 / 0</span>
       <div class="progress-bar"><div class="progress-bar-inner" id="progressBar"></div></div>
     </div>
@@ -42,7 +50,7 @@
     <!-- Questions container -->
     <div id="questionsContainer"></div>
 
-    <div style="margin-top:1rem;display:flex;gap:1rem;flex-wrap:wrap;">
+    <div id="questionnaireActions" style="margin-top:1rem;display:flex;gap:1rem;flex-wrap:wrap;">
       <button id="computeBtn" style="padding:0.5rem 1rem;">Calcular resultados</button>
       <button id="resetBtn" style="padding:0.5rem 1rem;">Reiniciar</button>
     </div>
@@ -76,7 +84,8 @@
         <p id="explanationText"></p>
         <p id="labelsText" style="font-size:0.9rem;color:var(--ink-soft);"></p>
       </div>
-      <div class="results-section">
+      <div class="results-section" style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <button id="backToQuestionsBtn" style="padding:0.5rem 1rem;">Voltar ao questionário</button>
         <button id="exportJsonBtn" style="padding:0.5rem 1rem;">Exportar perfil JSON</button>
       </div>
     </div>
@@ -106,6 +115,7 @@
       const explanationText = document.getElementById('explanationText');
       const labelsText = document.getElementById('labelsText');
       const customNameInput = document.getElementById('customName');
+      const nameSection = document.getElementById('nameSection');
       // Handle name mode
       document.querySelectorAll('input[name="nameMode"]').forEach(r => {
         r.addEventListener('change', () => {
@@ -114,57 +124,147 @@
       });
       // Build questions
       const qVars = {}; // store selected values
+      const orderModeControls = Array.from(document.querySelectorAll('input[name="orderMode"]'));
+      const orderControls = document.getElementById('orderControls');
+      const progressSection = document.getElementById('progressSection');
+      const questionnaireActions = document.getElementById('questionnaireActions');
+      const backToQuestionsBtn = document.getElementById('backToQuestionsBtn');
+
       // Only include spectrum, filter and key questions (integrated)
       const orderTypes = ['spectrum','filter','key'];
-      const ordered = [];
+      const baseQuestions = [];
       orderTypes.forEach(type => {
-        questions.filter(q => q.question_type === type).forEach(q => ordered.push(q));
+        questions.filter(q => q.question_type === type).forEach(q => baseQuestions.push(q));
       });
-      // Build questions grouped by broad themes. The axis/filter is kept internally
-      // for calculation, but is deliberately not shown to the user.
-      let currentTheme = null;
-      ordered.forEach((q, idx) => {
-        const theme = q.section || 'Outros temas';
-        if (theme !== currentTheme) {
-          currentTheme = theme;
-          const themeBox = document.createElement('div');
-          themeBox.className = 'question-theme';
-          themeBox.textContent = currentTheme;
-          container.appendChild(themeBox);
+
+      const themeOrder = [
+        'Economia, trabalho e propriedade',
+        'Estado, autoridade e liberdades civis',
+        'Identidade, nação e mundo',
+        'Religião, moral e família',
+        'Ambiente, ciência e tecnologia',
+        'Sociedade, cultura e costumes',
+        'Outros temas'
+      ];
+
+      let ordered = [];
+      let currentOrderMode = 'normal';
+      let randomOrder = null;
+      const answersState = {};
+
+      function getTheme(q) {
+        return (q.section || 'Outros temas').trim() || 'Outros temas';
+      }
+
+      function themeIndex(theme) {
+        const idx = themeOrder.indexOf(theme);
+        return idx === -1 ? themeOrder.length : idx;
+      }
+
+      function collectAnswersFromDOM() {
+        const values = {};
+        baseQuestions.forEach(q => {
+          const selected = document.querySelector(`input[name="${q.code}"]:checked`);
+          if (selected) values[q.code] = parseInt(selected.value, 10);
+        });
+        return values;
+      }
+
+      function syncAnswersFromDOM() {
+        Object.assign(answersState, collectAnswersFromDOM());
+      }
+
+      function buildNormalOrder() {
+        return baseQuestions
+          .map((q, idx) => ({ q, idx, theme: getTheme(q) }))
+          .sort((a, b) => {
+            const themeDiff = themeIndex(a.theme) - themeIndex(b.theme);
+            if (themeDiff !== 0) return themeDiff;
+            return a.idx - b.idx;
+          })
+          .map(item => item.q);
+      }
+
+      function buildRandomOrder() {
+        if (!randomOrder) {
+          randomOrder = baseQuestions.slice();
+          for (let i = randomOrder.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [randomOrder[i], randomOrder[j]] = [randomOrder[j], randomOrder[i]];
+          }
         }
-        const number = idx + 1;
-        const div = document.createElement('div');
-        div.className = 'form-section';
-        const p = document.createElement('p');
-        // Display sequential number and the question text; do not show internal code,
-        // axis or filter labels.
-        p.innerHTML = `<strong>${number}.</strong> ${q.text}`;
-        div.appendChild(p);
-        const scaleDiv = document.createElement('div');
-        scaleDiv.className = 'scale-options';
-        // Labels for response scale without numeric prefixes
-        const responseLabels = {
-          1: 'Discordo totalmente',
-          2: 'Discordo parcialmente',
-          3: 'Neutro',
-          4: 'Concordo parcialmente',
-          5: 'Concordo totalmente'
-        };
-        for (let k=1; k<=5; k++) {
-          const label = document.createElement('label');
-          const input = document.createElement('input');
-          input.type = 'radio';
-          // Keep the internal code for scoring and export
-          input.name = q.code;
-          input.value = k;
-          input.addEventListener('change', updateProgress);
-          label.appendChild(input);
-          label.appendChild(document.createTextNode(responseLabels[k]));
-          scaleDiv.appendChild(label);
-        }
-        div.appendChild(scaleDiv);
-        container.appendChild(div);
+        return randomOrder.slice();
+      }
+
+      function renderQuestions() {
+        syncAnswersFromDOM();
+        container.innerHTML = '';
+        ordered = currentOrderMode === 'random' ? buildRandomOrder() : buildNormalOrder();
+
+        let currentTheme = null;
+        ordered.forEach((q, idx) => {
+          const theme = getTheme(q);
+          if (currentOrderMode === 'normal' && theme !== currentTheme) {
+            currentTheme = theme;
+            const themeBox = document.createElement('div');
+            themeBox.className = 'question-theme';
+            themeBox.textContent = currentTheme;
+            container.appendChild(themeBox);
+          }
+
+          const number = idx + 1;
+          const div = document.createElement('div');
+          div.className = 'form-section';
+          const p = document.createElement('p');
+          p.innerHTML = `<strong>${number}.</strong> ${q.text}`;
+          div.appendChild(p);
+
+          const scaleDiv = document.createElement('div');
+          scaleDiv.className = 'scale-options';
+          const responseLabels = {
+            1: 'Discordo totalmente',
+            2: 'Discordo parcialmente',
+            3: 'Neutro',
+            4: 'Concordo parcialmente',
+            5: 'Concordo totalmente'
+          };
+
+          for (let k = 1; k <= 5; k++) {
+            const label = document.createElement('label');
+            const input = document.createElement('input');
+            input.type = 'radio';
+            input.name = q.code;
+            input.value = k;
+            if (answersState[q.code] === k) input.checked = true;
+            input.addEventListener('change', () => {
+              answersState[q.code] = parseInt(input.value, 10);
+              updateProgress();
+            });
+            label.appendChild(input);
+            label.appendChild(document.createTextNode(responseLabels[k]));
+            scaleDiv.appendChild(label);
+          }
+
+          div.appendChild(scaleDiv);
+          container.appendChild(div);
+        });
+        updateProgress();
+      }
+
+      orderModeControls.forEach(control => {
+        control.addEventListener('change', () => {
+          if (!control.checked) return;
+          currentOrderMode = control.value;
+          if (currentOrderMode === 'random') {
+            // Generate one stable random order and keep it unchanged until reset.
+            randomOrder = null;
+          }
+          renderQuestions();
+        });
       });
+
+      renderQuestions();
+
       // Initialise progress
       function updateProgress() {
         const total = ordered.length;
@@ -335,16 +435,34 @@
           <strong>Civil:</strong> ${civilLabel} (Liberdade ${user.liberty}% · Autoridade ${user.authority}%)<br>
           <strong>Social:</strong> ${socLabel} (Tradição ${user.traditional}% · Progresso ${user.progressive}%)
         `;
-        // Show results
+        // Show results and hide the questionnaire area. The answers and the current order are preserved in the DOM/state for editing later.
+        nameSection.style.display = 'none';
+        orderControls.style.display = 'none';
+        progressSection.style.display = 'none';
+        container.style.display = 'none';
+        questionnaireActions.style.display = 'none';
         resultsDiv.style.display = 'block';
         // Scroll to results
         resultsDiv.scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // Back button: return to the questionnaire without changing answers or order.
+      backToQuestionsBtn.addEventListener('click', () => {
+        resultsDiv.style.display = 'none';
+        nameSection.style.display = 'block';
+        orderControls.style.display = 'block';
+        progressSection.style.display = 'block';
+        container.style.display = 'block';
+        questionnaireActions.style.display = 'flex';
+        updateProgress();
+        container.scrollIntoView({ behavior: 'smooth' });
       });
 
       // Reset button clears all answers and hides results
       const resetBtn = document.getElementById('resetBtn');
       resetBtn.addEventListener('click', () => {
         if (!confirm('Apagar todas as respostas dadas?')) return;
+        Object.keys(answersState).forEach(code => { delete answersState[code]; });
         ordered.forEach(q => {
           const radios = document.querySelectorAll(`input[name="${q.code}"]`);
           radios.forEach(r => { r.checked = false; });
@@ -352,8 +470,13 @@
         lastUser = null;
         lastRanking = null;
         lastAnswers = null;
-        // Hide results
+        // Hide results and show questionnaire controls again
         resultsDiv.style.display = 'none';
+        nameSection.style.display = 'block';
+        orderControls.style.display = 'block';
+        progressSection.style.display = 'block';
+        container.style.display = 'block';
+        questionnaireActions.style.display = 'flex';
         // Reset progress
         updateProgress();
         // Scroll to top
