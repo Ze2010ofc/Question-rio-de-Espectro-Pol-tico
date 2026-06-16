@@ -298,7 +298,9 @@ nav a:hover {
 .compare-axis .bar-label {
   font-size: 0.8rem;
   font-weight: 600;
-  flex: 1;
+  /* Allocate a little more horizontal space to the label so that ideology names are fully visible */
+  flex: 0 0 180px;
+  white-space: normal;
 }
 
 .compare-axis .bar {
@@ -373,9 +375,12 @@ nav a:hover {
   width: 0;
 }
 
+/* Increase the width of the ranking list labels so that long ideology names are not truncated.
+   A wider label prevents overlap and ensures names appear fully when the bars are displayed. */
 .bar-row .bar-label {
-  width: 60px;
+  width: 160px;
   font-size: 0.85rem;
+  white-space: normal;
 }
 
 /* Table for library */

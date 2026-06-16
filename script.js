@@ -181,10 +181,6 @@ function classifyQuadrant(pc_econ, pc_social) {
  * Answers object maps question codes to selected values 1-5.
  */
 function calculateUserResult(questions, answers) {
-  // Initialize scores for each axis pair. Each axis key will accumulate
-  // positive values based on user agreement and disagreement. Keys use
-  // canonical names (igualdade, mercado, progressista, tradicional,
-  // nacao, mundo, autoridade, liberdade).
   const scores = {
     igualdade: 0,
     mercado: 0,
@@ -195,74 +191,24 @@ function calculateUserResult(questions, answers) {
     autoridade: 0,
     liberdade: 0
   };
-  // Only consider spectrum questions in the questionnaire. If no
-  // question_type field exists or is not 'spectrum', treat it as
-  // spectrum by default.
-  const spectrumQs = questions.filter(q => !q.question_type || q.question_type === 'spectrum');
+  const spectrumQs = questions.filter(q => q.question_type === 'spectrum');
   let answeredCount = 0;
   spectrumQs.forEach(q => {
     const val = answers[q.code];
     if (!val) return;
     answeredCount++;
-    // Convert selected value (1-5) to a raw score using SCORE_MAP.
     const raw = SCORE_MAP[val] ?? 0;
-    // Parse the axis_filter to determine which axis pair this
-    // question applies to. We support two formats:
-    // 1. "AxisA vs AxisB" – user agreement leans towards AxisA when
-    //    raw>0 and towards AxisB when raw<0.
-    // 2. Single axis keyword (legacy) – handled by detectAxes/applyAxisScore.
-    const filter = (q.axis_filter || '').trim();
-    const normFilter = normalize(filter);
-    if (normFilter.includes('vs')) {
-      // Split by 'vs' and canonicalize both sides. Use only the part
-      // before and after the first 'vs'.
-      const parts = normFilter.split(/\s*vs\s*/i);
-      if (parts.length >= 2) {
-        const left = parts[0].trim();
-        const right = parts[1].trim();
-        // Helper to map various synonyms to canonical axis keys.
-        const toKey = (name) => {
-          if (!name) return null;
-          // unify accents and plurals
-          const n = normalize(name);
-          if (n.startsWith('igual')) return 'igualdade';
-          if (n.startsWith('mercad')) return 'mercado';
-          if (n.startsWith('progress')) return 'progressista';
-          if (n.startsWith('trad')) return 'tradicional';
-          if (n.startsWith('nacao') || n.startsWith('na')) return 'nacao';
-          if (n.startsWith('mundo')) return 'mundo';
-          if (n.startsWith('autor')) return 'autoridade';
-          if (n.startsWith('liber')) return 'liberdade';
-          return null;
-        };
-        const leftKey = toKey(left);
-        const rightKey = toKey(right);
-        if (leftKey && rightKey) {
-          if (raw > 0) {
-            scores[leftKey] += raw;
-          } else if (raw < 0) {
-            scores[rightKey] += Math.abs(raw);
-          }
-          return;
-        }
-      }
-    }
-    // Fallback to original behaviour using keyword detection. This
-    // handles legacy data where axis_filter is a single keyword.
-    const axes = detectAxes(filter);
+    const axes = detectAxes(q.axis_filter);
     if (!axes.length) return;
     const weight = 1 / axes.length;
     axes.forEach(axis => {
       applyAxisScore(scores, axis, raw, weight);
     });
   });
-  // Compute percentages for each axis pair.
   const [eqPct, marketPct] = safePercentage(scores.igualdade, scores.mercado);
   const [progPct, tradPct] = safePercentage(scores.progressista, scores.tradicional);
   const [nationPct, worldPct] = safePercentage(scores.nacao, scores.mundo);
   const [authPct, libertPct] = safePercentage(scores.autoridade, scores.liberdade);
-  // Political compass coordinates: difference of opposing axes divided by
-  // 10 to mirror original logic (range approximately -10 to +10).
   const pc_econ = (marketPct - eqPct) / 10;
   const pc_social = (authPct - libertPct) / 10;
   return {

@@ -9,7 +9,6 @@
   <!-- Load all ideologies and questions from a single data module. -->
   <!-- Load ideologies and questions -->
   <script src="data.js?v=final8"></script>
-  <!-- Load the new question set; this overrides the built-in questions. -->
   <script src="questions_data.js?v=final8"></script>
   <script src="script.js?v=final8"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -464,16 +463,21 @@
         ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--pc-axis');
         ctx.lineWidth = 2;
         ctx.strokeRect(x0, y0, x1 - x0, y1 - y0);
-        // Axis labels
+        // Axis labels (Portuguese) and numeric coordinates
         ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--pc-label');
         ctx.font = '12px Segoe UI';
         ctx.textAlign = 'center';
-        ctx.fillText('Authoritarian', W/2, y0 - 12);
-        ctx.fillText('Libertarian', W/2, y1 + 20);
+        // Top and bottom labels. Use the margin to avoid clipping.
+        ctx.fillText('Autoritária', W/2, y0 - 12);
+        ctx.fillText('Libertária', W/2, H - margin / 3);
+        // Left and right labels anchored to the edges of the plot area
         ctx.textAlign = 'right';
-        ctx.fillText('Left', x0 - 6, cy + 4);
+        ctx.fillText('Esquerda', x0 - 6, cy + 4);
         ctx.textAlign = 'left';
-        ctx.fillText('Right', x1 + 6, cy + 4);
+        ctx.fillText('Direita', x1 + 6, cy + 4);
+        // Display numeric PC coordinates below the bottom label
+        ctx.textAlign = 'center';
+        ctx.fillText(`Económico ${user.pc_econ.toFixed(1)} · Social ${user.pc_social.toFixed(1)}`, W/2, H - margin / 12);
         // Top 5 markers
         ctx.font = 'bold 14px Segoe UI';
         ranking.slice(0,5).forEach((r, idx) => {
