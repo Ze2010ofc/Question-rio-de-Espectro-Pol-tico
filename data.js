@@ -1521,7 +1521,7 @@ var IDEOLOGIES = [
   {
     "name": "Salazarismo/Estado Novo Português",
     "category": "Autoritarismo corporativo português",
-    "closest": "Salazarismo",
+    "closest": "Salazarismo/Estado Novo Português",
     "description": "Regime corporativo, colonial e conservador português do século XX.",
     "pc_econ_min": 4.2,
     "pc_econ_typical": 5.0,
@@ -1884,7 +1884,7 @@ var IDEOLOGIES = [
   {
     "name": "Franquismo",
     "category": "Direita autoritária católica",
-    "closest": "Estado Novo Português",
+    "closest": "Salazarismo/Estado Novo Português",
     "description": "Nacional-catolicismo, anti-comunismo, militarismo e autoritarismo conservador.",
     "pc_econ_min": 5.2,
     "pc_econ_typical": 6.0,
@@ -5514,7 +5514,7 @@ var IDEOLOGIES = [
   {
     "name": "Salazarismo/Estado Novo Português",
     "category": "Autoritarismo corporativo português",
-    "closest": "Salazarismo",
+    "closest": "Salazarismo/Estado Novo Português",
     "description": "Regime corporativo, colonial e conservador português do século XX.",
     "pc_econ_min": 4.2,
     "pc_econ_typical": 5.2,
@@ -7155,7 +7155,7 @@ var OLD_QUESTIONS = [
     "code": "KEY_estado_novo_portugues",
     "text": "A posição privilegia corporativismo estatal, conservadorismo católico, censura política e autoridade executiva forte?",
     "axis_filter": "",
-    "helps": "Estado Novo Português | Salazarismo",
+    "helps": "Salazarismo/Estado Novo Português",
     "section": "Perguntas diferenciadoras integradas",
     "question_type": "key"
   },
@@ -7835,7 +7835,7 @@ var OLD_QUESTIONS = [
     "code": "KEY_salazarismo",
     "text": "A posição combina autoritarismo conservador, catolicismo político, corporativismo e Estado forte anti-parlamentar?",
     "axis_filter": "",
-    "helps": "Salazarismo | Estado Novo Português",
+    "helps": "Salazarismo/Estado Novo Português",
     "section": "Perguntas diferenciadoras integradas",
     "question_type": "key"
   },
@@ -8128,3 +8128,9 @@ var OLD_QUESTIONS = [
     "question_type": "key"
   }
 ];
+
+// Alias for compatibility: expose the IDEOLOGIES array as IDEOLOGIES_DATA.
+// The script file (script.js) looks for IDEOLOGIES_DATA when loading data. If it
+// is not already defined (e.g., by another script), assign it to the existing
+// IDEOLOGIES array so that the questionnaire and library load correctly.
+var IDEOLOGIES_DATA = typeof IDEOLOGIES_DATA !== 'undefined' ? IDEOLOGIES_DATA : IDEOLOGIES;
