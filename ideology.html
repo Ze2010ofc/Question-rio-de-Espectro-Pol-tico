@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gráficos da ideologia</title>
+  <link rel="stylesheet" href="style.css?v=final3">
+  <!-- Embedded data for offline mode -->
+  <!-- Load ideologies and questions from data.js. -->
+  <script src="data.js?v=final3"></script>
+  <script src="script.js?v=final3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <nav>
+    <div class="nav-links">
+      <a href="index.html">Página inicial</a>
+      <!-- Ensure the questionário opens in a new tab with cache busting -->
+      <a href="questionnaire.html?v=final3" target="_blank" rel="noopener noreferrer">Questionário</a>
+      <a href="library.html">Biblioteca</a>
+      <a href="compare.html">Comparador</a>
+    </div>
+  </nav>
+  <main class="container">
+    <h2 id="pageTitle">Gráficos</h2>
+    <p id="subtitle" class="muted"></p>
+    <div class="results-section">
+      <h3>Compasso Político</h3>
+      <canvas id="compassCanvas" width="600" height="600" style="background:var(--pc-bg);"></canvas>
+    </div>
+    <div class="results-section">
+      <h3>Valores tipo 8values</h3>
+      <div id="valuesContainer"></div>
+    </div>
+    <div class="results-section">
+      <h3>Radar — ideologia vs mais próxima</h3>
+      <canvas id="radarChart" width="600" height="600"></canvas>
+    </div>
+  </main>
+  <footer>
+    &copy; 2026 Questionário Ideológico. Desenvolvido para fins educativos.
+  </footer>
+  <script>
+  (async function() {
+    await window.ideologyUtils.loadData();
+    const urlParams = new URLSearchParams(window.location.search);
+    const ideName = urlParams.get('ide');
+    // Fallback from localStorage if no query param
+    let selectedName = ideName || localStorage.getItem('selectedIdeology') || '';
+    if (!selectedName) {
+      document.getElementById('pageTitle').textContent = 'Nenhuma ideologia selecionada';
+      document.getElementById('subtitle').textContent = 'Volta à biblioteca e escolhe uma ideologia.';
+      return;
+    }
+    const ide = DATA.ideologies.find(i => i.name === selectedName);
+    if (!ide) {
+      document.getElementById('pageTitle').textContent = 'Ideologia não encontrada';
+      document.getElementById('subtitle').textContent = 'Volta à biblioteca e escolhe uma ideologia válida.';
+      return;
+    }
+    document.getElementById('pageTitle').textContent = `Gráficos — ${ide.name}`;
+    document.getElementById('subtitle').textContent = ide.category || '';
+    // Draw compass for ideology
+    const canvas = document.getElementById('compassCanvas');
+    function drawIdeologyCompass() {
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width;
+      const H = canvas.height;
+      ctx.clearRect(0,0,W,H);
+      const margin = 40;
+      const x0 = margin;
+      const y0 = margin;
+      const x1 = W - margin;
+      const y1 = H - margin;
+      const cx = (x0 + x1) / 2;
+      const cy = (y0 + y1) / 2;
+      function px(e) {
+        return x0 + (e + 10) / 20 * (x1 - x0);
+      }
+      function py(s) {
+        return y0 + (10 - s) / 20 * (y1 - y0);
+      }
+      // Quadrants
+      const styles = getComputedStyle(document.documentElement);
+      ctx.fillStyle = styles.getPropertyValue('--pc-q-ea');
+      ctx.fillRect(x0, y0, cx - x0, cy - y0);
+      ctx.fillStyle = styles.getPropertyValue('--pc-q-da');
+      ctx.fillRect(cx, y0, x1 - cx, cy - y0);
+      ctx.fillStyle = styles.getPropertyValue('--pc-q-el');
+      ctx.fillRect(x0, cy, cx - x0, y1 - cy);
+      ctx.fillStyle = styles.getPropertyValue('--pc-q-dl');
+      ctx.fillRect(cx, cy, x1 - cx, y1 - cy);
+      // Grid
+      ctx.strokeStyle = styles.getPropertyValue('--pc-grid');
+      ctx.lineWidth = 1;
+      for (let t = -10; t <= 10; t += 2) {
+        const xx = px(t);
+        ctx.beginPath(); ctx.moveTo(xx,y0); ctx.lineTo(xx,y1); ctx.stroke();
+        const yy = py(t);
+        ctx.beginPath(); ctx.moveTo(x0,yy); ctx.lineTo(x1,yy); ctx.stroke();
+      }
+      // Axes
+      ctx.strokeStyle = styles.getPropertyValue('--pc-axis');
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(cx,y0); ctx.lineTo(cx,y1); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x0,cy); ctx.lineTo(x1,cy); ctx.stroke();
+      ctx.strokeRect(x0,y0,x1-x0,y1-y0);
+      // Labels
+      ctx.fillStyle = styles.getPropertyValue('--pc-label');
+      ctx.font = '12px Segoe UI';
+      ctx.textAlign = 'center';
+      ctx.fillText('Autoritário', W/2, y0 - 12);
+      ctx.fillText('Libertário', W/2, y1 + 20);
+      ctx.textAlign = 'right';
+      ctx.fillText('Esquerda', x0 - 6, cy + 4);
+      ctx.textAlign = 'left';
+      ctx.fillText('Direita', x1 + 6, cy + 4);
+      // Ideology point
+      const ix = px(ide.pc_econ_typical);
+      const iy = py(ide.pc_social_typical);
+      ctx.fillStyle = '#facc15';
+      ctx.strokeStyle = styles.getPropertyValue('--pc-bg');
+      ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.arc(ix,iy,14,0,2*Math.PI); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = styles.getPropertyValue('--pc-label');
+      ctx.font = 'bold 14px Segoe UI';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'bottom';
+      ctx.fillText(ide.name.length > 20 ? ide.name.slice(0,17)+'…' : ide.name, ix + 20, iy - 16);
+      ctx.fillStyle = styles.getPropertyValue('--pc-label');
+      ctx.font = '12px Segoe UI';
+      ctx.textAlign = 'center';
+      ctx.fillText(`Económico ${ide.pc_econ_typical.toFixed(1)} · Social ${ide.pc_social_typical.toFixed(1)}`, W/2, H - 14);
+    }
+    drawIdeologyCompass();
+    // Build 8values bars similar to questionnaire
+    const valuesContainer = document.getElementById('valuesContainer');
+    function buildIdeologyValues() {
+      valuesContainer.innerHTML = '';
+      const rows = [
+        {axis:'Económico', leftLabel:'Igualdade', value:ide.equality, rightLabel:'Mercado', leftColor:getComputedStyle(document.documentElement).getPropertyValue('--value-e-left'), rightColor:getComputedStyle(document.documentElement).getPropertyValue('--value-e-right'), desc: window.ideologyUtils.labelEconomico(ide.equality)},
+        {axis:'Diplomático', leftLabel:'Nação', value:ide.nation, rightLabel:'Mundo', leftColor:getComputedStyle(document.documentElement).getPropertyValue('--value-d-left'), rightColor:getComputedStyle(document.documentElement).getPropertyValue('--value-d-right'), desc: window.ideologyUtils.labelDiplomatico(ide.world, ide.nation)},
+        {axis:'Civil', leftLabel:'Liberdade', value:ide.liberty, rightLabel:'Autoridade', leftColor:getComputedStyle(document.documentElement).getPropertyValue('--value-c-left'), rightColor:getComputedStyle(document.documentElement).getPropertyValue('--value-c-right'), desc: window.ideologyUtils.labelCivil(ide.liberty, ide.authority)},
+        {axis:'Social', leftLabel:'Tradição', value:ide.traditional, rightLabel:'Progresso', leftColor:getComputedStyle(document.documentElement).getPropertyValue('--value-s-left'), rightColor:getComputedStyle(document.documentElement).getPropertyValue('--value-s-right'), desc: window.ideologyUtils.labelSocial(ide.progressive, ide.traditional)}
+      ];
+      rows.forEach(row => {
+        const sec = document.createElement('div');
+        sec.style.marginBottom = '1rem';
+        const header = document.createElement('div');
+        header.style.display = 'flex'; header.style.justifyContent = 'space-between'; header.style.alignItems = 'center';
+        const h4 = document.createElement('h4'); h4.textContent = `Eixo ${row.axis}`;
+        const span = document.createElement('span'); span.style.fontSize='0.9rem'; span.style.color='var(--ink-soft)'; span.textContent = row.desc;
+        header.appendChild(h4); header.appendChild(span); sec.appendChild(header);
+        const barOuter = document.createElement('div');
+        barOuter.style.position='relative'; barOuter.style.height='28px'; barOuter.style.background='#f1f5f9'; barOuter.style.border='1px solid var(--border)'; barOuter.style.borderRadius='4px';
+        const leftBar = document.createElement('div'); leftBar.style.position='absolute'; leftBar.style.left='0'; leftBar.style.top='0'; leftBar.style.bottom='0'; leftBar.style.background=row.leftColor; leftBar.style.width = row.value + '%';
+        const rightBar = document.createElement('div'); rightBar.style.position='absolute'; rightBar.style.right='0'; rightBar.style.top='0'; rightBar.style.bottom='0'; rightBar.style.background=row.rightColor; rightBar.style.width=(100 - row.value) + '%';
+        barOuter.appendChild(leftBar); barOuter.appendChild(rightBar);
+        const labelsDiv = document.createElement('div'); labelsDiv.style.display='flex'; labelsDiv.style.justifyContent='space-between'; labelsDiv.style.marginTop='4px';
+        const leftLbl = document.createElement('span'); leftLbl.style.color=row.leftColor; leftLbl.style.fontWeight='bold'; leftLbl.textContent = `${row.value.toFixed(0)}% ${row.leftLabel}`;
+        const rightLbl = document.createElement('span'); rightLbl.style.color=row.rightColor; rightLbl.style.fontWeight='bold'; rightLbl.textContent = `${row.rightLabel} ${(100 - row.value).toFixed(0)}%`;
+        labelsDiv.appendChild(leftLbl); labelsDiv.appendChild(rightLbl);
+        sec.appendChild(barOuter); sec.appendChild(labelsDiv);
+        valuesContainer.appendChild(sec);
+      });
+    }
+    buildIdeologyValues();
+    // Draw radar comparing ideology and its closest
+    const radarCtx = document.getElementById('radarChart').getContext('2d');
+    let radarChart;
+    function drawRadar() {
+      if (radarChart) radarChart.destroy();
+      const closest = DATA.ideologies.find(i => i.name.toLowerCase() === (ide.closest || '').toLowerCase());
+      const labels = ['Igualdade','Progressista','Nação','Autoritário','Mercado','Tradicionalista','Mundo','Libertário'];
+      const ideData = [ide.equality, ide.progressive, ide.nation, ide.authority, ide.market, ide.traditional, ide.world, ide.liberty];
+      const datasets = [
+        {
+          label: ide.name,
+          data: ideData,
+          borderColor: '#2563eb',
+          backgroundColor: 'rgba(37,99,235,0.2)',
+          borderWidth: 2
+        }
+      ];
+      if (closest) {
+        const cData = [closest.equality, closest.progressive, closest.nation, closest.authority, closest.market, closest.traditional, closest.world, closest.liberty];
+        datasets.push({
+          label: closest.name,
+          data: cData,
+          borderColor: '#d62728',
+          backgroundColor: 'rgba(214,39,40,0.2)',
+          borderWidth: 2
+        });
+      }
+      radarChart = new Chart(radarCtx, {
+        type: 'radar',
+        data: {
+          labels: labels,
+          datasets: datasets
+        },
+        options: {
+          responsive: false,
+          scales: {
+            r: {
+              beginAtZero: true,
+              max: 100,
+              min: 0,
+              ticks: {display: false},
+              grid: { color: '#e8edf3' },
+              angleLines: { color: '#e8edf3' }
+            }
+          },
+          plugins: {
+            legend: { position: 'top' }
+          }
+        }
+      });
+    }
+    drawRadar();
+  })();
+  </script>
+</body>
+</html>
