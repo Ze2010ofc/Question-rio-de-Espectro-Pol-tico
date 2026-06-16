@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fazer questionário — Questionário de Identificação Ideológica</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <h1>Fazer questionário</h1>
+      <p>Responde ao questionário integrado e consulta os resultados nesta janela.</p>
+    </div>
+    <button id="backHomeBtn" class="btn">Página inicial</button>
+  </header>
+  <div class="warning">As respostas são processadas localmente. O resultado é comparativo e educativo, não uma avaliação científica nem moral.</div>
+
+  <nav class="subnav">
+    <button class="tab-btn active" data-tab="quizPanel">Questionário integrado</button>
+    <button class="tab-btn" data-tab="resultsPanel">Resultados</button>
+  </nav>
+
+  <main id="quizPanel" class="tab-panel active">
+    <section class="card">
+      <div class="quiz-toolbar">
+        <p class="muted">Método integrado: perguntas de espectro, filtros institucionais e diferenciadoras no mesmo fluxo.</p>
+        <label><input type="checkbox" id="shuffleQuestions"> Embaralhar ordem</label>
+        <button id="resetBtn" class="btn">Reiniciar respostas</button>
+        <button id="calculateBtn" class="btn primary">Calcular resultados</button>
+      </div>
+      <div class="progress-row"><span id="progressText">Respondidas: 0 / 0</span><progress id="progressBar" max="1" value="0"></progress></div>
+      <div class="scale-legend">1 = Discordo totalmente · 2 = Discordo parcialmente · 3 = Neutro / depende · 4 = Concordo parcialmente · 5 = Concordo totalmente</div>
+    </section>
+    <section id="questionsContainer"></section>
+  </main>
+
+  <main id="resultsPanel" class="tab-panel">
+    <section class="card results-toolbar">
+      <button id="recalculateBtn" class="btn primary">Recalcular</button>
+      <div class="button-group"><strong>Dados</strong><button id="exportJsonBtn" class="btn">JSON</button><button id="exportProfileBtn" class="btn">Perfil JSON</button><button id="exportCsvBtn" class="btn">CSV</button><button id="exportTxtBtn" class="btn">TXT</button></div>
+      <div class="button-group"><strong>Gráficos</strong><button data-export-canvas="compassCanvas" class="btn">Compass PNG</button><button data-export-canvas="valuesCanvas" class="btn">Valores PNG</button><button data-export-canvas="radarCanvas" class="btn">Radar PNG</button><button data-export-canvas="topCanvas" class="btn">Top 10 PNG</button></div>
+      <button id="printBtn" class="btn">Guardar PDF / imprimir</button>
+    </section>
+
+    <section class="card summary-card">
+      <h2 id="resultSummary">Sem resultados ainda.</h2>
+      <p id="resultSubtitle" class="muted"></p>
+    </section>
+
+    <section class="card dark-card">
+      <h2>O teu Political Compass</h2>
+      <div id="compassCoords" class="coords"></div>
+      <canvas id="compassCanvas" width="620" height="620" class="dark-canvas"></canvas>
+      <div id="compassLegend" class="dark-legend"></div>
+    </section>
+
+    <section class="card">
+      <h2>Valores tipo 8values</h2>
+      <canvas id="valuesCanvas" width="1140" height="620" class="wide-canvas"></canvas>
+    </section>
+
+    <section class="card radar-card">
+      <h2>Radar — tu vs ideologia mais próxima</h2>
+      <div class="radar-layout">
+        <canvas id="radarCanvas" width="560" height="520"></canvas>
+        <div>
+          <h3>Legenda</h3>
+          <p class="red-dot">● vermelho = <span id="radarUserLabel">tu</span></p>
+          <p class="blue-dot">● azul = <span id="radarTopLabel">ideologia top 1</span></p>
+          <p class="muted">Os 8 eixos correspondem aos valores tipo 8values: Igualdade · Progressista · Nação · Autoritário · Mercado · Tradicionalista · Mundo · Libertário.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Top 10 ideologias mais próximas</h2>
+      <canvas id="topCanvas" width="1140" height="520" class="wide-canvas"></canvas>
+    </section>
+
+    <section class="card">
+      <h2>Explicação e detalhe</h2>
+      <pre id="resultReport" class="report-box">Calcula os resultados primeiro.</pre>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script src="quiz.js"></script>
+</body>
+</html>
