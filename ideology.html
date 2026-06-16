@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gráficos da ideologia</title>
-  <link rel="stylesheet" href="style.css?v=final3">
+  <link rel="stylesheet" href="style.css?v=final4">
   <!-- Embedded data for offline mode -->
   <!-- Load ideologies and questions from data.js. -->
-  <script src="data.js?v=final3"></script>
-  <script src="script.js?v=final3"></script>
+  <script src="data.js?v=final4"></script>
+  <script src="script.js?v=final4"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -16,7 +16,7 @@
     <div class="nav-links">
       <a href="index.html">Página inicial</a>
       <!-- Ensure the questionário opens in a new tab with cache busting -->
-      <a href="questionnaire.html?v=final3" target="_blank" rel="noopener noreferrer">Questionário</a>
+      <a href="questionnaire.html?v=final4" target="_blank" rel="noopener noreferrer">Questionário</a>
       <a href="library.html">Biblioteca</a>
       <a href="compare.html">Comparador</a>
     </div>
@@ -67,7 +67,8 @@
       const W = canvas.width;
       const H = canvas.height;
       ctx.clearRect(0,0,W,H);
-      const margin = 40;
+      // Increase the margin around the compass to give labels room
+      const margin = 60;
       const x0 = margin;
       const y0 = margin;
       const x1 = W - margin;
@@ -105,14 +106,18 @@
       ctx.beginPath(); ctx.moveTo(cx,y0); ctx.lineTo(cx,y1); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(x0,cy); ctx.lineTo(x1,cy); ctx.stroke();
       ctx.strokeRect(x0,y0,x1-x0,y1-y0);
-      // Labels
+      // Labels: position them within the margins so they never get clipped
       ctx.fillStyle = styles.getPropertyValue('--pc-label');
       ctx.font = '12px Segoe UI';
       ctx.textAlign = 'center';
-      ctx.fillText('Autoritário', W/2, y0 - 12);
-      ctx.fillText('Libertário', W/2, y1 + 20);
+      // Top (Autoritária) – place halfway into the top margin
+      ctx.fillText('Autoritária', W / 2, margin / 2);
+      // Bottom (Libertária) – halfway into the bottom margin
+      ctx.fillText('Libertária', W / 2, H - margin / 3);
+      // Left (Esquerda) – vertically centred; anchor relative to the left edge of the plot area (x0)
       ctx.textAlign = 'right';
       ctx.fillText('Esquerda', x0 - 6, cy + 4);
+      // Right (Direita) – vertically centred; anchor relative to the right edge of the plot area (x1)
       ctx.textAlign = 'left';
       ctx.fillText('Direita', x1 + 6, cy + 4);
       // Ideology point
@@ -127,10 +132,12 @@
       ctx.textAlign = 'left';
       ctx.textBaseline = 'bottom';
       ctx.fillText(ide.name.length > 20 ? ide.name.slice(0,17)+'…' : ide.name, ix + 20, iy - 16);
+      // Display numeric coordinates within the lower margin without overlapping the labels
       ctx.fillStyle = styles.getPropertyValue('--pc-label');
       ctx.font = '12px Segoe UI';
       ctx.textAlign = 'center';
-      ctx.fillText(`Económico ${ide.pc_econ_typical.toFixed(1)} · Social ${ide.pc_social_typical.toFixed(1)}`, W/2, H - 14);
+      const coordsY = H - margin / 2; // halfway into the bottom margin
+      ctx.fillText(`Económico ${ide.pc_econ_typical.toFixed(1)} · Social ${ide.pc_social_typical.toFixed(1)}`, W/2, coordsY);
     }
     drawIdeologyCompass();
     // Build 8values bars similar to questionnaire

@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Comparador de Ideologias</title>
-  <link rel="stylesheet" href="style.css?v=final3">
+  <link rel="stylesheet" href="style.css?v=final4">
   <!-- Embedded data for offline mode -->
   <!-- Load ideologies and questions from data.js. -->
-  <script src="data.js?v=final3"></script>
-  <script src="script.js?v=final3"></script>
+  <script src="data.js?v=final4"></script>
+  <script src="script.js?v=final4"></script>
   <!-- Chart.js for radar and other comparative charts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
@@ -432,7 +432,8 @@
       const W = canvas.width;
       const H = canvas.height;
       ctx.clearRect(0,0,W,H);
-      const margin = 40;
+      // Increase margin to ensure labels are fully visible
+      const margin = 60;
       const x0 = margin;
       const y0 = margin;
       const x1 = W - margin;
@@ -470,12 +471,14 @@
       ctx.beginPath(); ctx.moveTo(x0, cy); ctx.lineTo(x1, cy); ctx.stroke();
       // Border
       ctx.strokeRect(x0, y0, x1 - x0, y1 - y0);
-      // Axis labels
+      // Axis labels: position within the margins so they don't get clipped
       ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--pc-label');
       ctx.font = '12px Segoe UI';
       ctx.textAlign = 'center';
-      ctx.fillText('Autoritária', W/2, y0 - 12);
-      ctx.fillText('Libertária', W/2, y1 + 20);
+      // Top and bottom labels
+      ctx.fillText('Autoritária', W/2, margin / 2);
+      ctx.fillText('Libertária', W/2, H - margin / 3);
+      // Left and right labels anchored relative to plot area edges
       ctx.textAlign = 'right';
       ctx.fillText('Esquerda', x0 - 6, cy + 4);
       ctx.textAlign = 'left';
@@ -555,17 +558,23 @@
       rows.forEach(row => {
         const sec = document.createElement('div');
         sec.style.marginBottom = '1rem';
-        // Title line
+        // Title and description: stack vertically to avoid overcrowding
         const title = document.createElement('div');
-        title.style.display = 'flex';
-        title.style.justifyContent = 'space-between';
-        title.style.alignItems = 'center';
+        title.style.marginBottom = '0.25rem';
         const h4 = document.createElement('h4');
+        h4.style.margin = '0';
         h4.textContent = `Eixo ${row.axis}`;
-        const desc = document.createElement('span');
+        const desc = document.createElement('div');
         desc.style.fontSize = '0.8rem';
         desc.style.color = 'var(--ink-soft)';
-        desc.textContent = `${a.nome}: ${row.aDesc} · ${b.nome}: ${row.bDesc}`;
+        desc.style.marginTop = '0.1rem';
+        // Put each subject's description on its own line for clarity
+        const descA = document.createElement('div');
+        descA.textContent = `${a.nome}: ${row.aDesc}`;
+        const descB = document.createElement('div');
+        descB.textContent = `${b.nome}: ${row.bDesc}`;
+        desc.appendChild(descA);
+        desc.appendChild(descB);
         title.appendChild(h4);
         title.appendChild(desc);
         sec.appendChild(title);
@@ -581,7 +590,9 @@
           labelEl.style.fontSize = '0.8rem';
           labelEl.style.fontWeight = 'bold';
           labelEl.style.marginBottom = '0.2rem';
-          labelEl.textContent = `${barDef.name}: ${barDef.value.toFixed(0)}% ${barDef.leftLabel} / ${(100 - barDef.value).toFixed(0)}% ${barDef.rightLabel}`;
+          // Truncate long subject names to keep the bar label on a single line
+          const shortName = barDef.name.length > 22 ? barDef.name.slice(0,19) + '…' : barDef.name;
+          labelEl.textContent = `${shortName}: ${barDef.value.toFixed(0)}% ${barDef.leftLabel} / ${(100 - barDef.value).toFixed(0)}% ${barDef.rightLabel}`;
           wrapper.appendChild(labelEl);
           // Bar container
           const barOuter = document.createElement('div');
