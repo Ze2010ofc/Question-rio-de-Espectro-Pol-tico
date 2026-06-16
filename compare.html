@@ -17,7 +17,7 @@
     <div class="nav-links">
       <a href="index.html">Página inicial</a>
       <!-- Ensure the questionário opens in a new tab with cache busting -->
-      <a href="questionnaire.html?v=final2" target="_blank" rel="noopener noreferrer">Questionário</a>
+      <a href="questionnaire.html?v=final4" target="_blank" rel="noopener noreferrer">Questionário</a>
       <a href="library.html">Biblioteca</a>
     </div>
   </nav>
@@ -62,11 +62,11 @@
         <h4>Gráficos comparativos</h4>
         <div style="display:flex; flex-wrap:wrap; gap:1rem;">
           <!-- Political compass with two points -->
-          <canvas id="compassCanvas" width="350" height="350" style="background:var(--pc-bg);"></canvas>
+          <canvas id="compassCanvas" width="350" height="350" style="background:var(--pc-bg); width:350px; height:350px; flex:none;"></canvas>
           <!-- Values bars container -->
           <div id="valuesContainer" style="flex:1; min-width:300px;"></div>
           <!-- Radar chart comparing eight axes -->
-          <canvas id="radarCanvas" width="350" height="350"></canvas>
+          <canvas id="radarCanvas" width="350" height="350" style="width:350px; height:350px; flex:none;"></canvas>
         </div>
       </div>
     </div>
