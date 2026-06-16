@@ -5546,7 +5546,19 @@ var IDEOLOGIES = [
   }
 ];
 
-var QUESTIONS = [
+// Expose IDEOLOGIES as IDEOLOGIES_DATA for loadData() compatibility.
+// When loading via file://, script.js will detect IDEOLOGIES_DATA and
+// QUESTIONS_DATA to populate the DATA object. Without this alias,
+// loadData() would fallback to fetching JSON files, which may fail
+// under the file protocol.
+var IDEOLOGIES_DATA = IDEOLOGIES;
+
+// Note: questions are now loaded from questions_data.js. The original
+// embedded questions array is deprecated. If loading via file://, the
+// global variables IDEOLOGIES_DATA and QUESTIONS_DATA provided by
+// questions_data.js will override these values.
+
+var OLD_QUESTIONS = [
   {
     "code": "E01",
     "text": "O Estado deve garantir saúde, educação, habitação e proteção social mesmo que isso exija impostos altos.",
