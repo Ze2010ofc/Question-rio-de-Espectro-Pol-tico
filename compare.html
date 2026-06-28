@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Comparador de Ideologias</title>
-  <link rel="stylesheet" href="style.css?v=final14">
+  <link rel="stylesheet" href="style.css?v=final15">
   <!-- Embedded data for offline mode -->
   <!-- Load ideologies and questions from data.js. -->
   <!-- Load ideologies and questions -->
-  <script src="data.js?v=final14"></script>
-  <script src="questions_data.js?v=final14"></script>
-  <script src="script.js?v=final14"></script>
+  <script src="data.js?v=final15"></script>
+  <script src="questions_data.js?v=final15"></script>
+  <script src="script.js?v=final15"></script>
   <!-- Chart.js for radar and other comparative charts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
@@ -19,7 +19,7 @@
     <div class="nav-links">
       <a href="index.html">Página inicial</a>
       <!-- Ensure the questionário opens in a new tab with cache busting -->
-      <a href="questionnaire.html?v=final14" target="_blank" rel="noopener noreferrer">Questionário</a>
+      <a href="questionnaire.html?v=final15" target="_blank" rel="noopener noreferrer">Questionário</a>
       <a href="library.html">Biblioteca</a>
     </div>
   </nav>
@@ -119,22 +119,18 @@
     let importedRanking = null;
     // Define constants for distance weights and max distance (copied from Python/JS)
     const DISTANCE_WEIGHTS = {
-      pc_econ: 1.4,
-      pc_social: 1.4,
-      equality: 1.0,
-      progressive: 1.0,
-      nation: 1.0,
-      authority: 1.2
+      pc_econ: 0.85,
+      pc_social: 0.85,
+      equality: 1.10,
+      progressive: 1.25,
+      nation: 1.15,
+      authority: 1.25
     };
-    function computeMaxDistance() {
-      let total = 0;
-      for (const [k,w] of Object.entries(DISTANCE_WEIGHTS)) {
-        const maxDiff = (k === 'pc_econ' || k === 'pc_social') ? 2.0 : 1.0;
-        total += w * maxDiff * maxDiff;
-      }
-      return Math.sqrt(total);
+    const SIMILARITY_DISTANCE_SCALE = 0.55;
+    function similarityFromDistance(distance) {
+      const d = Math.max(0, Number(distance) || 0);
+      return 100 / (1 + Math.pow(d / SIMILARITY_DISTANCE_SCALE, 2));
     }
-    const MAX_DISTANCE = computeMaxDistance();
     // Build subject from ideology
     function subjectFromIdeology(ide) {
       return {
@@ -219,7 +215,7 @@
         total += w * diff * diff;
       }
       const dist = Math.sqrt(total);
-      const sim = Math.max(0, Math.min(100, 100 * (1 - dist / MAX_DISTANCE)));
+      const sim = Math.max(0, Math.min(100, similarityFromDistance(dist)));
       return {dist, sim};
     }
     // Direction sentence

@@ -80,12 +80,14 @@ function normalize(text) {
 const SCORE_MAP = {1: -2, 2: -1, 3: 0, 4: 1, 5: 2};
 
 const DISTANCE_WEIGHTS = {
-  pc_econ: 1.4,
-  pc_social: 1.4,
-  equality: 1.0,
-  progressive: 1.0,
-  nation: 1.0,
-  authority: 1.2
+  // Political Compass is useful, but it is partly derived from the same axes as the 8values scores.
+  // These weights reduce double-counting and give cultural/civil/diplomatic dimensions more room.
+  pc_econ: 0.85,
+  pc_social: 0.85,
+  equality: 1.10,
+  progressive: 1.25,
+  nation: 1.15,
+  authority: 1.25
 };
 
 /**
@@ -278,57 +280,95 @@ function calculateIdeologyDistance(user, ideology) {
   return Math.sqrt(total);
 }
 
-/* Precompute maximum possible distance (used for similarity). */
-function maxPossibleDistance() {
-  let total = 0;
-  for (const [key, w] of Object.entries(DISTANCE_WEIGHTS)) {
-    const maxDiff = (key === 'pc_econ' || key === 'pc_social') ? 2.0 : 1.0;
-    total += w * maxDiff * maxDiff;
-  }
-  return Math.sqrt(total);
+/**
+ * Convert a weighted distance into a stricter percentage-like similarity.
+ * The previous linear conversion made many ideologies look 80-95% compatible even
+ * when the match was weak. This curve keeps exact/near-exact matches high, but
+ * separates moderate and distant profiles more clearly.
+ */
+const SIMILARITY_DISTANCE_SCALE = 0.55;
+function similarityFromDistance(distance) {
+  const d = Math.max(0, Number(distance) || 0);
+  return 100 / (1 + Math.pow(d / SIMILARITY_DISTANCE_SCALE, 2));
 }
-const MAX_DISTANCE = maxPossibleDistance();
 
 /**
- * Signal strength: how polarized the user is across four 8values axes.
+ * Soft cap for weakly differentiated user profiles.
+ * If the user stays very close to the centre, ideology matches should be shown as
+ * tentative instead of being forced into strong 80-95% results. The cap is soft,
+ * so the ranking still preserves real distance order and does not create large ties.
+ */
+function softCapSimilarity(similarity, signal) {
+  const s = clamp(Number(signal) || 0, 0, 1);
+  let cap;
+  if (s < 0.08) cap = 62 + 100 * s;
+  else if (s < 0.18) cap = 70 + 85 * s;
+  else if (s < 0.30) cap = 82 + 45 * s;
+  else cap = 99.5;
+  if (similarity <= cap) return similarity;
+  return cap + (similarity - cap) * 0.15;
+}
+
+function confidenceLabel(signal) {
+  const s = clamp(Number(signal) || 0, 0, 1);
+  if (s < 0.05) return 'Muito baixa';
+  if (s < 0.12) return 'Baixa';
+  if (s < 0.25) return 'Moderada';
+  return 'Alta';
+}
+
+/**
+ * Signal strength: how clearly the profile moves away from the centre.
+ * Uses both 8values axes and Political Compass coordinates. A low value means
+ * the ideology list should be read as weak approximation, not as a strong match.
  */
 function ideologicalSignalStrength(user) {
-  const signal = (Math.abs(user.equality - 50) + Math.abs(user.progressive - 50) +
-                  Math.abs(user.nation - 50) + Math.abs(user.authority - 50)) / 200;
-  return Math.min(1, Math.max(0, signal));
+  const axisSignal = (Math.abs(user.equality - 50) + Math.abs(user.progressive - 50) +
+                      Math.abs(user.nation - 50) + Math.abs(user.authority - 50)) / 200;
+  const pcSignal = (Math.abs(user.pc_econ) + Math.abs(user.pc_social)) / 20;
+  return clamp(0.65 * axisSignal + 0.35 * pcSignal, 0, 1);
 }
 
 /**
  * Rank ideologies for the user, returning an array sorted by similarity.
+ * Ranking is based on weighted distance first. Affinity/key-question bonuses are
+ * only secondary and never replace the distance calculation.
  */
-function rankIdeologies(user, ideologies, affinityScores) {
+function rankIdeologies(user, ideologies, affinityScores = {}) {
   const rows = [];
   const signal = ideologicalSignalStrength(user);
   ideologies.forEach(ide => {
     const distance = calculateIdeologyDistance(user, ide);
-    const similarity = Math.max(0, 100 * (1 - distance / MAX_DISTANCE));
-    const affinityBonus = (affinityScores[ide.name] || 0) * 3.0;
+    const similarityBase = similarityFromDistance(distance);
+
+    // Optional affinity bonus kept for future key/filter questions, but strongly limited.
+    const affinityBonus = clamp((affinityScores[ide.name] || 0) * 1.2, -4, 4);
+
+    // Small interval bonus if the user's PC point is inside the ideology's typical range.
+    // It scales with signal so a completely neutral profile is not pushed into arbitrary ideologies.
     let rangeBonus = 0;
-    if (ide.pc_econ_min <= user.pc_econ && user.pc_econ <= ide.pc_econ_max) rangeBonus += 2.0;
-    if (ide.pc_social_min <= user.pc_social && user.pc_social <= ide.pc_social_max) rangeBonus += 2.0;
+    if (ide.pc_econ_min <= user.pc_econ && user.pc_econ <= ide.pc_econ_max) rangeBonus += 1.2;
+    if (ide.pc_social_min <= user.pc_social && user.pc_social <= ide.pc_social_max) rangeBonus += 1.2;
     rangeBonus *= signal;
-    let adjusted = similarity + affinityBonus + rangeBonus;
-    // Cap similarity based on signal
-    if (signal < 0.05) {
-      adjusted = Math.min(adjusted, 80);
-    } else if (signal < 0.15) {
-      adjusted = Math.min(adjusted, 90);
-    } else {
-      adjusted = Math.min(adjusted, 99.9);
-    }
-    adjusted = Math.max(0, adjusted);
+
+    let adjusted = similarityBase + affinityBonus + rangeBonus;
+    adjusted = softCapSimilarity(adjusted, signal);
+    adjusted = clamp(adjusted, 0, 99.9);
+
+    const pcDistance = Math.hypot((user.pc_econ - ide.pc_econ_typical) / 20,
+                                  (user.pc_social - ide.pc_social_typical) / 20);
+    const valuesDistance = Math.hypot((user.equality - ide.equality) / 100,
+                                      (user.progressive - ide.progressive) / 100,
+                                      (user.nation - ide.nation) / 100,
+                                      (user.authority - ide.authority) / 100);
+
     const calcQuadrant = classifyQuadrant(ide.pc_econ_typical, ide.pc_social_typical);
     rows.push({
       ideologia: ide.name,
       categoria: ide.category,
       quadrante: calcQuadrant,
       similaridade: parseFloat(adjusted.toFixed(1)),
-      similaridade_base: parseFloat(similarity.toFixed(1)),
+      similaridade_base: parseFloat(similarityBase.toFixed(1)),
       pc_econ_tipico: ide.pc_econ_typical,
       pc_social_tipico: ide.pc_social_typical,
       igualdade: ide.equality,
@@ -340,6 +380,10 @@ function rankIdeologies(user, ideologies, affinityScores) {
       autoritario: ide.authority,
       libertario: ide.liberty,
       distancia: parseFloat(distance.toFixed(4)),
+      distancia_pc: parseFloat(pcDistance.toFixed(4)),
+      distancia_valores: parseFloat(valuesDistance.toFixed(4)),
+      sinal_usuario: parseFloat(signal.toFixed(4)),
+      confianca_resultado: confidenceLabel(signal),
       bonus_afinidade: parseFloat(affinityBonus.toFixed(2)),
       bonus_intervalo: parseFloat(rangeBonus.toFixed(2)),
       mais_proxima: ide.closest,
@@ -347,7 +391,14 @@ function rankIdeologies(user, ideologies, affinityScores) {
       descricao: ide.description
     });
   });
-  rows.sort((a, b) => b.similaridade - a.similaridade);
+
+  // Sort by final similarity, then by real distance. This prevents ties from being decided by JSON order.
+  rows.sort((a, b) => {
+    if (b.similaridade !== a.similaridade) return b.similaridade - a.similaridade;
+    if (a.distancia !== b.distancia) return a.distancia - b.distancia;
+    if (a.distancia_pc !== b.distancia_pc) return a.distancia_pc - b.distancia_pc;
+    return a.ideologia.localeCompare(b.ideologia, 'pt');
+  });
   rows.forEach((r, i) => { r.posicao = i + 1; });
   return rows;
 }
@@ -406,12 +457,18 @@ function generateExplanation(user, ranking) {
   if (!ranking.length) return 'Sem dados suficientes para gerar uma explicação.';
   const top1 = ranking[0];
   const alt = ranking[1];
+  const signal = ideologicalSignalStrength(user);
   const econ = describePole(user.market, 'Mercado', 'Igualdade');
   const auth = describePole(user.authority, 'Autoridade', 'Liberdade');
   const nation = describePole(user.nation, 'Nação', 'Mundo');
   const trad = describePole(user.traditional, 'Tradicionalismo', 'Progressismo');
   const parts = [];
-  parts.push(`A ideologia mais próxima foi ${top1.ideologia} (${top1.categoria}), com semelhança de ${Math.round(top1.similaridade)}%.`);
+  if (signal < 0.05) {
+    parts.push('As tuas respostas ficaram muito próximas do centro em quase todos os eixos; por isso, as ideologias abaixo são aproximações fracas e não um resultado forte.');
+  } else if (signal < 0.12) {
+    parts.push('O teu perfil tem baixa diferenciação ideológica; lê o top de ideologias como proximidades moderadas, não como identificação exata.');
+  }
+  parts.push(`A ideologia mais próxima foi ${top1.ideologia} (${top1.categoria}), com afinidade aproximada de ${Math.round(top1.similaridade)}%.`);
   parts.push(`No eixo económico mostras ${econ}; no eixo de autoridade, ${auth}.`);
   parts.push(`Em Nação vs Mundo há ${nation}, e em Progressismo vs Tradicionalismo, ${trad}.`);
   parts.push(`No Political Compass ficaste em (${user.pc_econ.toFixed(1)}, ${user.pc_social.toFixed(1)}), quadrante ${user.quadrant}; ${top1.ideologia} situa-se tipicamente em (${top1.pc_econ_tipico.toFixed(1)}, ${top1.pc_social_tipico.toFixed(1)}).`);
@@ -424,6 +481,7 @@ function generateExplanation(user, ranking) {
   if (top1.mais_proxima) {
     parts.push(`A tabela indica ${top1.mais_proxima} como ideologia comparável.`);
   }
+  parts.push('Nota: as ideologias são perfis comparativos aproximados; os eixos calculados são a parte mais importante do resultado.');
   return parts.join(' ');
 }
 
@@ -441,6 +499,9 @@ window.ideologyUtils = {
   calculateUserResult,
   calculateAffinityScores,
   rankIdeologies,
+  calculateIdeologyDistance,
+  similarityFromDistance,
+  ideologicalSignalStrength,
   generateExplanation,
   labelEconomico,
   labelDiplomatico,
