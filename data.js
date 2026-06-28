@@ -1,4 +1,4 @@
-/* Data generated from Python embedded JSON */
+/* Data generated from embedded JSON */
 var IDEOLOGIES = [
   {
     "name": "Aceleracionismo",
@@ -30,8 +30,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — construção especulativa/derivada ou documentação fraca",
     "speculative_status": "Sim",
     "source_note": "Texto-manifesto, nao programa partidario oficial.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Action Française",
@@ -63,8 +62,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Agorismo",
@@ -96,29 +94,28 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Agrarianismo",
     "category": "Ruralismo político",
-    "closest": "Monarquia Democrática",
+    "closest": "Distributismo",
     "description": "Centralidade do mundo rural, pequena propriedade e comunidade agrícola.",
-    "pc_econ_min": -3.0,
-    "pc_econ_typical": -1.0,
-    "pc_econ_max": 1.0,
-    "pc_social_min": -4.0,
-    "pc_social_typical": -2.0,
-    "pc_social_max": 0.0,
-    "equality": 55.0,
-    "market": 45.0,
-    "progressive": 35.0,
-    "traditional": 65.0,
-    "nation": 45.0,
-    "world": 55.0,
-    "authority": 40.0,
-    "liberty": 60.0,
-    "quadrant": "Centro-libertária",
+    "pc_econ_min": -2.5,
+    "pc_econ_typical": -0.5,
+    "pc_econ_max": 1.5,
+    "pc_social_min": -0.5,
+    "pc_social_typical": 1.2,
+    "pc_social_max": 3.0,
+    "equality": 52.0,
+    "market": 48.0,
+    "progressive": 25.0,
+    "traditional": 75.0,
+    "nation": 60.0,
+    "world": 40.0,
+    "authority": 55.0,
+    "liberty": 45.0,
+    "quadrant": "Centro tradicionalista",
     "key_question": "A posição dá prioridade a centralidade do mundo rural, pequena propriedade e comunidade agrícola como diferença principal?",
     "source1_title": "Thomas Jefferson, Notes on the State of Virginia",
     "source1_url": "https://www.gutenberg.org/ebooks/56313",
@@ -129,8 +126,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Final16: ajustado para ruralismo comunitário/tradicional, não automaticamente libertário ou cosmopolita."
   },
   {
     "name": "Anarco-Capitalismo",
@@ -162,8 +158,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Anarco-Comunismo",
@@ -195,8 +190,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Anarco-Primitivismo",
@@ -228,8 +222,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Anarco-Sindicalismo",
@@ -261,8 +254,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Anarco-Socialismo",
@@ -294,8 +286,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Anarquismo Cristão",
@@ -327,8 +318,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Anarquismo Individualista",
@@ -360,8 +350,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Anarquismo Insurrecionalista",
@@ -393,8 +382,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Aprismo",
@@ -426,8 +414,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Austrofascismo",
@@ -459,8 +446,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Autonomismo Italiano",
@@ -492,8 +478,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Baathismo",
@@ -525,8 +510,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Blanquismo",
@@ -558,8 +542,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Bolsonarismo",
@@ -591,8 +574,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Bonapartismo",
@@ -624,8 +606,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Bordiguismo",
@@ -657,8 +638,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Bundismo",
@@ -690,8 +670,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Correção: a lista anexa apontava para socialismo ricardiano; aqui usa-se fonte própria sobre Bund, doikayt, socialismo judaico secular e autonomia cultural.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Cardenismo",
@@ -723,8 +702,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — depende de fontes secundárias/comparação",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Carlismo",
@@ -756,8 +734,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Castroismo",
@@ -789,8 +766,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Chavismo",
@@ -822,8 +798,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Chegismo",
@@ -855,8 +830,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Reforça lei-e-ordem e nacional-conservadorismo com mercado pró-concorrência.",
-    "confidence_rating": 5
+    "revision_note": "Reforça lei-e-ordem e nacional-conservadorismo com mercado pró-concorrência."
   },
   {
     "name": "Comunismo de Conselhos",
@@ -888,8 +862,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Comunismo de Esquerda Italiano",
@@ -921,8 +894,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Comunismo Libertário",
@@ -954,8 +926,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Comunismo Teocrático",
@@ -987,8 +958,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — construção especulativa/derivada ou documentação fraca",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Confederalismo Democrático",
@@ -1020,8 +990,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Feminismo, ecologia social, democracia direta e confederalismo.",
-    "confidence_rating": 5
+    "revision_note": "Feminismo, ecologia social, democracia direta e confederalismo."
   },
   {
     "name": "Conselhismo",
@@ -1053,8 +1022,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Dark Enlightenment",
@@ -1086,8 +1054,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — construção especulativa/derivada ou documentação fraca",
     "speculative_status": "Sim",
     "source_note": "Corrente sobretudo ensaistica online; fontes devem ser contextualizadas criticamente.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "De Leonismo",
@@ -1119,29 +1086,28 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Democracia Cristã",
     "category": "Centro-direita / social cristã",
     "closest": "Distributismo",
     "description": "Estado social moderado, subsidiariedade e valores cristãos.",
-    "pc_econ_min": -2.8,
-    "pc_econ_typical": -0.5,
-    "pc_econ_max": 0.8,
-    "pc_social_min": -0.8,
-    "pc_social_typical": 0.5,
-    "pc_social_max": 2.8,
-    "equality": 55.0,
-    "market": 45.0,
-    "progressive": 40.0,
-    "traditional": 60.0,
-    "nation": 50.0,
-    "world": 50.0,
-    "authority": 52.0,
-    "liberty": 48.0,
-    "quadrant": "Centro / misto",
+    "pc_econ_min": -1.5,
+    "pc_econ_typical": 0.7,
+    "pc_econ_max": 2.5,
+    "pc_social_min": -0.5,
+    "pc_social_typical": 1.0,
+    "pc_social_max": 3.0,
+    "equality": 48.0,
+    "market": 52.0,
+    "progressive": 38.0,
+    "traditional": 62.0,
+    "nation": 52.0,
+    "world": 48.0,
+    "authority": 54.0,
+    "liberty": 46.0,
+    "quadrant": "Centro-direita",
     "key_question": "A posição dá prioridade a estado social moderado, subsidiariedade e valores cristãos como diferença principal?",
     "source1_title": "Pope Leo XIII, Rerum Novarum",
     "source1_url": "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_15051891_rerum-novarum.html",
@@ -1152,8 +1118,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Centro/centro-direita social-cristã; não tão autoritária como regimes confessionais.",
-    "confidence_rating": 5
+    "revision_note": "Final16: ajustada para centro-direita social-cristã; mantém economia social de mercado, subsidiariedade e tradicionalismo moderado."
   },
   {
     "name": "Democracia Liberal",
@@ -1185,8 +1150,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Dengismo",
@@ -1218,29 +1182,28 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Distributismo",
     "category": "Economia social cristã",
     "closest": "Democracia Cristã",
     "description": "Propriedade privada ampla, pequenas empresas e anti-monopólios.",
-    "pc_econ_min": -3.4,
-    "pc_econ_typical": -2.0,
-    "pc_econ_max": -0.6,
-    "pc_social_min": -0.4,
-    "pc_social_typical": 1.0,
-    "pc_social_max": 2.4,
-    "equality": 60.0,
-    "market": 40.0,
-    "progressive": 35.0,
-    "traditional": 65.0,
-    "nation": 45.0,
-    "world": 55.0,
-    "authority": 55.0,
-    "liberty": 45.0,
-    "quadrant": "Centro-esquerda",
+    "pc_econ_min": -4.0,
+    "pc_econ_typical": -2.5,
+    "pc_econ_max": -1.0,
+    "pc_social_min": 0.2,
+    "pc_social_typical": 1.8,
+    "pc_social_max": 3.5,
+    "equality": 65.0,
+    "market": 35.0,
+    "progressive": 28.0,
+    "traditional": 72.0,
+    "nation": 50.0,
+    "world": 50.0,
+    "authority": 58.0,
+    "liberty": 42.0,
+    "quadrant": "Centro-esquerda tradicionalista",
     "key_question": "A posição dá prioridade a propriedade privada ampla, pequenas empresas e anti-monopólios como diferença principal?",
     "source1_title": "G. K. Chesterton, The Outline of Sanity",
     "source1_url": "https://archive.org/details/outlineofsanity00chesuoft",
@@ -1251,8 +1214,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Final16: reforçado como comunitarismo económico social-cristão, anti-monopólio, igualitário na propriedade e culturalmente tradicional."
   },
   {
     "name": "Dominionismo",
@@ -1284,8 +1246,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fontes ideologicas sensiveis; usar para analise critica.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Duginismo",
@@ -1317,8 +1278,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fonte geopolítica extremada; usar criticamente.",
-    "revision_note": "Corrente civilizacional anti-liberal e autoritária; economia menos central que geopolítica.",
-    "confidence_rating": 3
+    "revision_note": "Corrente civilizacional anti-liberal e autoritária; economia menos central que geopolítica."
   },
   {
     "name": "Eco-Capitalismo",
@@ -1350,8 +1310,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Eco-Comunismo",
@@ -1383,8 +1342,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Eco-Fascismo",
@@ -1416,8 +1374,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — construção especulativa/derivada ou documentação fraca",
     "speculative_status": "Sim",
     "source_note": "Nao ha manifesto unico; evitar fontes propagandisticas recentes.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Eco-Socialismo",
@@ -1449,8 +1406,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Egoísmo Stirneriano",
@@ -1482,8 +1438,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Especifismo",
@@ -1515,8 +1470,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Salazarismo/Estado Novo Português",
@@ -1548,8 +1502,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Estatismo Shōwa",
@@ -1581,8 +1534,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Eurasianismo",
@@ -1614,8 +1566,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fonte geopolítica extremada; usar criticamente.",
-    "revision_note": "Soberanismo civilizacional e anti-universalismo liberal.",
-    "confidence_rating": 3
+    "revision_note": "Soberanismo civilizacional e anti-universalismo liberal."
   },
   {
     "name": "Eurocomunismo",
@@ -1647,8 +1598,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Fabianismo",
@@ -1680,8 +1630,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Correção: diferenciar Fabianismo de Guild Socialism; foco em gradualismo, reforma e socialismo democrático institucional.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Falangismo",
@@ -1713,8 +1662,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fonte historica extremista; usar criticamente.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Fascismo",
@@ -1746,8 +1694,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fonte historica extremista; citar criticamente, sem normalizar.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Fascismo Capitalista",
@@ -1779,8 +1726,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — construção especulativa/derivada ou documentação fraca",
     "speculative_status": "Sim",
     "source_note": "Fonte historica extremista; citar criticamente, sem normalizar.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Fascismo Monárquico",
@@ -1812,8 +1758,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — construção especulativa/derivada ou documentação fraca",
     "speculative_status": "Sim",
     "source_note": "Fonte historica extremista; citar criticamente, sem normalizar.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Fisiocracia",
@@ -1845,8 +1790,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Fourierismo",
@@ -1878,8 +1822,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Franquismo",
@@ -1911,8 +1854,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Gaddafismo",
@@ -1944,8 +1886,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Georgismo",
@@ -1977,8 +1918,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Getulismo",
@@ -2010,8 +1950,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Guarda de Ferro",
@@ -2043,8 +1982,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fonte historica fascista/antissemita; usar criticamente.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Guevarismo",
@@ -2076,8 +2014,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Guild Socialism",
@@ -2109,8 +2046,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Hindutva",
@@ -2142,8 +2078,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Hoxhaismo",
@@ -2175,8 +2110,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Integralismo",
@@ -2208,8 +2142,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — depende de fontes secundárias/comparação",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Integralismo Brasileiro",
@@ -2241,8 +2174,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fonte historica de extrema-direita; usar criticamente.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Integralismo Lusitano",
@@ -2274,8 +2206,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — depende de fontes secundárias/comparação",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Integralismo Monárquico",
@@ -2307,8 +2238,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — depende de fontes secundárias/comparação",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Islamismo Político",
@@ -2340,8 +2270,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Correção: a lista anexa apontava para carlismo; esta entrada usa fontes gerais sobre islamismo político e religião na teoria política.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Jacobitismo",
@@ -2373,8 +2302,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — depende de fontes secundárias/comparação",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Juche",
@@ -2406,8 +2334,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Kautskismo",
@@ -2439,8 +2366,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Kemalismo",
@@ -2472,8 +2398,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Khomeinismo",
@@ -2505,8 +2430,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Kirchnerismo",
@@ -2538,8 +2462,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — depende de fontes secundárias/comparação",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Lassallismo",
@@ -2571,8 +2494,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fonte geral por familia; procurar subcorrente especifica se necessario.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Legionarismo",
@@ -2604,8 +2526,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fonte historica fascista/antissemita; usar criticamente.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Legitimismo",
@@ -2637,8 +2558,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — depende de fontes secundárias/comparação",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Leninismo",
@@ -2670,8 +2590,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Libertarianismo",
@@ -2703,8 +2622,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Lulismo",
@@ -2736,8 +2654,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Correção: a lista anexa apontava para APRA; usar fontes brasileiras e eleitorais. A posição é analisada como progressismo social, redução da pobreza, conciliação institucional e mercado regulado.",
-    "revision_note": "Progressismo social e redução de pobreza dentro de democracia e mercado regulado.",
-    "confidence_rating": 3
+    "revision_note": "Progressismo social e redução de pobreza dentro de democracia e mercado regulado."
   },
   {
     "name": "Luxemburguismo",
@@ -2769,8 +2686,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Correção: a lista anexa apontava para De Leonismo; aqui usa-se Rosa Luxemburg, greve de massas, democracia operária e crítica do centralismo.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Makhnovismo",
@@ -2802,8 +2718,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Correção: a lista anexa apontava para Especifismo; aqui usa-se material sobre comunas, exército insurgente e anarquismo camponês ucraniano.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Maoismo",
@@ -2835,8 +2750,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Marxismo",
@@ -2868,8 +2782,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Correção: diferenciar marxismo geral de kautskismo; base em crítica do capitalismo, luta de classes e propriedade social.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Marxismo-Leninismo",
@@ -2901,8 +2814,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Correção: diferenciar marxismo-leninismo de maoismo; foco em partido-Estado, centralismo e transição dirigida.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Maurrassismo",
@@ -2934,8 +2846,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Mercantilismo",
@@ -2967,8 +2878,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Metaxismo",
@@ -3000,8 +2910,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — depende de fontes secundárias/comparação",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Miguelismo",
@@ -3033,8 +2942,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — depende de fontes secundárias/comparação",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Minarquismo",
@@ -3066,8 +2974,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Sem manifesto único; classificado por comparação com libertarianismo e Estado mínimo.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Monarco-Nazismo",
@@ -3099,8 +3006,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — construção especulativa/derivada ou documentação fraca",
     "speculative_status": "Sim",
     "source_note": "Fonte historica de ideologia genocida; usar somente para analise critica.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Monarco-Socialismo",
@@ -3132,8 +3038,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — construção especulativa/derivada ou documentação fraca",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Monarquia Absoluta",
@@ -3165,28 +3070,27 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Monarquia de soberania concentrada; pode variar economicamente, mas é civilmente autoritária.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Monarquia Constitucional",
     "category": "Monarquismo constitucional",
-    "closest": "Orleanismo",
+    "closest": "Monarquismo Parlamentar",
     "description": "Monarca limitado por constituição e instituições representativas.",
-    "pc_econ_min": -0.5,
-    "pc_econ_typical": 2.0,
+    "pc_econ_min": 0.0,
+    "pc_econ_typical": 2.2,
     "pc_econ_max": 4.5,
-    "pc_social_min": -2.5,
-    "pc_social_typical": -0.5,
-    "pc_social_max": 2.5,
-    "equality": 40.0,
-    "market": 60.0,
-    "progressive": 40.0,
-    "traditional": 60.0,
-    "nation": 55.0,
-    "world": 45.0,
-    "authority": 45.0,
-    "liberty": 55.0,
+    "pc_social_min": -0.8,
+    "pc_social_typical": 1.2,
+    "pc_social_max": 3.5,
+    "equality": 39.0,
+    "market": 61.0,
+    "progressive": 35.0,
+    "traditional": 65.0,
+    "nation": 58.0,
+    "world": 42.0,
+    "authority": 56.0,
+    "liberty": 44.0,
     "quadrant": "Centro-direita",
     "key_question": "A posição aceita monarca limitado por constituição, tribunais e instituições representativas, sem poder soberano absoluto?",
     "source1_title": "Montesquieu, The Spirit of Laws",
@@ -3198,29 +3102,28 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fonte mista institucional e teórica; posicionamento depende do modelo constitucional concreto.",
-    "revision_note": "Monarquia constitucional pode ser liberal-democrática; autoridade moderada.",
-    "confidence_rating": 3
+    "revision_note": "Final16: perfil ajustado para centro-direita institucional, mais tradicional e menos libertário do que a versão anterior."
   },
   {
     "name": "Monarquia Democrática",
     "category": "Monarquismo democrático",
     "closest": "Monarquismo Parlamentar",
     "description": "Monarquia com soberania democrática e governo representativo.",
-    "pc_econ_min": -2.5,
-    "pc_econ_typical": 0.0,
-    "pc_econ_max": 2.5,
-    "pc_social_min": -3.5,
-    "pc_social_typical": -1.0,
-    "pc_social_max": 1.5,
-    "equality": 50.0,
-    "market": 50.0,
-    "progressive": 45.0,
-    "traditional": 55.0,
-    "nation": 50.0,
-    "world": 50.0,
-    "authority": 42.0,
-    "liberty": 58.0,
-    "quadrant": "Centro / misto",
+    "pc_econ_min": -1.2,
+    "pc_econ_typical": 1.0,
+    "pc_econ_max": 3.0,
+    "pc_social_min": -1.5,
+    "pc_social_typical": 0.8,
+    "pc_social_max": 2.8,
+    "equality": 45.0,
+    "market": 55.0,
+    "progressive": 40.0,
+    "traditional": 60.0,
+    "nation": 55.0,
+    "world": 45.0,
+    "authority": 55.0,
+    "liberty": 45.0,
+    "quadrant": "Centro-direita",
     "key_question": "A posição mantém uma instituição monárquica mas subordina o governo à soberania popular, eleições e representação democrática?",
     "source1_title": "Constitutional monarchy overview - Britannica",
     "source1_url": "https://www.britannica.com/topic/constitutional-monarchy",
@@ -3231,8 +3134,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Correção: a lista anexa usava absolutismo; aqui classifica-se como monarquia compatível com soberania democrática e representação.",
-    "revision_note": "Democracia representativa sob forma monárquica simbólica.",
-    "confidence_rating": 3
+    "revision_note": "Final16: perfil tornado menos neutro; monarquia democrática mantém instituições representativas, mas tende a tradição e continuidade institucional moderadas."
   },
   {
     "name": "Monarquia Teocrática",
@@ -3264,29 +3166,28 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — construção especulativa/derivada ou documentação fraca",
     "speculative_status": "Sim",
     "source_note": "Categoria composta: combina monarquia hereditária/sagrada e governo confessional; não há manifesto único.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Monarquismo Parlamentar",
     "category": "Monarquismo democrático",
     "closest": "Monarquia Democrática",
     "description": "Monarquia simbólica com governo responsável perante parlamento.",
-    "pc_econ_min": -1.0,
-    "pc_econ_typical": 1.0,
-    "pc_econ_max": 3.0,
-    "pc_social_min": -4.0,
-    "pc_social_typical": -2.0,
-    "pc_social_max": 0.0,
-    "equality": 45.0,
-    "market": 55.0,
-    "progressive": 50.0,
-    "traditional": 50.0,
-    "nation": 45.0,
-    "world": 55.0,
-    "authority": 38.0,
-    "liberty": 62.0,
-    "quadrant": "Centro-libertária",
+    "pc_econ_min": -0.5,
+    "pc_econ_typical": 1.5,
+    "pc_econ_max": 3.5,
+    "pc_social_min": -1.2,
+    "pc_social_typical": 0.2,
+    "pc_social_max": 2.0,
+    "equality": 43.0,
+    "market": 57.0,
+    "progressive": 43.0,
+    "traditional": 57.0,
+    "nation": 52.0,
+    "world": 48.0,
+    "authority": 50.0,
+    "liberty": 50.0,
+    "quadrant": "Centro-direita",
     "key_question": "A posição defende monarca essencialmente simbólico e governo responsável perante parlamento eleito?",
     "source1_title": "Constitutional monarchy overview - Britannica",
     "source1_url": "https://www.britannica.com/topic/constitutional-monarchy",
@@ -3297,8 +3198,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Correção: entrada institucional, não absolutista; monarca simbólico e governo responsável perante parlamento.",
-    "revision_note": "Parlamentarismo com monarca simbólico; mais libertário que absolutismo.",
-    "confidence_rating": 3
+    "revision_note": "Final16: retirado excesso libertário; classificado como parlamentarismo monárquico liberal-conservador moderado."
   },
   {
     "name": "Monarquismo Tradicionalista",
@@ -3330,8 +3230,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — depende de fontes secundárias/comparação",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Mosleyismo",
@@ -3363,8 +3262,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fonte historica fascista; usar criticamente.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Municipalismo Libertário",
@@ -3396,8 +3294,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Mutualismo",
@@ -3429,8 +3326,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Nacional-Anarquismo",
@@ -3462,8 +3358,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — construção especulativa/derivada ou documentação fraca",
     "speculative_status": "Sim",
     "source_note": "Fonte associada a extrema-direita; usar apenas para analise critica.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Nacional-Bolchevismo",
@@ -3495,8 +3390,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — depende de fontes secundárias/comparação",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Nacional-Catolicismo",
@@ -3528,8 +3422,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Nacional-Juchismo",
@@ -3561,8 +3454,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — construção especulativa/derivada ou documentação fraca",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Nacional-Liberalismo",
@@ -3594,8 +3486,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — depende de fontes secundárias/comparação",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Nacional-Sindicalismo",
@@ -3627,8 +3518,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fonte historica extremista; usar criticamente.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Nasserismo",
@@ -3660,8 +3550,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Nazismo",
@@ -3693,8 +3582,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fonte historica de ideologia genocida; usar somente para analise critica.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Neorreacionarismo",
@@ -3726,8 +3614,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — construção especulativa/derivada ou documentação fraca",
     "speculative_status": "Sim",
     "source_note": "Corrente sobretudo ensaistica online; fontes devem ser contextualizadas criticamente.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Nkrumahismo",
@@ -3759,8 +3646,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Nouvelle Droite",
@@ -3792,8 +3678,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fonte de direita identitaria; usar criticamente.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Nova Direita Francesa",
@@ -3825,8 +3710,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fonte de direita identitaria; usar criticamente.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Objetivismo",
@@ -3858,8 +3742,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Operaismo",
@@ -3891,28 +3774,27 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Orleanismo",
     "category": "Monarquismo liberal francês",
     "closest": "Monarquia Constitucional",
     "description": "Monarquismo constitucional e liberal ligado à Casa de Orléans.",
-    "pc_econ_min": 1.5,
-    "pc_econ_typical": 3.0,
-    "pc_econ_max": 4.5,
-    "pc_social_min": 0.5,
-    "pc_social_typical": 2.0,
-    "pc_social_max": 3.5,
-    "equality": 35.0,
-    "market": 65.0,
-    "progressive": 35.0,
-    "traditional": 65.0,
-    "nation": 55.0,
-    "world": 45.0,
-    "authority": 60.0,
-    "liberty": 40.0,
+    "pc_econ_min": 2.0,
+    "pc_econ_typical": 3.5,
+    "pc_econ_max": 5.0,
+    "pc_social_min": 0.8,
+    "pc_social_typical": 2.5,
+    "pc_social_max": 4.0,
+    "equality": 32.0,
+    "market": 68.0,
+    "progressive": 32.0,
+    "traditional": 68.0,
+    "nation": 58.0,
+    "world": 42.0,
+    "authority": 58.0,
+    "liberty": 42.0,
     "quadrant": "Direita-autoritária",
     "key_question": "A posição combina monarquia constitucional, liberalismo político moderado e compromisso entre tradição dinástica e instituições representativas modernas?",
     "source1_title": "Orleanism historical documents",
@@ -3924,8 +3806,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — depende de fontes secundárias/comparação",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Final16: reforçado como monarquismo liberal-conservador francês, mais pró-mercado e tradicional do que monarquia parlamentar genérica."
   },
   {
     "name": "Owenismo",
@@ -3957,8 +3838,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Pan-Africanismo Revolucionário",
@@ -3990,8 +3870,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Peronismo",
@@ -4023,8 +3902,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Plataformismo",
@@ -4056,8 +3934,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Plutocracia",
@@ -4089,8 +3966,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Posadismo",
@@ -4122,8 +3998,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Putinismo",
@@ -4155,8 +4030,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Qutbismo",
@@ -4188,8 +4062,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fonte de islamismo radical; usar apenas com contextualizacao historica/critica.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Randianismo",
@@ -4221,8 +4094,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Reconstrucionismo Cristão",
@@ -4254,8 +4126,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fontes ideologicas sensiveis; usar para analise critica.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Rexismo",
@@ -4287,8 +4158,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — construção especulativa/derivada ou documentação fraca",
     "speculative_status": "Sim",
     "source_note": "Preferir estudos secundarios; manifesto oficial dificil de localizar.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Saint-Simonianismo",
@@ -4320,8 +4190,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Sandinismo",
@@ -4353,8 +4222,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Sankarismo",
@@ -4386,8 +4254,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Sinarquismo Mexicano",
@@ -4419,8 +4286,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — depende de fontes secundárias/comparação",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Sindicalismo",
@@ -4452,8 +4318,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Sionismo Religioso",
@@ -4485,8 +4350,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — depende de fontes secundárias/comparação",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Sionismo Revisionista",
@@ -4518,8 +4382,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Sionismo Trabalhista",
@@ -4551,8 +4414,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Social Democracia",
@@ -4584,8 +4446,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Socialismo Africano",
@@ -4617,8 +4478,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Socialismo Autoritário",
@@ -4650,8 +4510,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Socialismo Cristão",
@@ -4683,8 +4542,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Socialismo Democrático",
@@ -4716,8 +4574,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Socialismo Gremial",
@@ -4749,8 +4606,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Socialismo Islâmico",
@@ -4782,8 +4638,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — depende de fontes secundárias/comparação",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Socialismo Libertário",
@@ -4815,8 +4670,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Socialismo Ricardiano",
@@ -4848,8 +4702,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Socialismo Teocrático",
@@ -4881,8 +4734,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — construção especulativa/derivada ou documentação fraca",
     "speculative_status": "Sim",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Socialismo Ujamaa",
@@ -4914,8 +4766,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Socialismo Árabe",
@@ -4947,8 +4798,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Sorelianismo",
@@ -4980,8 +4830,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Correção: a lista anexa apontava para Cardenismo; foco em mito mobilizador, violência/greve geral e sindicalismo revolucionário.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Stalinismo",
@@ -5013,8 +4862,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Strasserismo",
@@ -5046,8 +4894,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Fonte historica de ideologia genocida; usar somente para analise critica.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Tecnocracia",
@@ -5079,8 +4926,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Economia variável; traço definidor é autoridade técnico-administrativa.",
-    "confidence_rating": 5
+    "revision_note": "Economia variável; traço definidor é autoridade técnico-administrativa."
   },
   {
     "name": "Teocracia",
@@ -5112,8 +4958,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Teologia da Libertação",
@@ -5145,8 +4990,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Terceira Teoria Universal",
@@ -5178,28 +5022,27 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Terceira Via",
     "category": "Centro reformista",
     "closest": "Social Democracia",
     "description": "Mistura social-democrata e liberal pró-mercado.",
-    "pc_econ_min": -2.7,
-    "pc_econ_typical": -1.0,
-    "pc_econ_max": 0.7,
-    "pc_social_min": -4.7,
-    "pc_social_typical": -3.0,
-    "pc_social_max": -1.3,
-    "equality": 55.0,
-    "market": 45.0,
-    "progressive": 68.0,
-    "traditional": 32.0,
-    "nation": 30.0,
-    "world": 70.0,
-    "authority": 35.0,
-    "liberty": 65.0,
+    "pc_econ_min": -2.0,
+    "pc_econ_typical": -0.4,
+    "pc_econ_max": 1.2,
+    "pc_social_min": -3.5,
+    "pc_social_typical": -2.0,
+    "pc_social_max": -0.5,
+    "equality": 52.0,
+    "market": 48.0,
+    "progressive": 62.0,
+    "traditional": 38.0,
+    "nation": 40.0,
+    "world": 60.0,
+    "authority": 40.0,
+    "liberty": 60.0,
     "quadrant": "Centro-libertária",
     "key_question": "A posição dá prioridade a mistura social-democrata e liberal pró-mercado como diferença principal?",
     "source1_title": "Anthony Giddens, The Third Way",
@@ -5211,8 +5054,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Final16: ajustada para centrismo reformista/social-liberal, economia mista e internacionalismo moderado, menos extrema nos eixos culturais."
   },
   {
     "name": "Titoísmo",
@@ -5244,8 +5086,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Transhumanismo Político",
@@ -5277,8 +5118,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Declaracao oficial de associacao transhumanista; nao e manifesto partidario.",
-    "revision_note": "Mais tecnoprogressista e civilmente libertário; não é apenas direita de mercado.",
-    "confidence_rating": 5
+    "revision_note": "Mais tecnoprogressista e civilmente libertário; não é apenas direita de mercado."
   },
   {
     "name": "Trotskismo",
@@ -5310,8 +5150,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Trumpismo",
@@ -5343,8 +5182,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Ustašismo",
@@ -5376,8 +5214,7 @@ var IDEOLOGIES = [
     "documentary_status": "Sim — depende de fontes secundárias/comparação",
     "speculative_status": "Sim",
     "source_note": "Ideologia genocida; usar apenas criticamente.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 2
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Varguismo",
@@ -5409,8 +5246,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Voluntarismo Libertário",
@@ -5442,8 +5278,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 5
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Wahhabismo Político",
@@ -5475,8 +5310,7 @@ var IDEOLOGIES = [
     "documentary_status": "Parcial — documentada, mas requer triangulação crítica",
     "speculative_status": "Parcial",
     "source_note": "Nao confundir doutrina religiosa com programa politico contemporaneo.",
-    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem.",
-    "confidence_rating": 3
+    "revision_note": "Mantido; fontes não justificaram alteração numérica nesta passagem."
   },
   {
     "name": "Zapatismo",
@@ -5508,8 +5342,7 @@ var IDEOLOGIES = [
     "documentary_status": "Não — documentada por fontes primárias/textos de referência",
     "speculative_status": "Não",
     "source_note": "",
-    "revision_note": "Autonomia indígena e democracia comunitária mais libertária/localista.",
-    "confidence_rating": 5
+    "revision_note": "Autonomia indígena e democracia comunitária mais libertária/localista."
   }
 ];
 

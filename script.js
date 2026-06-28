@@ -318,6 +318,22 @@ function confidenceLabel(signal) {
 }
 
 /**
+ * Small caution penalty for ideology profiles whose sources are low-confidence or speculative.
+ * This does not remove them from the ranking; it only prevents weakly documented profiles from
+ * looking as certain as well-documented ones.
+ */
+function ideologyReliabilityPenalty(ideology) {
+  let penalty = 0;
+  const conf = normalize(ideology.sources_confidence || '');
+  const spec = normalize(ideology.speculative_status || '');
+  if (conf.includes('baixa')) penalty -= 3.0;
+  else if (conf.includes('media')) penalty -= 1.0;
+  if (spec === 'sim' || spec.includes('sim')) penalty -= 2.0;
+  else if (spec.includes('parcial')) penalty -= 0.8;
+  return penalty;
+}
+
+/**
  * Signal strength: how clearly the profile moves away from the centre.
  * Uses both 8values axes and Political Compass coordinates. A low value means
  * the ideology list should be read as weak approximation, not as a strong match.
@@ -351,8 +367,10 @@ function rankIdeologies(user, ideologies, affinityScores = {}) {
     if (ide.pc_social_min <= user.pc_social && user.pc_social <= ide.pc_social_max) rangeBonus += 1.2;
     rangeBonus *= signal;
 
+    const reliabilityPenalty = ideologyReliabilityPenalty(ide);
     let adjusted = similarityBase + affinityBonus + rangeBonus;
     adjusted = softCapSimilarity(adjusted, signal);
+    adjusted += reliabilityPenalty;
     adjusted = clamp(adjusted, 0, 99.9);
 
     const pcDistance = Math.hypot((user.pc_econ - ide.pc_econ_typical) / 20,
@@ -386,6 +404,9 @@ function rankIdeologies(user, ideologies, affinityScores = {}) {
       confianca_resultado: confidenceLabel(signal),
       bonus_afinidade: parseFloat(affinityBonus.toFixed(2)),
       bonus_intervalo: parseFloat(rangeBonus.toFixed(2)),
+      penalizacao_fiabilidade: parseFloat(reliabilityPenalty.toFixed(2)),
+      confianca_fontes: ide.sources_confidence || '',
+      estado_especulativo: ide.speculative_status || '',
       mais_proxima: ide.closest,
       pergunta_chave: ide.key_question,
       descricao: ide.description
@@ -473,7 +494,10 @@ function generateExplanation(user, ranking) {
   parts.push(`Em Nação vs Mundo há ${nation}, e em Progressismo vs Tradicionalismo, ${trad}.`);
   parts.push(`No Political Compass ficaste em (${user.pc_econ.toFixed(1)}, ${user.pc_social.toFixed(1)}), quadrante ${user.quadrant}; ${top1.ideologia} situa-se tipicamente em (${top1.pc_econ_tipico.toFixed(1)}, ${top1.pc_social_tipico.toFixed(1)}).`);
   if (top1.bonus_afinidade) {
-    parts.push(`As perguntas diferenciadoras integradas ajustaram a afinidade com ${top1.ideologia} em ${top1.bonus_afinidade.toFixed(1)} pontos.`);
+    parts.push(`As perguntas-chave/filtros ajustaram a afinidade com ${top1.ideologia} em ${top1.bonus_afinidade.toFixed(1)} pontos.`);
+  }
+  if (top1.penalizacao_fiabilidade && top1.penalizacao_fiabilidade < 0) {
+    parts.push(`Atenção: a ficha de ${top1.ideologia} tem fiabilidade documental ${top1.confianca_fontes || 'não indicada'}${top1.estado_especulativo ? ' e estado especulativo ' + top1.estado_especulativo : ''}; lê esta afinidade com cautela.`);
   }
   if (alt) {
     parts.push(`A alternativa seguinte é ${alt.ideologia} (${Math.round(alt.similaridade)}%).`);
@@ -502,6 +526,7 @@ window.ideologyUtils = {
   calculateIdeologyDistance,
   similarityFromDistance,
   ideologicalSignalStrength,
+  ideologyReliabilityPenalty,
   generateExplanation,
   labelEconomico,
   labelDiplomatico,
