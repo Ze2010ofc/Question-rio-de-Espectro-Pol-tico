@@ -26,29 +26,39 @@ const DATA = {
  */
 async function loadData() {
   if (DATA.loaded) return;
-  // If embedded data variables exist (in file:// context), use them.
-  if (typeof IDEOLOGIES_DATA !== 'undefined' && typeof QUESTIONS_DATA !== 'undefined') {
-    // Use data defined in ideologies_data.js and questions_data.js when loaded via file://.
-    DATA.ideologies = IDEOLOGIES_DATA;
-    DATA.questions = QUESTIONS_DATA;
+  try {
+    // Prefer embedded data loaded by data.js + questions_data.js.
+    if (typeof IDEOLOGIES_DATA !== 'undefined') DATA.ideologies = IDEOLOGIES_DATA;
+    else if (typeof IDEOLOGIES !== 'undefined') DATA.ideologies = IDEOLOGIES;
+
+    if (typeof QUESTIONS_DATA !== 'undefined') DATA.questions = QUESTIONS_DATA;
+    else if (typeof QUESTIONS !== 'undefined') DATA.questions = QUESTIONS;
+
+    // Fallback for HTTP/GitHub Pages if the embedded globals are absent.
+    if (!Array.isArray(DATA.ideologies) || DATA.ideologies.length === 0 ||
+        !Array.isArray(DATA.questions) || DATA.questions.length === 0) {
+      const [ideResp, qResp] = await Promise.all([
+        fetch('ideologies.json'),
+        fetch('questions.json')
+      ]);
+      if (!ideResp.ok) throw new Error(`Não foi possível carregar ideologies.json (${ideResp.status}).`);
+      if (!qResp.ok) throw new Error(`Não foi possível carregar questions.json (${qResp.status}).`);
+      DATA.ideologies = await ideResp.json();
+      DATA.questions = await qResp.json();
+    }
+
+    if (!Array.isArray(DATA.ideologies) || DATA.ideologies.length === 0) {
+      throw new Error('Dados de ideologias vazios ou inválidos.');
+    }
+    if (!Array.isArray(DATA.questions) || DATA.questions.length === 0) {
+      throw new Error('Dados de perguntas vazios ou inválidos.');
+    }
     DATA.loaded = true;
-    return;
+  } catch (err) {
+    DATA.loaded = false;
+    console.error(err);
+    throw err;
   }
-  // Backwards compatibility: if older embed variables exist, use them.
-  if (typeof IDEOLOGIES !== 'undefined' && typeof QUESTIONS !== 'undefined') {
-    DATA.ideologies = IDEOLOGIES;
-    DATA.questions = QUESTIONS;
-    DATA.loaded = true;
-    return;
-  }
-  // Fallback: attempt to fetch from separate JSON files (works on HTTP domains)
-  const [ideResp, qResp] = await Promise.all([
-    fetch('ideologies.json'),
-    fetch('questions.json')
-  ]);
-  DATA.ideologies = await ideResp.json();
-  DATA.questions = await qResp.json();
-  DATA.loaded = true;
 }
 
 /* Text normalization: lower case, remove accents and special chars */
@@ -180,51 +190,101 @@ function classifyQuadrant(pc_econ, pc_social) {
  * Compute the user result (equality, market, progressive, etc.) given answers.
  * Answers object maps question codes to selected values 1-5.
  */
-function calculateUserResult(questions, answers) {
-  const scores = {
-    igualdade: 0,
-    mercado: 0,
-    progressista: 0,
-    tradicional: 0,
-    nacao: 0,
-    mundo: 0,
-    autoridade: 0,
-    liberdade: 0
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function numericEffect(q, key) {
+  const aliases = {
+    effect_econ: ['effect_econ', 'Efeito_Econ'],
+    effect_dipl: ['effect_dipl', 'Efeito_Dipl'],
+    effect_govt: ['effect_govt', 'Efeito_Govt'],
+    effect_scty: ['effect_scty', 'Efeito_Scty']
   };
-  const spectrumQs = questions.filter(q => q.question_type === 'spectrum');
+  for (const k of aliases[key]) {
+    if (q[k] !== undefined && q[k] !== null && q[k] !== '') {
+      const n = Number(q[k]);
+      return Number.isFinite(n) ? n : 0;
+    }
+  }
+  return 0;
+}
+
+/**
+ * Compute the user result from the numeric effects defined in the Excel source.
+ * The old axis_filter/detectAxes system is intentionally NOT used for scoring,
+ * because it detected both poles of a pair and neutralized most answers.
+ * Answers object maps question codes to selected values 1-5.
+ */
+function calculateUserResult(questions, answers) {
+  const scoredQs = questions.filter(q => (q.question_type || 'spectrum') === 'spectrum');
+  const sums = { econ: 0, dipl: 0, govt: 0, scty: 0 };
+  const max = { econ: 0, dipl: 0, govt: 0, scty: 0 };
   let answeredCount = 0;
-  spectrumQs.forEach(q => {
-    const val = answers[q.code];
-    if (!val) return;
-    answeredCount++;
-    const raw = SCORE_MAP[val] ?? 0;
-    const axes = detectAxes(q.axis_filter);
-    if (!axes.length) return;
-    const weight = 1 / axes.length;
-    axes.forEach(axis => {
-      applyAxisScore(scores, axis, raw, weight);
+
+  scoredQs.forEach(q => {
+    const effects = {
+      econ: numericEffect(q, 'effect_econ'),
+      dipl: numericEffect(q, 'effect_dipl'),
+      govt: numericEffect(q, 'effect_govt'),
+      scty: numericEffect(q, 'effect_scty')
+    };
+    Object.keys(effects).forEach(axis => {
+      if (effects[axis] !== 0) max[axis] += 2 * Math.abs(effects[axis]);
     });
+
+    const val = Number(answers[q.code]);
+    if (!Number.isFinite(val)) return;
+    answeredCount++;
+    const delta = clamp(val, 1, 5) - 3;
+    sums.econ += delta * effects.econ;
+    sums.dipl += delta * effects.dipl;
+    sums.govt += delta * effects.govt;
+    sums.scty += delta * effects.scty;
   });
-  const [eqPct, marketPct] = safePercentage(scores.igualdade, scores.mercado);
-  const [progPct, tradPct] = safePercentage(scores.progressista, scores.tradicional);
-  const [nationPct, worldPct] = safePercentage(scores.nacao, scores.mundo);
-  const [authPct, libertPct] = safePercentage(scores.autoridade, scores.liberdade);
-  const pc_econ = (marketPct - eqPct) / 10;
-  const pc_social = (authPct - libertPct) / 10;
+
+  function norm(axis) {
+    if (!max[axis]) return 0;
+    return clamp(10 * sums[axis] / max[axis], -10, 10);
+  }
+
+  const score_econ = norm('econ');
+  const score_dipl = norm('dipl');
+  const score_govt = norm('govt');
+  const score_scty = norm('scty');
+
+  const equality = clamp(50 + 5 * score_econ, 0, 100);
+  const market = 100 - equality;
+  const world = clamp(50 + 5 * score_dipl, 0, 100);
+  const nation = 100 - world;
+  const liberty = clamp(50 + 5 * score_govt, 0, 100);
+  const authority = 100 - liberty;
+  const progressive = clamp(50 + 5 * score_scty, 0, 100);
+  const traditional = 100 - progressive;
+
+  const pc_econ = clamp(-score_econ, -10, 10);
+  const pc_social = clamp(-score_govt, -10, 10);
+
   return {
     pc_econ: parseFloat(pc_econ.toFixed(3)),
     pc_social: parseFloat(pc_social.toFixed(3)),
-    equality: parseFloat(eqPct.toFixed(1)),
-    market: parseFloat(marketPct.toFixed(1)),
-    progressive: parseFloat(progPct.toFixed(1)),
-    traditional: parseFloat(tradPct.toFixed(1)),
-    nation: parseFloat(nationPct.toFixed(1)),
-    world: parseFloat(worldPct.toFixed(1)),
-    authority: parseFloat(authPct.toFixed(1)),
-    liberty: parseFloat(libertPct.toFixed(1)),
+    score_econ: parseFloat(score_econ.toFixed(3)),
+    score_dipl: parseFloat(score_dipl.toFixed(3)),
+    score_govt: parseFloat(score_govt.toFixed(3)),
+    score_scty: parseFloat(score_scty.toFixed(3)),
+    equality: parseFloat(equality.toFixed(1)),
+    market: parseFloat(market.toFixed(1)),
+    progressive: parseFloat(progressive.toFixed(1)),
+    traditional: parseFloat(traditional.toFixed(1)),
+    nation: parseFloat(nation.toFixed(1)),
+    world: parseFloat(world.toFixed(1)),
+    authority: parseFloat(authority.toFixed(1)),
+    liberty: parseFloat(liberty.toFixed(1)),
     quadrant: classifyQuadrant(pc_econ, pc_social),
     answered: answeredCount,
-    total: spectrumQs.length
+    total: scoredQs.length,
+    raw_sums: sums,
+    theoretical_max: max
   };
 }
 
@@ -260,7 +320,7 @@ function calculateAffinityScores(questions, answers, ideologies) {
     const raw = SCORE_MAP[answers[q.code]] ?? 0;
     if (raw === 0) return;
     const delta = raw / 2.0;
-    let targetText = q.helps;
+    let targetText = q.helps || '';
     if (q.question_type === 'key' && targetText.includes('|')) {
       targetText = targetText.split('|')[0];
     }

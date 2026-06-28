@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Questionário Ideológico</title>
-  <link rel="stylesheet" href="style.css?v=final11">
+  <link rel="stylesheet" href="style.css?v=final13">
   <!-- Embedded data for offline mode -->
   <!-- Load all ideologies and questions from a single data module. -->
   <!-- Load ideologies and questions -->
-  <script src="data.js?v=final11"></script>
-  <script src="questions_data.js?v=final11"></script>
-  <script src="script.js?v=final11"></script>
+  <script src="data.js?v=final13"></script>
+  <script src="questions_data.js?v=final13"></script>
+  <script src="script.js?v=final13"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -23,7 +23,7 @@
   </nav>
   <main class="container">
     <h2>Fazer questionário</h2>
-    <p>Responde às perguntas e descobre o teu posicionamento político. Seleciona um valor de 1 (discordo totalmente) a 5 (concordo totalmente) para cada afirmação.</p>
+    <p>Responde às perguntas e descobre o teu posicionamento político. Seleciona uma opção de concordância para cada afirmação.</p>
 
     <!-- User name selection -->
     <div class="form-section" id="nameSection">
@@ -98,7 +98,19 @@
     // Page-specific script
     (async function() {
       // Load data
-      await window.ideologyUtils.loadData();
+      try {
+        await window.ideologyUtils.loadData();
+      } catch (err) {
+        const container = document.getElementById('questionsContainer');
+        container.textContent = 'Erro ao carregar os dados do questionário. Verifica se data.js, questions_data.js e script.js foram publicados corretamente.';
+        console.error(err);
+        return;
+      }
+      if (!Array.isArray(DATA.questions) || DATA.questions.length === 0) {
+        const container = document.getElementById('questionsContainer');
+        container.textContent = 'Erro: não foram encontradas perguntas para carregar.';
+        return;
+      }
       const questions = DATA.questions;
       // DOM elements
       const container = document.getElementById('questionsContainer');
@@ -216,7 +228,10 @@
           const div = document.createElement('div');
           div.className = 'form-section';
           const p = document.createElement('p');
-          p.innerHTML = `<strong>${number}.</strong> ${q.text}`;
+          const strong = document.createElement('strong');
+          strong.textContent = `${number}.`;
+          p.appendChild(strong);
+          p.appendChild(document.createTextNode(` ${q.text}`));
           div.appendChild(p);
 
           const scaleDiv = document.createElement('div');
@@ -378,28 +393,36 @@
             borderWidth: 2
           });
         }
-        window.radarChartObj = new Chart(radarCtx, {
-          type: 'radar',
-          data: radarData,
-          options: {
-            responsive: false,
-            scales: {
-              r: {
-                beginAtZero: true,
-                max: 100,
-                min: 0,
-                ticks: { display: false },
-                grid: { color: '#e8edf3' },
-                angleLines: { color: '#e8edf3' }
-              }
-            },
-            plugins: {
-              legend: {
-                position: 'top'
+        if (typeof Chart !== 'undefined') {
+          window.radarChartObj = new Chart(radarCtx, {
+            type: 'radar',
+            data: radarData,
+            options: {
+              responsive: false,
+              scales: {
+                r: {
+                  beginAtZero: true,
+                  max: 100,
+                  min: 0,
+                  ticks: { display: false },
+                  grid: { color: '#e8edf3' },
+                  angleLines: { color: '#e8edf3' }
+                }
+              },
+              plugins: {
+                legend: {
+                  position: 'top'
+                }
               }
             }
-          }
-        });
+          });
+        } else {
+          const canvas = document.getElementById('radarChart');
+          const fallback = document.createElement('p');
+          fallback.className = 'muted';
+          fallback.textContent = 'O gráfico radar não carregou porque Chart.js não está disponível, mas os resultados em texto e barras continuam válidos.';
+          canvas.replaceWith(fallback);
+        }
         // Build top 10 list
         topContainer.innerHTML = '';
         ranking.slice(0,10).forEach(r => {
@@ -429,12 +452,14 @@
         const diplLabel = window.ideologyUtils.labelDiplomatico(user.world, user.nation);
         const civilLabel = window.ideologyUtils.labelCivil(user.liberty, user.authority);
         const socLabel = window.ideologyUtils.labelSocial(user.progressive, user.traditional);
-        labelsText.innerHTML = `
-          <strong>Económico:</strong> ${econLabel} (Igualdade ${user.equality}% · Mercado ${user.market}%)<br>
-          <strong>Diplomático:</strong> ${diplLabel} (Nação ${user.nation}% · Mundo ${user.world}%)<br>
-          <strong>Civil:</strong> ${civilLabel} (Liberdade ${user.liberty}% · Autoridade ${user.authority}%)<br>
-          <strong>Social:</strong> ${socLabel} (Tradição ${user.traditional}% · Progresso ${user.progressive}%)
-        `;
+        labelsText.textContent = `Económico: ${econLabel} (Igualdade ${user.equality}% · Mercado ${user.market}%)
+` +
+          `Diplomático: ${diplLabel} (Nação ${user.nation}% · Mundo ${user.world}%)
+` +
+          `Civil: ${civilLabel} (Liberdade ${user.liberty}% · Autoridade ${user.authority}%)
+` +
+          `Social: ${socLabel} (Tradição ${user.traditional}% · Progresso ${user.progressive}%)`;
+        labelsText.style.whiteSpace = 'pre-line';
         // Show results and hide the questionnaire area. The answers and the current order are preserved in the DOM/state for editing later.
         nameSection.style.display = 'none';
         orderControls.style.display = 'none';

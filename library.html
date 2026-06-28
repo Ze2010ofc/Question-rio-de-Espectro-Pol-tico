@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Biblioteca de Ideologias</title>
-  <link rel="stylesheet" href="style.css?v=final11">
+  <link rel="stylesheet" href="style.css?v=final13">
   <!-- Embedded data for offline mode -->
   <!-- Load the integrated ideologies and questions. -->
   <!-- Load ideologies and questions -->
-  <script src="data.js?v=final11"></script>
-  <script src="questions_data.js?v=final11"></script>
-  <script src="script.js?v=final11"></script>
+  <script src="data.js?v=final13"></script>
+  <script src="questions_data.js?v=final13"></script>
+  <script src="script.js?v=final13"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -18,7 +18,7 @@
     <div class="nav-links">
       <a href="index.html">Página inicial</a>
       <!-- Ensure the questionário opens in a new tab with cache busting -->
-      <a href="questionnaire.html?v=final11" target="_blank" rel="noopener noreferrer">Questionário</a>
+      <a href="questionnaire.html?v=final13" target="_blank" rel="noopener noreferrer">Questionário</a>
       <a href="compare.html">Comparador</a>
     </div>
   </nav>
@@ -123,13 +123,17 @@
       tableBody.innerHTML = '';
       rows.forEach(ide => {
         const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${ide.name}</td>
-          <td>${ide.category || ''}</td>
-          <td>${ide.quadrant}</td>
-          <td>${ide.pc_econ_typical.toFixed(1)}</td>
-          <td>${ide.pc_social_typical.toFixed(1)}</td>
-        `;
+        [
+          ide.name,
+          ide.category || '',
+          ide.quadrant,
+          ide.pc_econ_typical.toFixed(1),
+          ide.pc_social_typical.toFixed(1)
+        ].forEach(value => {
+          const td = document.createElement('td');
+          td.textContent = value;
+          tr.appendChild(td);
+        });
         tr.addEventListener('click', () => selectIdeology(ide));
         tableBody.appendChild(tr);
       });

@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Comparador de Ideologias</title>
-  <link rel="stylesheet" href="style.css?v=final11">
+  <link rel="stylesheet" href="style.css?v=final13">
   <!-- Embedded data for offline mode -->
   <!-- Load ideologies and questions from data.js. -->
   <!-- Load ideologies and questions -->
-  <script src="data.js?v=final11"></script>
-  <script src="questions_data.js?v=final11"></script>
-  <script src="script.js?v=final11"></script>
+  <script src="data.js?v=final13"></script>
+  <script src="questions_data.js?v=final13"></script>
+  <script src="script.js?v=final13"></script>
   <!-- Chart.js for radar and other comparative charts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
@@ -19,7 +19,7 @@
     <div class="nav-links">
       <a href="index.html">Página inicial</a>
       <!-- Ensure the questionário opens in a new tab with cache busting -->
-      <a href="questionnaire.html?v=final11" target="_blank" rel="noopener noreferrer">Questionário</a>
+      <a href="questionnaire.html?v=final13" target="_blank" rel="noopener noreferrer">Questionário</a>
       <a href="library.html">Biblioteca</a>
     </div>
   </nav>
@@ -558,9 +558,15 @@
         const desc = document.createElement('div');
         desc.className = 'desc';
         const descLineA = document.createElement('div');
-        descLineA.innerHTML = `<strong>${a.nome}</strong>: ${row.aDesc}`;
+        const strongA = document.createElement('strong');
+        strongA.textContent = a.nome;
+        descLineA.appendChild(strongA);
+        descLineA.appendChild(document.createTextNode(`: ${row.aDesc}`));
         const descLineB = document.createElement('div');
-        descLineB.innerHTML = `<strong>${b.nome}</strong>: ${row.bDesc}`;
+        const strongB = document.createElement('strong');
+        strongB.textContent = b.nome;
+        descLineB.appendChild(strongB);
+        descLineB.appendChild(document.createTextNode(`: ${row.bDesc}`));
         desc.appendChild(descLineA);
         desc.appendChild(descLineB);
         axisDiv.appendChild(desc);
@@ -632,6 +638,13 @@
         borderWidth: 2
       };
       const chartData = { labels: labels, datasets: [datasetA, datasetB] };
+      if (typeof Chart === 'undefined') {
+        const fallback = document.createElement('p');
+        fallback.className = 'muted';
+        fallback.textContent = 'O gráfico radar não carregou porque Chart.js não está disponível, mas a comparação textual e as barras continuam válidas.';
+        canvas.replaceWith(fallback);
+        return;
+      }
       const ctx = canvas.getContext('2d');
       const radarChart = new Chart(ctx, {
         type: 'radar',

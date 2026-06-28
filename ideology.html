@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gráficos da ideologia</title>
-  <link rel="stylesheet" href="style.css?v=final11">
+  <link rel="stylesheet" href="style.css?v=final13">
   <!-- Embedded data for offline mode -->
   <!-- Load ideologies and questions from data.js. -->
   <!-- Load ideologies and questions -->
-  <script src="data.js?v=final11"></script>
-  <script src="questions_data.js?v=final11"></script>
-  <script src="script.js?v=final11"></script>
+  <script src="data.js?v=final13"></script>
+  <script src="questions_data.js?v=final13"></script>
+  <script src="script.js?v=final13"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -18,7 +18,7 @@
     <div class="nav-links">
       <a href="index.html">Página inicial</a>
       <!-- Ensure the questionário opens in a new tab with cache busting -->
-      <a href="questionnaire.html?v=final11" target="_blank" rel="noopener noreferrer">Questionário</a>
+      <a href="questionnaire.html?v=final13" target="_blank" rel="noopener noreferrer">Questionário</a>
       <a href="library.html">Biblioteca</a>
       <a href="compare.html">Comparador</a>
     </div>
@@ -178,6 +178,13 @@
           backgroundColor: 'rgba(214,39,40,0.2)',
           borderWidth: 2
         });
+      }
+      if (typeof Chart === 'undefined') {
+        const fallback = document.createElement('p');
+        fallback.className = 'muted';
+        fallback.textContent = 'O gráfico radar não carregou porque Chart.js não está disponível, mas os restantes dados da ideologia continuam visíveis.';
+        document.getElementById('radarChart').replaceWith(fallback);
+        return;
       }
       radarChart = new Chart(radarCtx, {
         type: 'radar',
