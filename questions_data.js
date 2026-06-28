@@ -1,11 +1,10 @@
-/* Questions generated from questionario_ideologico_reestruturado_PT(1).xlsx */
+/* Questions generated from questionario_ideologico_reestruturado_PT(1).xlsx. Uses numeric effects only. */
 var QUESTIONS_DATA = [
   {
     "number": 1,
     "code": "PC1",
     "text": "Se a globalizacao economica for inevitavel, ela deve servir sobretudo as pessoas e nao os interesses de grandes corporacoes transnacionais.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -14,7 +13,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -22,7 +20,6 @@ var QUESTIONS_DATA = [
     "code": "PC2",
     "text": "Eu apoiaria a minha comunidade nacional mesmo quando ela estivesse errada.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -31,7 +28,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -39,7 +35,6 @@ var QUESTIONS_DATA = [
     "code": "PC3",
     "text": "Ninguem escolhe onde nasce, por isso o orgulho nacional deve ser visto com cautela.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -48,7 +43,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -56,7 +50,6 @@ var QUESTIONS_DATA = [
     "code": "PC4",
     "text": "Acredito que o grupo racial ou etnico a que alguem pertence pode ter qualidades superiores a outros grupos.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": true,
@@ -65,7 +58,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -73,7 +65,6 @@ var QUESTIONS_DATA = [
     "code": "PC5",
     "text": "Em conflitos politicos, o adversario do meu adversario pode ser um aliado aceitavel.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -82,7 +73,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -90,7 +80,6 @@ var QUESTIONS_DATA = [
     "code": "PC6",
     "text": "Uma acao militar pode ser justificada mesmo quando contraria normas internacionais.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -99,7 +88,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -107,7 +95,6 @@ var QUESTIONS_DATA = [
     "code": "PC7",
     "text": "A mistura entre informacao e entretenimento tornou-se preocupante.",
     "axis": "Cultural",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -116,7 +103,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": -2,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -124,7 +110,6 @@ var QUESTIONS_DATA = [
     "code": "PC8",
     "text": "As divisoes de classe explicam melhor a politica do que as divisoes nacionais.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -133,7 +118,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -141,7 +125,6 @@ var QUESTIONS_DATA = [
     "code": "PC9",
     "text": "Controlar a inflacao deve ter prioridade sobre reduzir o desemprego.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -150,7 +133,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -158,7 +140,6 @@ var QUESTIONS_DATA = [
     "code": "PC10",
     "text": "Como as empresas nao protegem voluntariamente o ambiente, precisam de regulacao publica.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -167,7 +148,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -175,7 +155,6 @@ var QUESTIONS_DATA = [
     "code": "PC11",
     "text": "A ideia de contribuir segundo as capacidades e receber segundo as necessidades e fundamentalmente justa.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -184,7 +163,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -192,7 +170,6 @@ var QUESTIONS_DATA = [
     "code": "PC12",
     "text": "Quanto mais livre for o mercado, mais livres serao as pessoas.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -201,7 +178,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -209,7 +185,6 @@ var QUESTIONS_DATA = [
     "code": "PC13",
     "text": "E triste que algo tao basico como a agua potavel tenha sido transformado em produto de marca.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -218,7 +193,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -226,7 +200,6 @@ var QUESTIONS_DATA = [
     "code": "PC14",
     "text": "A terra e a habitacao nao deveriam ser tratadas como mercadorias comuns.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -235,7 +208,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -243,7 +215,6 @@ var QUESTIONS_DATA = [
     "code": "PC15",
     "text": "E injusto que grandes fortunas sejam feitas apenas pela manipulacao de dinheiro, sem contributo social real.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -252,7 +223,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -260,7 +230,6 @@ var QUESTIONS_DATA = [
     "code": "PC16",
     "text": "Medidas protecionistas podem ser necessarias para defender a producao local.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -269,7 +238,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -2,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -277,7 +245,6 @@ var QUESTIONS_DATA = [
     "code": "PC17",
     "text": "A responsabilidade principal de uma empresa deve ser gerar lucro para quem nela investe.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -286,7 +253,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -294,7 +260,6 @@ var QUESTIONS_DATA = [
     "code": "PC18",
     "text": "As pessoas ricas pagam impostos demasiado elevados.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -303,7 +268,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -311,7 +275,6 @@ var QUESTIONS_DATA = [
     "code": "PC19",
     "text": "Quem pode pagar deve poder aceder a cuidados de saude de melhor qualidade.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -320,7 +283,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -328,7 +290,6 @@ var QUESTIONS_DATA = [
     "code": "PC20",
     "text": "Empresas que enganam o publico devem ser punidas pelo Estado.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -337,7 +298,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -2,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -345,7 +305,6 @@ var QUESTIONS_DATA = [
     "code": "PC21",
     "text": "Um mercado realmente livre precisa de regras contra monopolios e concentracao excessiva de poder empresarial.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -354,7 +313,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -362,7 +320,6 @@ var QUESTIONS_DATA = [
     "code": "PC22",
     "text": "A interrupcao voluntaria da gravidez, quando a vida da pessoa gravida nao esta em risco, deveria ser ilegal.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": true,
@@ -371,7 +328,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -379,7 +335,6 @@ var QUESTIONS_DATA = [
     "code": "PC23",
     "text": "Toda a autoridade deve ser questionada.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -388,7 +343,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -396,7 +350,6 @@ var QUESTIONS_DATA = [
     "code": "PC24",
     "text": "A justica deve aplicar castigos equivalentes ao dano causado.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -405,7 +358,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -413,7 +365,6 @@ var QUESTIONS_DATA = [
     "code": "PC25",
     "text": "Contribuintes nao devem financiar instituicoes culturais que nao sobrevivam comercialmente.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -422,7 +373,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -430,7 +380,6 @@ var QUESTIONS_DATA = [
     "code": "PC26",
     "text": "A presenca obrigatoria em aulas nao deveria existir.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -439,7 +388,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -447,7 +395,6 @@ var QUESTIONS_DATA = [
     "code": "PC27",
     "text": "Todas as pessoas tem direitos, mas certos grupos deveriam viver separados para evitar conflitos.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": true,
@@ -456,7 +403,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -464,7 +410,6 @@ var QUESTIONS_DATA = [
     "code": "PC28",
     "text": "Bons pais podem por vezes usar castigos fisicos para educar os filhos.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -473,7 +418,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -481,7 +425,6 @@ var QUESTIONS_DATA = [
     "code": "PC29",
     "text": "E natural que criancas mantenham alguns segredos em relacao aos pais.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -490,7 +433,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -498,7 +440,6 @@ var QUESTIONS_DATA = [
     "code": "PC30",
     "text": "A posse de canabis para uso pessoal nao deveria ser crime.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -507,7 +448,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -515,7 +455,6 @@ var QUESTIONS_DATA = [
     "code": "PC31",
     "text": "A funcao principal da escola deve ser preparar os jovens para o mercado de trabalho.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -524,7 +463,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -532,7 +470,6 @@ var QUESTIONS_DATA = [
     "code": "PC32",
     "text": "Pessoas com doencas hereditarias graves nao deveriam poder ter filhos.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": true,
@@ -541,7 +478,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -549,7 +485,6 @@ var QUESTIONS_DATA = [
     "code": "PC33",
     "text": "A disciplina e a coisa mais importante que uma crianca deve aprender.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -558,7 +493,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -566,7 +500,6 @@ var QUESTIONS_DATA = [
     "code": "PC34",
     "text": "Nao existem povos civilizados e povos selvagens; existem apenas culturas diferentes.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -575,7 +508,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -583,7 +515,6 @@ var QUESTIONS_DATA = [
     "code": "PC35",
     "text": "Quem pode trabalhar e recusa oportunidades nao deve esperar apoio da sociedade.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -592,7 +523,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -2,
     "effect_scty": -2,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -600,7 +530,6 @@ var QUESTIONS_DATA = [
     "code": "PC36",
     "text": "Quando estou perturbado, e melhor evitar pensar nisso e manter-me ocupado.",
     "axis": "Cultural",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -609,7 +538,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": -2,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -617,7 +545,6 @@ var QUESTIONS_DATA = [
     "code": "PC37",
     "text": "Imigrantes de primeira geracao nunca se integram totalmente numa nova sociedade.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -626,7 +553,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -634,7 +560,6 @@ var QUESTIONS_DATA = [
     "code": "PC38",
     "text": "Aquilo que beneficia as empresas mais bem sucedidas acaba por beneficiar toda a sociedade.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -643,7 +568,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -651,7 +575,6 @@ var QUESTIONS_DATA = [
     "code": "PC39",
     "text": "Instituicoes de comunicacao, por mais independentes que sejam, nao devem receber financiamento publico.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -660,7 +583,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -668,7 +590,6 @@ var QUESTIONS_DATA = [
     "code": "PC40",
     "text": "As liberdades civis estao a ser limitadas em excesso em nome da seguranca.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -677,7 +598,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -685,7 +605,6 @@ var QUESTIONS_DATA = [
     "code": "PC41",
     "text": "Um regime de partido unico tem a vantagem de evitar discussoes que atrasam o progresso.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -694,7 +613,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -702,7 +620,6 @@ var QUESTIONS_DATA = [
     "code": "PC42",
     "text": "Com a vigilancia digital moderna, so quem faz algo errado deve preocupar-se.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -711,7 +628,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -719,7 +635,6 @@ var QUESTIONS_DATA = [
     "code": "PC43",
     "text": "A pena de morte deve estar disponivel para crimes muito graves.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -728,7 +643,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -736,7 +650,6 @@ var QUESTIONS_DATA = [
     "code": "PC44",
     "text": "Uma sociedade organizada precisa de pessoas que obedecam e de pessoas que comandem.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Political Compass adaptado",
     "sensitive": true,
@@ -745,7 +658,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -753,7 +665,6 @@ var QUESTIONS_DATA = [
     "code": "PC45",
     "text": "Arte abstrata que nao representa nada concreto dificilmente deve ser considerada arte.",
     "axis": "Cultural",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -762,7 +673,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -770,7 +680,6 @@ var QUESTIONS_DATA = [
     "code": "PC46",
     "text": "Na justica criminal, a punicao deve importar mais do que a reabilitacao.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -779,7 +688,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -787,7 +695,6 @@ var QUESTIONS_DATA = [
     "code": "PC47",
     "text": "Tentar reabilitar alguns criminosos e perda de tempo.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -796,7 +703,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -804,7 +710,6 @@ var QUESTIONS_DATA = [
     "code": "PC48",
     "text": "Empresarios e produtores sao mais importantes para a sociedade do que escritores e artistas.",
     "axis": "Cultural",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -813,7 +718,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -821,7 +725,6 @@ var QUESTIONS_DATA = [
     "code": "PC49",
     "text": "As maes podem ter carreira, mas o seu primeiro dever e cuidar da casa e da familia.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -830,7 +733,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -838,7 +740,6 @@ var QUESTIONS_DATA = [
     "code": "PC50",
     "text": "Grandes empresas exploram de forma pouco etica recursos naturais e geneticos de sociedades mais vulneraveis.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -847,7 +748,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -855,7 +755,6 @@ var QUESTIONS_DATA = [
     "code": "PC51",
     "text": "Aceitar a ordem estabelecida e uma parte importante da maturidade.",
     "axis": "Cultural",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -864,7 +763,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -872,7 +770,6 @@ var QUESTIONS_DATA = [
     "code": "PC52",
     "text": "A astrologia consegue explicar corretamente muitos aspetos da vida.",
     "axis": "Cultural",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -881,7 +778,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -889,7 +785,6 @@ var QUESTIONS_DATA = [
     "code": "PC53",
     "text": "Nao se pode ser moral sem religiao.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -898,7 +793,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -906,7 +800,6 @@ var QUESTIONS_DATA = [
     "code": "PC54",
     "text": "A caridade e melhor do que a seguranca social para ajudar pessoas vulneraveis.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -915,7 +808,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -923,7 +815,6 @@ var QUESTIONS_DATA = [
     "code": "PC55",
     "text": "Algumas pessoas sao naturalmente azaradas.",
     "axis": "Cultural",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -932,7 +823,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": -2,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -940,7 +830,6 @@ var QUESTIONS_DATA = [
     "code": "PC56",
     "text": "A escola das criancas deve transmitir valores religiosos.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -949,7 +838,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -957,7 +845,6 @@ var QUESTIONS_DATA = [
     "code": "PC57",
     "text": "Sexo fora do casamento e geralmente imoral.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -966,7 +853,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -974,7 +860,6 @@ var QUESTIONS_DATA = [
     "code": "PC58",
     "text": "Casais do mesmo sexo em relacoes estaveis devem poder adotar criancas.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -983,7 +868,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -991,7 +875,6 @@ var QUESTIONS_DATA = [
     "code": "PC59",
     "text": "Pornografia com adultos que consentem deve ser legal para pessoas adultas.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -1000,7 +883,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1008,7 +890,6 @@ var QUESTIONS_DATA = [
     "code": "PC60",
     "text": "O que adultos consentem em fazer em privado nao e assunto do Estado.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -1017,7 +898,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1025,7 +905,6 @@ var QUESTIONS_DATA = [
     "code": "PC61",
     "text": "Ninguem nasce naturalmente homossexual.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": true,
@@ -1034,7 +913,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1042,7 +920,6 @@ var QUESTIONS_DATA = [
     "code": "PC62",
     "text": "A abertura atual sobre sexo foi longe demais.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Political Compass adaptado",
     "sensitive": false,
@@ -1051,7 +928,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1059,7 +935,6 @@ var QUESTIONS_DATA = [
     "code": "8V1",
     "text": "A opressao exercida por grandes empresas preocupa-me mais do que a opressao exercida por governos.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1068,7 +943,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1076,7 +950,6 @@ var QUESTIONS_DATA = [
     "code": "8V2",
     "text": "E necessario que o governo intervenha na economia para proteger consumidores.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1085,7 +958,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1093,7 +965,6 @@ var QUESTIONS_DATA = [
     "code": "8V4",
     "text": "E melhor manter um orcamento equilibrado do que garantir apoios sociais a todos os cidadaos.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1102,7 +973,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1110,7 +980,6 @@ var QUESTIONS_DATA = [
     "code": "8V5",
     "text": "Investigacao financiada publicamente beneficia mais as pessoas do que deixa-la entregue ao mercado.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1119,7 +988,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1127,7 +995,6 @@ var QUESTIONS_DATA = [
     "code": "8V6",
     "text": "Tarifas sobre o comercio internacional sao importantes para incentivar a producao local.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1136,7 +1003,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1144,7 +1010,6 @@ var QUESTIONS_DATA = [
     "code": "8V8",
     "text": "Seria melhor abolir programas sociais e substitui-los por caridade privada.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1153,7 +1018,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1161,7 +1025,6 @@ var QUESTIONS_DATA = [
     "code": "8V9",
     "text": "Os impostos sobre os mais ricos devem aumentar para apoiar os mais pobres.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1170,7 +1033,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1178,7 +1040,6 @@ var QUESTIONS_DATA = [
     "code": "8V10",
     "text": "A heranca e uma forma legitima de riqueza.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1187,7 +1048,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1195,7 +1055,6 @@ var QUESTIONS_DATA = [
     "code": "8V11",
     "text": "Servicos basicos como estradas e eletricidade devem ser de propriedade publica.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1204,7 +1063,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1212,7 +1070,6 @@ var QUESTIONS_DATA = [
     "code": "8V12",
     "text": "A intervencao do governo e uma ameaca para a economia.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1221,7 +1078,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1229,7 +1085,6 @@ var QUESTIONS_DATA = [
     "code": "8V13",
     "text": "Quem tem maior capacidade de pagar deve receber melhores cuidados de saude.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1238,7 +1093,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1246,7 +1100,6 @@ var QUESTIONS_DATA = [
     "code": "8V14",
     "text": "Educacao de qualidade e um direito de todas as pessoas.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1255,7 +1108,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1263,7 +1115,6 @@ var QUESTIONS_DATA = [
     "code": "8V15",
     "text": "Os meios de producao devem pertencer aos trabalhadores que os utilizam.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1272,7 +1123,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1280,7 +1130,6 @@ var QUESTIONS_DATA = [
     "code": "8V16",
     "text": "Organizacoes internacionais globais com poder politico deveriam ser abolidas.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1289,7 +1138,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1297,7 +1145,6 @@ var QUESTIONS_DATA = [
     "code": "8V17",
     "text": "A acao militar da minha comunidade nacional e muitas vezes necessaria para a proteger.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1306,7 +1153,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1314,7 +1160,6 @@ var QUESTIONS_DATA = [
     "code": "8V18",
     "text": "Apoio unioes regionais supranacionais entre varios paises.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1323,7 +1168,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1331,7 +1175,6 @@ var QUESTIONS_DATA = [
     "code": "8V19",
     "text": "E importante manter a soberania nacional.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1340,7 +1183,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1348,7 +1190,6 @@ var QUESTIONS_DATA = [
     "code": "8V20",
     "text": "Um governo mundial unido seria benefico para a humanidade.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1357,7 +1198,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1365,7 +1205,6 @@ var QUESTIONS_DATA = [
     "code": "8V21",
     "text": "E mais importante manter relacoes pacificas do que aumentar a nossa forca.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1374,7 +1213,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1382,7 +1220,6 @@ var QUESTIONS_DATA = [
     "code": "8V22",
     "text": "Guerras nao precisam de ser justificadas perante outros povos ou governos.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1391,7 +1228,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1399,7 +1235,6 @@ var QUESTIONS_DATA = [
     "code": "8V23",
     "text": "Gastos militares sao desperdicio de dinheiro.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1408,7 +1243,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1416,7 +1250,6 @@ var QUESTIONS_DATA = [
     "code": "8V24",
     "text": "Ajuda internacional e desperdicio de dinheiro.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1425,7 +1258,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1433,7 +1265,6 @@ var QUESTIONS_DATA = [
     "code": "8V25",
     "text": "A minha comunidade nacional e grandiosa.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1442,7 +1273,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1450,7 +1280,6 @@ var QUESTIONS_DATA = [
     "code": "8V26",
     "text": "A investigacao cientifica deve ser conduzida em escala internacional.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1459,7 +1288,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1467,7 +1295,6 @@ var QUESTIONS_DATA = [
     "code": "8V27",
     "text": "Governos devem prestar contas a comunidade internacional.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1476,7 +1303,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1484,7 +1310,6 @@ var QUESTIONS_DATA = [
     "code": "8V28",
     "text": "Mesmo ao protestar contra um governo autoritario, a violencia nao e aceitavel.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1493,7 +1318,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1501,7 +1325,6 @@ var QUESTIONS_DATA = [
     "code": "8V29",
     "text": "Os meus valores religiosos devem ser difundidos o mais amplamente possivel.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": true,
@@ -1510,7 +1333,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1518,7 +1340,6 @@ var QUESTIONS_DATA = [
     "code": "8V30",
     "text": "Os valores da minha comunidade nacional devem ser difundidos o mais amplamente possivel.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1527,7 +1348,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1535,7 +1355,6 @@ var QUESTIONS_DATA = [
     "code": "8V31",
     "text": "E muito importante manter a lei e a ordem.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1544,7 +1363,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1552,7 +1370,6 @@ var QUESTIONS_DATA = [
     "code": "8V32",
     "text": "A populacao em geral toma decisoes pobres.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1561,7 +1378,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1569,7 +1385,6 @@ var QUESTIONS_DATA = [
     "code": "8V33",
     "text": "O suicidio medicamente assistido deve ser legal.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1578,7 +1393,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1586,7 +1400,6 @@ var QUESTIONS_DATA = [
     "code": "8V34",
     "text": "Sacrificar algumas liberdades civis e necessario para nos proteger de atos terroristas.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1595,7 +1408,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1603,7 +1415,6 @@ var QUESTIONS_DATA = [
     "code": "8V35",
     "text": "A vigilancia governamental e necessaria no mundo moderno.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1612,7 +1423,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1620,7 +1430,6 @@ var QUESTIONS_DATA = [
     "code": "8V36",
     "text": "A propria existencia do Estado e uma ameaca a nossa liberdade.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1629,7 +1438,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1637,7 +1445,6 @@ var QUESTIONS_DATA = [
     "code": "8V39",
     "text": "Um Estado hierarquico e a melhor forma de organizacao politica.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1646,7 +1453,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1654,7 +1460,6 @@ var QUESTIONS_DATA = [
     "code": "8V40",
     "text": "E importante que o governo siga a opiniao da maioria, mesmo quando ela esta errada.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1663,7 +1468,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1671,7 +1475,6 @@ var QUESTIONS_DATA = [
     "code": "8V41",
     "text": "Quanto mais forte for a lideranca, melhor.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1680,7 +1483,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1688,7 +1490,6 @@ var QUESTIONS_DATA = [
     "code": "8V42",
     "text": "Democracia e mais do que um processo de tomada de decisao.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1697,7 +1498,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1705,7 +1505,6 @@ var QUESTIONS_DATA = [
     "code": "8V43",
     "text": "Regulacoes ambientais sao essenciais.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1714,7 +1513,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1722,7 +1520,6 @@ var QUESTIONS_DATA = [
     "code": "8V44",
     "text": "Um mundo melhor vira da automacao, da ciencia e da tecnologia.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1731,7 +1528,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1739,7 +1535,6 @@ var QUESTIONS_DATA = [
     "code": "8V45",
     "text": "Criancas devem ser educadas em valores religiosos ou tradicionais.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": true,
@@ -1748,7 +1543,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1756,7 +1550,6 @@ var QUESTIONS_DATA = [
     "code": "8V46",
     "text": "Tradicoes nao tem valor por si mesmas.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1765,7 +1558,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1773,7 +1565,6 @@ var QUESTIONS_DATA = [
     "code": "8V47",
     "text": "A religiao deve ter um papel no governo.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1782,7 +1573,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1790,7 +1580,6 @@ var QUESTIONS_DATA = [
     "code": "8V48",
     "text": "Instituicoes religiosas devem ser tributadas da mesma forma que outras instituicoes.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1799,7 +1588,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1807,7 +1595,6 @@ var QUESTIONS_DATA = [
     "code": "8V49",
     "text": "As alteracoes climaticas estao entre as maiores ameacas ao nosso modo de vida.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1816,7 +1603,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1824,7 +1610,6 @@ var QUESTIONS_DATA = [
     "code": "8V50",
     "text": "E importante que trabalhemos como um mundo unido para combater as alteracoes climaticas.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1833,7 +1618,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1841,7 +1625,6 @@ var QUESTIONS_DATA = [
     "code": "8V51",
     "text": "A sociedade era melhor ha muitos anos do que e agora.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1850,7 +1633,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1858,7 +1640,6 @@ var QUESTIONS_DATA = [
     "code": "8V52",
     "text": "E importante manter as tradicoes do nosso passado.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1867,7 +1648,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1875,7 +1655,6 @@ var QUESTIONS_DATA = [
     "code": "8V53",
     "text": "E importante pensar a longo prazo, para alem da nossa propria vida.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1884,7 +1663,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1892,7 +1670,6 @@ var QUESTIONS_DATA = [
     "code": "8V54",
     "text": "A razao e mais importante do que preservar a nossa cultura.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1901,7 +1678,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1909,7 +1685,6 @@ var QUESTIONS_DATA = [
     "code": "8V55",
     "text": "O consumo de drogas deve ser legalizado ou descriminalizado.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1918,7 +1693,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 2,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1926,7 +1700,6 @@ var QUESTIONS_DATA = [
     "code": "8V56",
     "text": "O casamento entre pessoas do mesmo sexo deve ser legal.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1935,7 +1708,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1943,7 +1715,6 @@ var QUESTIONS_DATA = [
     "code": "8V57",
     "text": "Nenhuma cultura e superior a outra.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1952,7 +1723,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1960,7 +1730,6 @@ var QUESTIONS_DATA = [
     "code": "8V59",
     "text": "Se aceitarmos migrantes, e importante que eles se assimilem a nossa cultura.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1969,7 +1738,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1977,7 +1745,6 @@ var QUESTIONS_DATA = [
     "code": "8V61",
     "text": "A posse de armas deve ser proibida para quem nao tiver uma razao valida.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "8values traduzido",
     "sensitive": false,
@@ -1986,7 +1753,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -1994,7 +1760,6 @@ var QUESTIONS_DATA = [
     "code": "8V62",
     "text": "Apoio um sistema universal de saude financiado publicamente.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "8values traduzido",
     "sensitive": false,
@@ -2003,7 +1768,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2011,7 +1775,6 @@ var QUESTIONS_DATA = [
     "code": "8V63",
     "text": "A prostituicao deve ser ilegal.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": true,
@@ -2020,7 +1783,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2028,7 +1790,6 @@ var QUESTIONS_DATA = [
     "code": "8V64",
     "text": "Manter valores familiares e essencial.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -2037,7 +1798,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2045,7 +1805,6 @@ var QUESTIONS_DATA = [
     "code": "8V65",
     "text": "Perseguir o progresso a qualquer custo e perigoso.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -2054,7 +1813,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2062,7 +1820,6 @@ var QUESTIONS_DATA = [
     "code": "8V66",
     "text": "A modificacao genetica e uma forca positiva, mesmo quando aplicada a seres humanos.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -2071,7 +1828,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2079,7 +1835,6 @@ var QUESTIONS_DATA = [
     "code": "8V67",
     "text": "Devemos abrir as fronteiras a imigracao.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "8values traduzido",
     "sensitive": false,
@@ -2088,7 +1843,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2096,7 +1850,6 @@ var QUESTIONS_DATA = [
     "code": "8V68",
     "text": "Governos devem preocupar-se tanto com estrangeiros como com os seus proprios cidadaos.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "8values traduzido",
     "sensitive": false,
@@ -2105,7 +1858,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2113,7 +1865,6 @@ var QUESTIONS_DATA = [
     "code": "8V69",
     "text": "Todas as pessoas, independentemente de fatores como cultura ou sexualidade, devem ser tratadas igualmente.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "8values traduzido",
     "sensitive": false,
@@ -2122,7 +1873,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2130,7 +1880,6 @@ var QUESTIONS_DATA = [
     "code": "8V70",
     "text": "E importante promover os objetivos do meu grupo acima dos de todos os outros.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "8values traduzido",
     "sensitive": true,
@@ -2139,7 +1888,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2147,7 +1895,6 @@ var QUESTIONS_DATA = [
     "code": "N1",
     "text": "O salario minimo deve garantir um nivel de vida digno, mesmo que isso aumente custos para empresas.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -2156,7 +1903,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2164,7 +1910,6 @@ var QUESTIONS_DATA = [
     "code": "N2",
     "text": "Em tempos de crise, o governo deve nacionalizar setores essenciais para proteger empregos e servicos.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -2173,7 +1918,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -2,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2181,7 +1925,6 @@ var QUESTIONS_DATA = [
     "code": "N3",
     "text": "Trabalhadores devem ter participacao na propriedade e nas decisoes das empresas onde trabalham.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -2190,7 +1933,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2198,7 +1940,6 @@ var QUESTIONS_DATA = [
     "code": "N4",
     "text": "O Estado deve garantir trabalho a qualquer pessoa disposta e capaz de trabalhar.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -2207,7 +1948,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -2,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2215,7 +1955,6 @@ var QUESTIONS_DATA = [
     "code": "N5",
     "text": "Uma sociedade com grandes desigualdades de rendimento e inerentemente injusta.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -2224,7 +1963,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2232,7 +1970,6 @@ var QUESTIONS_DATA = [
     "code": "N6",
     "text": "Ganhos de capital e herancas devem ser fortemente tributados para reduzir desigualdades.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -2241,7 +1978,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2249,7 +1985,6 @@ var QUESTIONS_DATA = [
     "code": "N7",
     "text": "O mercado livre resolve a maioria dos problemas melhor do que o planeamento governamental.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -2258,7 +1993,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2266,7 +2000,6 @@ var QUESTIONS_DATA = [
     "code": "N8",
     "text": "A privatizacao de servicos publicos geralmente produz melhores resultados.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -2275,7 +2008,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2283,7 +2015,6 @@ var QUESTIONS_DATA = [
     "code": "N9",
     "text": "Acordos de comercio livre melhoram o nivel de vida de todos.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -2292,7 +2023,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2300,7 +2030,6 @@ var QUESTIONS_DATA = [
     "code": "N10",
     "text": "Regulacoes empresariais dificultam a inovacao e devem ser minimas.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -2309,7 +2038,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2317,7 +2045,6 @@ var QUESTIONS_DATA = [
     "code": "N11",
     "text": "Forcas de seguranca devem poder revistar pessoas sem mandado se isso reduzir o crime.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Nova",
     "sensitive": true,
@@ -2326,7 +2053,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2334,7 +2060,6 @@ var QUESTIONS_DATA = [
     "code": "N12",
     "text": "Nao devem existir restricoes legais ao discurso de odio.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Nova",
     "sensitive": true,
@@ -2343,7 +2068,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2351,7 +2075,6 @@ var QUESTIONS_DATA = [
     "code": "N13",
     "text": "Individuos devem poder possuir armas para autodefesa com poucas limitacoes.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Nova",
     "sensitive": true,
@@ -2360,7 +2083,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": -2,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2368,7 +2090,6 @@ var QUESTIONS_DATA = [
     "code": "N14",
     "text": "Conteudos online devem ser monitorizados pelo Estado para combater extremismo e proteger a seguranca publica.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Nova",
     "sensitive": true,
@@ -2377,7 +2098,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2385,7 +2105,6 @@ var QUESTIONS_DATA = [
     "code": "N15",
     "text": "Um periodo de servico nacional obrigatorio fortaleceria a responsabilidade civica.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Nova",
     "sensitive": false,
@@ -2394,7 +2113,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": -2,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2402,7 +2120,6 @@ var QUESTIONS_DATA = [
     "code": "N16",
     "text": "Cidadaos devem poder votar diretamente em grandes leis, nao apenas escolher representantes.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Nova",
     "sensitive": false,
@@ -2411,7 +2128,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 2,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2419,7 +2135,6 @@ var QUESTIONS_DATA = [
     "code": "N17",
     "text": "A pena de morte nunca e justificavel.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Nova",
     "sensitive": false,
@@ -2428,7 +2143,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2436,7 +2150,6 @@ var QUESTIONS_DATA = [
     "code": "N18",
     "text": "Denunciantes que exponham abusos do governo devem ser protegidos, nao punidos.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Nova",
     "sensitive": false,
@@ -2445,7 +2158,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2453,7 +2165,6 @@ var QUESTIONS_DATA = [
     "code": "N19",
     "text": "O financiamento publico nao deve subsidiar artes e cultura.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -2462,7 +2173,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": -2,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2470,7 +2180,6 @@ var QUESTIONS_DATA = [
     "code": "N20",
     "text": "Empregadores devem poder despedir trabalhadores sem interferencia do governo.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -2479,7 +2188,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2487,7 +2195,6 @@ var QUESTIONS_DATA = [
     "code": "N21",
     "text": "A ajuda internacional deve aumentar, mesmo que isso implique impostos mais altos.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Nova",
     "sensitive": false,
@@ -2496,7 +2203,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2504,7 +2210,6 @@ var QUESTIONS_DATA = [
     "code": "N22",
     "text": "Tratados internacionais devem prevalecer sobre leis nacionais.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Nova",
     "sensitive": false,
@@ -2513,7 +2218,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2521,7 +2225,6 @@ var QUESTIONS_DATA = [
     "code": "N23",
     "text": "Comunidades politicas tem responsabilidade de intervir noutros territorios para proteger direitos humanos.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Nova",
     "sensitive": false,
@@ -2530,7 +2233,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -2,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2538,7 +2240,6 @@ var QUESTIONS_DATA = [
     "code": "N24",
     "text": "Sancoes economicas sao uma forma eficaz de influenciar governos estrangeiros.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Nova",
     "sensitive": false,
@@ -2547,7 +2248,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -2,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2555,7 +2255,6 @@ var QUESTIONS_DATA = [
     "code": "N25",
     "text": "Construir aliancas fortes e mais importante do que manter independencia militar absoluta.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Nova",
     "sensitive": false,
@@ -2564,7 +2263,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2572,7 +2270,6 @@ var QUESTIONS_DATA = [
     "code": "N26",
     "text": "Acordos comerciais devem incluir normas laborais e ambientais rigorosas.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Nova",
     "sensitive": false,
@@ -2581,7 +2278,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2589,7 +2285,6 @@ var QUESTIONS_DATA = [
     "code": "N27",
     "text": "Devemos priorizar industrias nacionais mesmo quando isso entra em conflito com a integracao nos mercados globais.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -2598,7 +2293,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -2,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2606,7 +2300,6 @@ var QUESTIONS_DATA = [
     "code": "N28",
     "text": "Fronteiras nacionais deveriam, no futuro, dar lugar a uma federacao global.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Nova",
     "sensitive": false,
@@ -2615,7 +2308,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2623,7 +2315,6 @@ var QUESTIONS_DATA = [
     "code": "N29",
     "text": "Programas de intercambio cultural sao essenciais para a paz e a compreensao mutua.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Nova",
     "sensitive": false,
@@ -2632,7 +2323,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2640,7 +2330,6 @@ var QUESTIONS_DATA = [
     "code": "N30",
     "text": "Grandes empresas multinacionais tem influencia excessiva sobre a governacao global.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Nova",
     "sensitive": false,
@@ -2649,7 +2338,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2657,7 +2345,6 @@ var QUESTIONS_DATA = [
     "code": "N31",
     "text": "Papeis tradicionais de genero prejudicam a liberdade individual.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -2666,7 +2353,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2674,7 +2360,6 @@ var QUESTIONS_DATA = [
     "code": "N32",
     "text": "A religiao e um assunto privado e nao deve influenciar politicas publicas.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -2683,7 +2368,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2691,7 +2375,6 @@ var QUESTIONS_DATA = [
     "code": "N33",
     "text": "Estruturas familiares nao tradicionais devem ser socialmente reconhecidas em igualdade.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -2700,7 +2383,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2708,7 +2390,6 @@ var QUESTIONS_DATA = [
     "code": "N34",
     "text": "Pais devem poder educar os filhos segundo estilos de vida alternativos sem interferencia estatal desnecessaria.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -2717,7 +2398,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2725,7 +2405,6 @@ var QUESTIONS_DATA = [
     "code": "N35",
     "text": "O patrimonio cultural deve ser preservado mesmo quando entra em conflito com valores modernos.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -2734,7 +2413,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -2,
     "effect_scty": -10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2742,7 +2420,6 @@ var QUESTIONS_DATA = [
     "code": "N36",
     "text": "A engenharia genetica de embrioes deve ser permitida para eliminar doencas graves.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -2751,7 +2428,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2759,7 +2435,6 @@ var QUESTIONS_DATA = [
     "code": "N37",
     "text": "Inteligencia artificial deveria ter direitos legais se algum dia atingir consciencia.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -2768,7 +2443,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2776,7 +2450,6 @@ var QUESTIONS_DATA = [
     "code": "N38",
     "text": "Cidades diversas e cosmopolitas sao mais vibrantes do que comunidades culturalmente homogeneas.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -2785,7 +2458,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2793,7 +2465,6 @@ var QUESTIONS_DATA = [
     "code": "N39",
     "text": "Escolas devem oferecer educacao sexual abrangente, incluindo identidades LGBTQ+.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -2802,7 +2473,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2810,7 +2480,6 @@ var QUESTIONS_DATA = [
     "code": "N40",
     "text": "Plataformas digitais devem ser legalmente responsaveis por desinformacao que difundem.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -2819,7 +2488,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2827,7 +2495,6 @@ var QUESTIONS_DATA = [
     "code": "N41",
     "text": "Devemos abandonar rapidamente combustiveis fosseis, mesmo com custos economicos no curto prazo.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -2836,7 +2503,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2844,7 +2510,6 @@ var QUESTIONS_DATA = [
     "code": "N42",
     "text": "Energia nuclear e segura e necessaria para o futuro energetico.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -2853,7 +2518,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2861,7 +2525,6 @@ var QUESTIONS_DATA = [
     "code": "N43",
     "text": "Um imposto sobre carbono e essencial para combater as alteracoes climaticas.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -2870,7 +2533,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2878,7 +2540,6 @@ var QUESTIONS_DATA = [
     "code": "N44",
     "text": "Governos devem investir fortemente em exploracao espacial.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -2887,7 +2548,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2895,7 +2555,6 @@ var QUESTIONS_DATA = [
     "code": "N45",
     "text": "Proteger a biodiversidade deve ter prioridade sobre o desenvolvimento economico.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -2904,7 +2563,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2912,7 +2570,6 @@ var QUESTIONS_DATA = [
     "code": "N46",
     "text": "Direitos dos animais devem incluir a proibicao da pecuaria industrial.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -2921,7 +2578,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2929,7 +2585,6 @@ var QUESTIONS_DATA = [
     "code": "N47",
     "text": "Politicas climaticas nao devem sacrificar o crescimento economico.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -2938,7 +2593,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2946,7 +2600,6 @@ var QUESTIONS_DATA = [
     "code": "N48",
     "text": "Devemos considerar projetos de geoengenharia para controlar o clima.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -2955,7 +2608,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2963,7 +2615,6 @@ var QUESTIONS_DATA = [
     "code": "N49",
     "text": "Planeamento urbano deve favorecer cidades densas e menos dependentes de automoveis.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -2972,7 +2623,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2980,7 +2630,6 @@ var QUESTIONS_DATA = [
     "code": "N50",
     "text": "Recursos hidricos nunca devem ser propriedade privada nem negociados como mercadorias.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -2989,7 +2638,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -2997,7 +2645,6 @@ var QUESTIONS_DATA = [
     "code": "N51",
     "text": "Fronteiras devem estar abertas a refugiados que fogem de perseguicao ou guerra.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Nova",
     "sensitive": false,
@@ -3006,7 +2653,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3014,7 +2660,6 @@ var QUESTIONS_DATA = [
     "code": "N52",
     "text": "O multiculturalismo enriquece a sociedade e deve ser promovido.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -3023,7 +2668,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3031,7 +2675,6 @@ var QUESTIONS_DATA = [
     "code": "N53",
     "text": "Imigrantes devem aprender a lingua e costumes locais para se integrarem.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -3040,7 +2683,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -2,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3048,7 +2690,6 @@ var QUESTIONS_DATA = [
     "code": "N54",
     "text": "Empregadores nao devem discriminar candidatos nascidos no estrangeiro.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -3057,7 +2698,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3065,7 +2705,6 @@ var QUESTIONS_DATA = [
     "code": "N55",
     "text": "A apropriacao cultural e um problema serio que a sociedade deve enfrentar.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -3074,7 +2713,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3082,7 +2720,6 @@ var QUESTIONS_DATA = [
     "code": "N56",
     "text": "Deve haver limites anuais ao numero de pessoas autorizadas a imigrar.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Nova",
     "sensitive": false,
@@ -3091,7 +2728,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3099,7 +2735,6 @@ var QUESTIONS_DATA = [
     "code": "N57",
     "text": "Pessoas devem ser livres para viver e trabalhar em qualquer parte do mundo.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Nova",
     "sensitive": false,
@@ -3108,7 +2743,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3116,7 +2750,6 @@ var QUESTIONS_DATA = [
     "code": "N58",
     "text": "Comunidades etnicas devem manter as suas tradicoes mesmo quando entram em conflito com normas nacionais.",
     "axis": "Sociedade",
-    "axis_filter": "Progressismo vs Tradição",
     "section": "Sociedade, cultura e costumes",
     "source": "Nova",
     "sensitive": false,
@@ -3125,7 +2758,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": -2,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3133,7 +2765,6 @@ var QUESTIONS_DATA = [
     "code": "N59",
     "text": "Conscricao militar e necessaria para preparar cidadaos para defesa coletiva.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Nova",
     "sensitive": false,
@@ -3142,7 +2773,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -10,
     "effect_scty": -5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3150,7 +2780,6 @@ var QUESTIONS_DATA = [
     "code": "N60",
     "text": "A industria de armamento deve ser nacionalizada para impedir lucro com guerras.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -3159,7 +2788,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3167,7 +2795,6 @@ var QUESTIONS_DATA = [
     "code": "N61",
     "text": "Servicos de informacao devem ser transparentes e sujeitos a forte fiscalizacao publica.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Nova",
     "sensitive": false,
@@ -3176,7 +2803,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3184,7 +2810,6 @@ var QUESTIONS_DATA = [
     "code": "N62",
     "text": "Um exercito permanente deveria ser substituido por milicias locais de cidadaos.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Nova",
     "sensitive": false,
@@ -3193,7 +2818,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 10,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3201,7 +2825,6 @@ var QUESTIONS_DATA = [
     "code": "N63",
     "text": "Guerra com drones pode ser etica e eficaz se reduzir mortes em combate.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Nova",
     "sensitive": false,
@@ -3210,7 +2833,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3218,7 +2840,6 @@ var QUESTIONS_DATA = [
     "code": "N64",
     "text": "Devemos reduzir drasticamente armamento nuclear mesmo que outros nao facam o mesmo.",
     "axis": "Diplomatico",
-    "axis_filter": "Nação vs Mundo",
     "section": "Identidade, nação e mundo",
     "source": "Nova",
     "sensitive": false,
@@ -3227,7 +2848,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3235,7 +2855,6 @@ var QUESTIONS_DATA = [
     "code": "N65",
     "text": "O crescimento economico nao deve ter prioridade quando causa degradacao ambiental.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -3244,7 +2863,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 10,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3252,7 +2870,6 @@ var QUESTIONS_DATA = [
     "code": "N66",
     "text": "Lucros empresariais nunca devem prevalecer sobre o bem-estar das comunidades.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -3261,7 +2878,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3269,7 +2885,6 @@ var QUESTIONS_DATA = [
     "code": "N67",
     "text": "Empresas tecnologicas devem ser reguladas como servicos publicos essenciais.",
     "axis": "Governo",
-    "axis_filter": "Autoridade vs Liberdade",
     "section": "Estado, autoridade e liberdades civis",
     "source": "Nova",
     "sensitive": false,
@@ -3278,7 +2893,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -5,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3286,7 +2900,6 @@ var QUESTIONS_DATA = [
     "code": "N68",
     "text": "Todas as pessoas devem receber um rendimento basico universal, independentemente do emprego.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -3295,7 +2908,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 0,
     "effect_scty": 5,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3303,7 +2915,6 @@ var QUESTIONS_DATA = [
     "code": "N69",
     "text": "Deve haver limites a quantidade de propriedade que uma pessoa ou empresa pode possuir.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -3312,7 +2923,6 @@ var QUESTIONS_DATA = [
     "effect_govt": -2,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   },
   {
@@ -3320,7 +2930,6 @@ var QUESTIONS_DATA = [
     "code": "N70",
     "text": "Projetos comunitarios devem ser financiados por contribuicoes voluntarias sempre que possivel.",
     "axis": "Economico",
-    "axis_filter": "Igualdade vs Mercado",
     "section": "Economia, trabalho e propriedade",
     "source": "Nova",
     "sensitive": false,
@@ -3329,7 +2938,6 @@ var QUESTIONS_DATA = [
     "effect_govt": 5,
     "effect_scty": 0,
     "notes": "",
-    "helps": "",
     "question_type": "spectrum"
   }
 ];

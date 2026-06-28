@@ -76,40 +76,6 @@ function normalize(text) {
   return s;
 }
 
-/* Axis keywords and opposites mirroring Python constants */
-const AXIS_OPPOSITE = {
-  igualdade: 'mercado',
-  mercado: 'igualdade',
-  progressista: 'tradicional',
-  tradicional: 'progressista',
-  nacao: 'mundo',
-  mundo: 'nacao',
-  autoridade: 'liberdade',
-  liberdade: 'autoridade'
-};
-
-const AXIS_KEYWORDS = {
-  igualdade: ['igualdade','socializacao','redistribuicao','estado social','anti-rentista','antirentista'],
-  mercado: ['mercado','propriedade privada','capitalismo','empreendedorismo','livre mercado'],
-  progressista: ['progressismo','progressista','secularismo','tecnologico','modernizacao','mudancas culturais'],
-  tradicional: ['tradicao','tradicional','religiao','moral','familia','hierarquia cultural'],
-  nacao: ['nacao','soberania','nacional','patriotismo','autarquia','fronteiras'],
-  mundo: ['mundo','internacionalismo','global','cooperacao global','direitos humanos universais'],
-  autoridade: ['autoridade','autoritario','estado forte','partido unico','censura','policia','ordem'],
-  liberdade: ['liberdade','libertario','anti-autoridade','antiautoridade','pluralismo','direitos individuais','autonomia']
-};
-
-const SPECIAL_AXIS_RULES = {
-  georgismo: ['igualdade'],
-  corporativismo: ['autoridade','tradicional'],
-  'ecologia anti-industrial': ['tradicional','liberdade'],
-  'metodo revolucionario': ['autoridade'],
-  'anti-parlamentarismo': ['autoridade'],
-  localismo: ['liberdade'],
-  'centro cultural': ['progressista','liberdade'],
-  'anti-modernidade': ['tradicional'],
-  restauracionismo: ['tradicional','autoridade']
-};
 
 const SCORE_MAP = {1: -2, 2: -1, 3: 0, 4: 1, 5: 2};
 
@@ -121,54 +87,6 @@ const DISTANCE_WEIGHTS = {
   nation: 1.0,
   authority: 1.2
 };
-
-/**
- * Detect which axes a question relates to based on its axis_filter text.
- * Uses keyword matching and special rules from the original Python code.
- */
-function detectAxes(axisFilter) {
-  const norm = normalize(axisFilter);
-  if (!norm) return [];
-  const found = [];
-  // Special rules first
-  for (const [key, axes] of Object.entries(SPECIAL_AXIS_RULES)) {
-    if (norm.includes(key)) {
-      axes.forEach(ax => { if (!found.includes(ax)) found.push(ax); });
-    }
-  }
-  // General keywords
-  for (const [axis, keywords] of Object.entries(AXIS_KEYWORDS)) {
-    for (const kw of keywords) {
-      if (norm.includes(normalize(kw))) {
-        if (!found.includes(axis)) found.push(axis);
-        break;
-      }
-    }
-  }
-  return found;
-}
-
-/**
- * Apply raw score to axis scores object.
- */
-function applyAxisScore(scores, axis, raw, weight = 1.0) {
-  const opp = AXIS_OPPOSITE[axis];
-  if (raw > 0) {
-    scores[axis] = (scores[axis] || 0) + raw * weight;
-  } else if (raw < 0) {
-    scores[opp] = (scores[opp] || 0) + Math.abs(raw) * weight;
-  }
-}
-
-/**
- * Calculate safe percentage distribution for two opposing axes.
- */
-function safePercentage(a, b) {
-  const total = a + b;
-  if (Math.abs(total) < 1e-9) return [50, 50];
-  const pa = (a / total) * 100;
-  return [pa, 100 - pa];
-}
 
 /**
  * Classify the quadrant on the political compass based on pc_econ and pc_social.
@@ -212,8 +130,7 @@ function numericEffect(q, key) {
 
 /**
  * Compute the user result from the numeric effects defined in the Excel source.
- * The old axis_filter/detectAxes system is intentionally NOT used for scoring,
- * because it detected both poles of a pair and neutralized most answers.
+ * The old paired-text scoring system was removed; scoring now uses only numeric effects.
  * Answers object maps question codes to selected values 1-5.
  */
 function calculateUserResult(questions, answers) {
